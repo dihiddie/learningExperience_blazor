@@ -1,0 +1,48 @@
+﻿<div class="top-row pl-4 navbar navbar-light">
+    <a class="navbar-brand" href="">Learning Experience</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    @*<ul class="nav flex-column">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Value
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="counter">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Counter
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="fetchdata">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+                </NavLink>
+            </li>
+        </ul>*@
+    <div id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <div style="background-color: #0FA3B1; font-size: 16px; padding-left: 7px;">
+                <a class="list-group-item list-group-item-action" href="">Value</a>
+            </div>
+            <div style="padding-left: 7px; font-size: 14px; background-color: #D88B22">
+                <a class="list-group-item list-group-item-action bg-light" href="">Second Value</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

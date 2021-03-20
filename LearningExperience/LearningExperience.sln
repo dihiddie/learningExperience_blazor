@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearningExperience.Web.Blazor", "LearningExperience.Web.Blazor\LearningExperience.Web.Blazor.csproj", "{1BCA81ED-797F-46AD-ABB3-A9DB3B6F108E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BAL", "BAL", "{7EF25AEA-9E01-450C-90BB-12829AA343F0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningExperience.BAL", "Core\LearningExperience.Core\LearningExperience.BAL.csproj", "{7D4F225F-EF68-4D95-A691-D177A2A717BC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,16 +15,9 @@ Global
 		{1BCA81ED-797F-46AD-ABB3-A9DB3B6F108E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BCA81ED-797F-46AD-ABB3-A9DB3B6F108E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BCA81ED-797F-46AD-ABB3-A9DB3B6F108E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D4F225F-EF68-4D95-A691-D177A2A717BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D4F225F-EF68-4D95-A691-D177A2A717BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D4F225F-EF68-4D95-A691-D177A2A717BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D4F225F-EF68-4D95-A691-D177A2A717BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{7D4F225F-EF68-4D95-A691-D177A2A717BC} = {7EF25AEA-9E01-450C-90BB-12829AA343F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {73D899FE-ACFE-4949-B049-E0B5CF8860E2}

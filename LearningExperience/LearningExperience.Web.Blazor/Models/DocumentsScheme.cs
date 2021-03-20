@@ -1,4 +1,4 @@
-﻿namespace LearningExperience.BAL.Models
+﻿namespace LearningExperience.Web.Blazor.Models
 {
     using System.Collections.Generic;
 

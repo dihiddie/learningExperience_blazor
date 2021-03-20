@@ -1,5 +1,6 @@
 ﻿@page "/"
-@using LearningExperience.BAL
+@using LearningExperience.Web.Blazor.Models
+@inject HttpClient HttpClient
 
 <div class="sidebar">
     <NavMenu />
@@ -17,8 +18,8 @@
 
 @code
 {
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        var schemeService = new DocumentsSchemeService();
+        var documents = await HttpClient.GetFromJsonAsync<DocumentsScheme>("src/base.json").ConfigureAwait(false);      
     }
 }

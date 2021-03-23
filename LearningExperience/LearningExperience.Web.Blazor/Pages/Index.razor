@@ -1,1 +1,30 @@
 ﻿@page "/"
+@using LearningExperience.Web.Blazor.Models
+@inject HttpClient HttpClient
+
+<div class="sidebar">
+    <NavMenu Documents="@documents"/>
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        <input class="form-control" type="search" placeholder="Поиск" aria-label="Search" asp-for="SearchText" style="width:100%">
+    </div>
+
+    <div class="content px-4">
+        <h4>This is my body</h4>
+    </div>
+</div>
+
+@code
+{
+    DocumentsScheme documentsScheme;
+
+    List<Document> documents;
+
+    protected override async Task OnInitializedAsync()
+    {
+        documentsScheme = await HttpClient.GetFromJsonAsync<DocumentsScheme>("src/base.json").ConfigureAwait(false);
+        documents = documentsScheme.Documents;
+    }
+}

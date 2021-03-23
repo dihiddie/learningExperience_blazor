@@ -1,4 +1,5 @@
-﻿<div class="top-row pl-4 navbar navbar-light">
+﻿@using LearningExperience.Web.Blazor.Models
+<div class="top-row pl-4 navbar navbar-light">
     <a class="navbar-brand" href="">Learning Experience</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
@@ -6,43 +7,57 @@
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    @*<ul class="nav flex-column">
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                    <span class="oi oi-home" aria-hidden="true"></span> Value
-                </NavLink>
-            </li>
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="counter">
-                    <span class="oi oi-plus" aria-hidden="true"></span> Counter
-                </NavLink>
-            </li>
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="fetchdata">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-                </NavLink>
-            </li>
-        </ul>*@
     <div id="sidebar-wrapper">
         <div class="list-group list-group-flush">
-            <div style="background-color: #0FA3B1; font-size: 16px; padding-left: 7px;">
-                <a class="list-group-item list-group-item-action" href="">Value</a>
-            </div>
-            <div style="padding-left: 7px; font-size: 14px; background-color: #D88B22">
-                <a class="list-group-item list-group-item-action bg-light" href="">Second Value</a>
-            </div>
+            @if (Documents != null)
+            {
+                foreach (var docLevel1 in Documents)
+                {
+                    <div style="background-color: @firstLevelMarkColor; font-size: 16px; padding-left: 7px; visibility: visible">
+                        <a class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel1)">@docLevel1.Value</a>
+                    </div>
+                    foreach (var docLevel2 in docLevel1.Documents)
+                    {
+                        <div style="background-color: @secondLevelMarkColor; font-size: 16px; padding-left: 7px; display: @docLevel1.DisplayState">
+                            <a style="cursor: pointer" class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel2)">@docLevel2.Value</a>
+                        </div>
+                        foreach(var docLevel3 in docLevel2.Documents)
+                        {
+                            <div style="background-color: red; font-size: 16px; padding-left: 7px;  display: @docLevel2.DisplayState">
+                                <a style="cursor: pointer" class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel3)">@docLevel3.Value</a>
+                            </div>
+                            foreach(var docLevel4 in docLevel3.Documents)
+                            {
+                                <div style="background-color: violet; font-size: 16px; padding-left: 7px; display: @docLevel3.DisplayState">
+                                    <a style="cursor: pointer" class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel4)">@docLevel4.Value</a>
+                                </div>
+                            }
+                        }
+                    }
+                }
+            }
         </div>
     </div>
-
 </div>
 
 @code {
+
+    [Parameter] public List<Document> Documents { get; set; }
+
+    private string firstLevelMarkColor = "#0FA3B1";
+
+    private string secondLevelMarkColor = "#D88B22";
+
     private bool collapseNavMenu = true;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    private void ToggleNavMenu()
+    private void ToggleNavMenu() => collapseNavMenu = !collapseNavMenu;
+
+    private void OnDocumentClick(Document clickedDocument)
     {
-        collapseNavMenu = !collapseNavMenu;
+        Console.WriteLine($"clicked document: {clickedDocument.Value}");
+
+        clickedDocument.IsClicked = !clickedDocument.IsClicked;
     }
 }

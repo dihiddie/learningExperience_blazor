@@ -3,7 +3,7 @@
 @inject HttpClient HttpClient
 
 <div class="sidebar">
-    <NavMenu />
+    <NavMenu Documents="@documents"/>
 </div>
 
 <div class="main">
@@ -18,8 +18,13 @@
 
 @code
 {
+    DocumentsScheme documentsScheme;
+
+    List<Document> documents;
+
     protected override async Task OnInitializedAsync()
     {
-        var documents = await HttpClient.GetFromJsonAsync<DocumentsScheme>("src/base.json").ConfigureAwait(false);      
+        documentsScheme = await HttpClient.GetFromJsonAsync<DocumentsScheme>("src/base.json").ConfigureAwait(false);
+        documents = documentsScheme.Documents;
     }
 }

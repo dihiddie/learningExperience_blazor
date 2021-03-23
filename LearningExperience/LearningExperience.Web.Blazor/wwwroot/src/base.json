@@ -2,14 +2,6 @@
   "Version": "1.01",
   "Documents": [
     {
-      "Name": "About",
-      "Value": "О системе",
-      "Path": null,
-      "IsOpen": false,
-      "Index": 1,
-      "Documents": []
-    },
-    {
       "Name": "Development",
       "Value": "Разработка ПО(общее)",
       "Path": null,

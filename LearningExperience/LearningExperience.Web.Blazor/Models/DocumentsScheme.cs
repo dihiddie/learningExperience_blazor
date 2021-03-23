@@ -16,7 +16,9 @@
 
         public string Path { get; set; }
 
-        public bool IsOpen { get; set; }
+        public bool IsClicked { get; set; }
+
+        public string DisplayState => IsClicked ? "show" : "none";
 
         public int Index { get; set; }
 

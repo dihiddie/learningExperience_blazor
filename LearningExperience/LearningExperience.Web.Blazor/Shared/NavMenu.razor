@@ -9,27 +9,44 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <div id="sidebar-wrapper">
         <div class="list-group list-group-flush">
-            <div style="background-color: #0FA3B1; font-size: 16px; padding-left: 7px;">
-                <a class="list-group-item list-group-item-action" href="">Разработка ПО (общее)</a>
-            </div>
-            <div style="padding-left: 7px; font-size: 14px; background-color: #D88B22">
-                <a class="list-group-item list-group-item-action bg-light" href="">С#</a>
-            </div>
-            <div style="padding-left: 7px; font-size: 14px; background-color: green">
-                <a class="list-group-item list-group-item-action bg-light" href="">Level 1 - Junior</a>
-            </div>
-            <div style="padding-left: 7px; font-size: 14px; background-color:blue">
-                <a class="list-group-item list-group-item-action bg-light" href="">переменные, литералы</a>
-                <a class="list-group-item list-group-item-action bg-light" href="">типы данных</a>
-            </div>
+            @if (Documents != null)
+            {
+                foreach (var docLevel1 in Documents)
+                {
+                    <div style="background-color: @firstLevelMarkColor; font-size: 16px; padding-left: 7px; visibility: visible">
+                        <a class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel1)">@docLevel1.Value</a>
+                    </div>
+                    foreach (var docLevel2 in docLevel1.Documents)
+                    {
+                        <div style="background-color: @secondLevelMarkColor; font-size: 16px; padding-left: 7px; display: @docLevel1.DisplayState">
+                            <a style="cursor: pointer" class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel2)">@docLevel2.Value</a>
+                        </div>
+                        foreach(var docLevel3 in docLevel2.Documents)
+                        {
+                            <div style="background-color: red; font-size: 16px; padding-left: 7px;  display: @docLevel2.DisplayState">
+                                <a style="cursor: pointer" class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel3)">@docLevel3.Value</a>
+                            </div>
+                            foreach(var docLevel4 in docLevel3.Documents)
+                            {
+                                <div style="background-color: violet; font-size: 16px; padding-left: 7px; display: @docLevel3.DisplayState">
+                                    <a style="cursor: pointer" class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel4)">@docLevel4.Value</a>
+                                </div>
+                            }
+                        }
+                    }
+                }
+            }
         </div>
     </div>
-
 </div>
 
 @code {
 
-    [Parameter] public DocumentsScheme DocumentsScheme { get; set; }
+    [Parameter] public List<Document> Documents { get; set; }
+
+    private string firstLevelMarkColor = "#0FA3B1";
+
+    private string secondLevelMarkColor = "#D88B22";
 
     private bool collapseNavMenu = true;
 
@@ -37,4 +54,10 @@
 
     private void ToggleNavMenu() => collapseNavMenu = !collapseNavMenu;
 
+    private void OnDocumentClick(Document clickedDocument)
+    {
+        Console.WriteLine($"clicked document: {clickedDocument.Value}");
+
+        clickedDocument.IsClicked = !clickedDocument.IsClicked;
+    }
 }

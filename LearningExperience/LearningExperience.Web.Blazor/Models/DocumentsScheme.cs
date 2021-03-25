@@ -8,17 +8,13 @@
     }
 
     // ReSharper disable once StyleCop.SA1402
-    public class Document
+    public class Document : Clickable
     {
         public string Name { get; set; }
 
         public string Value { get; set; }
 
         public string Path { get; set; }
-
-        public bool IsClicked { get; set; }
-
-        public string DisplayState => IsClicked ? "show" : "none";
 
         public int Index { get; set; }
 

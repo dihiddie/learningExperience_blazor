@@ -13,23 +13,23 @@
             {
                 foreach (var docLevel1 in Documents)
                 {
-                    <div style="background-color: @firstLevelMarkColor; font-size: 16px; padding-left: 7px; visibility: visible">
-                        <a class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel1)">@docLevel1.Value</a>
+                    <div class="doc" style="display: inline-block">
+                        <a class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel1)"><i class="arrow @docLevel1.ArrowState"></i>@docLevel1.Value</a>
                     </div>
                     foreach (var docLevel2 in docLevel1.Documents)
                     {
-                        <div style="background-color: @secondLevelMarkColor; font-size: 16px; padding-left: 7px; display: @docLevel1.DisplayState">
-                            <a style="cursor: pointer" class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel2)">@docLevel2.Value</a>
+                        <div class="doc" style="display: @docLevel1.DisplayState; padding-left: 7px;">
+                            <a class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel2)"><i class="arrow @docLevel2.ArrowState"></i>@docLevel2.Value</a>
                         </div>
                         foreach(var docLevel3 in docLevel2.Documents)
                         {
-                            <div style="background-color: red; font-size: 16px; padding-left: 7px;  display: @docLevel2.DisplayState">
-                                <a style="cursor: pointer" class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel3)">@docLevel3.Value</a>
+                            <div class="doc" style="display: @docLevel2.DisplayState; padding-left: 17px;">
+                                <a class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel3)"><i class="arrow @docLevel3.ArrowState"></i>@docLevel3.Value</a>
                             </div>
                             foreach(var docLevel4 in docLevel3.Documents)
                             {
-                                <div style="background-color: violet; font-size: 16px; padding-left: 7px; display: @docLevel3.DisplayState">
-                                    <a style="cursor: pointer" class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel4)">@docLevel4.Value</a>
+                                <div class="doc" style="display: @docLevel3.DisplayState; padding-left: 24px;">
+                                    <a class="list-group-item list-group-item-action" @onclick="() => OnDocumentClick(docLevel4)"><i class="dot filled"></i>@docLevel4.Value</a>
                                 </div>
                             }
                         }
@@ -44,10 +44,6 @@
 
     [Parameter] public List<Document> Documents { get; set; }
 
-    private string firstLevelMarkColor = "#0FA3B1";
-
-    private string secondLevelMarkColor = "#D88B22";
-
     private bool collapseNavMenu = true;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
@@ -56,8 +52,17 @@
 
     private void OnDocumentClick(Document clickedDocument)
     {
-        Console.WriteLine($"clicked document: {clickedDocument.Value}");
-
         clickedDocument.IsClicked = !clickedDocument.IsClicked;
+        CloseNestedTabs(clickedDocument);
+    }
+
+    private void CloseNestedTabs(Document document)
+    {
+        if (document.Documents == null) return;
+        foreach (var nestedDoc in document.Documents)
+        {
+            nestedDoc.IsClicked = false;
+            CloseNestedTabs(nestedDoc);
+        }
     }
 }

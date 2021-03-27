@@ -1,9 +1,10 @@
 ﻿@page "/"
+@using System.Text.Json
 @using LearningExperience.Web.Blazor.Models
 @inject HttpClient HttpClient
 
 <div class="sidebar">
-    <NavMenu  OnBottomLevelReached="@LoadFileContentAsync" Documents="@documents" />
+    <NavMenu OnBottomLevelReached="@LoadFileContentAsync" Documents="@documents" />
 </div>
 
 <div class="main">
@@ -12,7 +13,7 @@
     </div>
 
     <div class="content px-4">
-        @((MarkupString)contentMarkup)       
+        @((MarkupString)contentMarkup)
     </div>
 </div>
 
@@ -32,8 +33,9 @@
 
     private async Task LoadFileContentAsync(Document document)
     {
-        contentMarkup = "<p class='markup'>This is a <em>markup string</em>.</p>";
-        Console.WriteLine($"src/{document.Path}");
-        contentMarkup = await HttpClient.GetFromJsonAsync<string>($"src\\{document.Path}").ConfigureAwait(false);
+        var response = await HttpClient.GetAsync("https://localhost:5000/weatherforecast").ConfigureAwait(false);
+        var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+        contentMarkup = JsonSerializer.Deserialize<string>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        Console.WriteLine(contentMarkup);
     }
 }

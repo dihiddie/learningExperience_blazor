@@ -39,7 +39,6 @@
         clickedDocument.IsClicked = !clickedDocument.IsClicked;
         if (!clickedDocument.Documents.Any())
         {
-            Console.WriteLine("reached the bottom");
             await OnBottomLevelReached.InvokeAsync(clickedDocument).ConfigureAwait(false);
         }
         await CloseNestedTabsAsync(clickedDocument).ConfigureAwait(false);

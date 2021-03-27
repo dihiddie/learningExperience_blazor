@@ -14,7 +14,15 @@ namespace LearningExperience.Web.Blazor
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
 
+            //builder.Services.AddScoped(sp =>
+            //    new HttpClient
+            //        {
+            //        // builder.HostEnvironment.BaseAddress
+            //        BaseAddress = new Uri("localhost:5000")
+            //        });
+
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
 
             return builder.Build().RunAsync();
         }

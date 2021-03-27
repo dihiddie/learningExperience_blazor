@@ -4,22 +4,22 @@
     foreach (var docLevel1 in Documents)
     {
         <div class="doc" style="display: inline-block">
-            <a class="@listGroupActionClass" @onclick="() => OnDocumentClick(docLevel1)"><i class="arrow @docLevel1.ArrowState"></i>@docLevel1.Value</a>
+            <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel1)"><i class="arrow @docLevel1.ArrowState"></i>@docLevel1.Value</a>
         </div>
         foreach (var docLevel2 in docLevel1.Documents)
         {
             <div class="doc" style="display: @docLevel1.DisplayState; padding-left: 7px;">
-                <a class="@listGroupActionClass" @onclick="() => OnDocumentClick(docLevel2)"><i class="arrow @docLevel2.ArrowState"></i>@docLevel2.Value</a>
+                <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel2)"><i class="arrow @docLevel2.ArrowState"></i>@docLevel2.Value</a>
             </div>
             foreach(var docLevel3 in docLevel2.Documents)
             {
                 <div class="doc" style="display: @docLevel2.DisplayState; padding-left: 17px;">
-                    <a class="@listGroupActionClass" @onclick="() => OnDocumentClick(docLevel3)"><i class="arrow @docLevel3.ArrowState"></i>@docLevel3.Value</a>
+                    <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel3)"><i class="arrow @docLevel3.ArrowState"></i>@docLevel3.Value</a>
                 </div>
                 foreach(var docLevel4 in docLevel3.Documents)
                 {
                     <div class="doc" style="display: @docLevel3.DisplayState; padding-left: 24px;">
-                        <a class="@listGroupActionClass" @onclick="() => OnDocumentClick(docLevel4)"><i class="dot filled"></i>@docLevel4.Value</a>
+                        <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel4)"><i class="dot filled"></i>@docLevel4.Value</a>
                     </div>
                 }
             }
@@ -30,21 +30,28 @@
 @code {
     [Parameter] public List<Document> Documents { get; set; }
 
+    [Parameter] public EventCallback<Document> OnBottomLevelReached { get; set; }
+
     private string listGroupActionClass = "list-group-item list-group-item-action";
 
-    private void OnDocumentClick(Document clickedDocument)
+    private async Task OnDocumentClickAsync(Document clickedDocument)
     {
         clickedDocument.IsClicked = !clickedDocument.IsClicked;
-        CloseNestedTabs(clickedDocument);
+        if (!clickedDocument.Documents.Any())
+        {
+            Console.WriteLine("reached the bottom");
+            await OnBottomLevelReached.InvokeAsync(clickedDocument).ConfigureAwait(false);
+        }
+        await CloseNestedTabsAsync(clickedDocument).ConfigureAwait(false);
     }
 
-    private void CloseNestedTabs(Document document)
+    private async Task CloseNestedTabsAsync(Document document)
     {
         if (document.Documents == null) return;
         foreach (var nestedDoc in document.Documents)
         {
             nestedDoc.IsClicked = false;
-            CloseNestedTabs(nestedDoc);
+            await CloseNestedTabsAsync(nestedDoc).ConfigureAwait(false);
         }
     }
 }

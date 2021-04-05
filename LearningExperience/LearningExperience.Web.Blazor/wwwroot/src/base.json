@@ -1,6 +1,6 @@
 {
   "Version": "1.01",
-  "Documents": [
+  "Documents": [    
     {
       "Name": "Development",
       "Value": "Разработка ПО(общее)",
@@ -25,7 +25,7 @@
                 {
                   "Name": "vars",
                   "Value": "переменные, литералы",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 1 - Junior\\переменные, литералы.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 1 - Junior\\переменные, литералы.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
@@ -33,7 +33,7 @@
                 {
                   "Name": "valuetypes",
                   "Value": "типы данных",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 1 - Junior\\типы данных.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 1 - Junior\\типы данных.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
@@ -41,7 +41,7 @@
                 {
                   "Name": "arithmeticoperations",
                   "Value": "арифметические операции и операции присваивания",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 1 - Junior\\арифметические операции и операции присваивания.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 1 - Junior\\арифметические операции и операции присваивания.html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
@@ -58,7 +58,7 @@
                 {
                   "Name": "boxingUnboxing",
                   "Value": "Явные и неявные преобразования. boxing, unboxing",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\Явные и неявные преобразования. boxing, unboxing.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\Явные и неявные преобразования. boxing, unboxing.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
@@ -66,7 +66,7 @@
                 {
                   "Name": "patternMatching",
                   "Value": "Pattern matching, is, as",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\Pattern matching, is, as.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\Pattern matching, is, as.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
@@ -74,7 +74,7 @@
                 {
                   "Name": "variableScopes",
                   "Value": "Области видимости и модификаторы доступа",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\Области видимости и модификаторы доступа.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\Области видимости и модификаторы доступа.html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
@@ -82,7 +82,7 @@
                 {
                   "Name": "enum",
                   "Value": "Enum",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\Enum.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\Enum.html",
                   "IsOpen": false,
                   "Index": 4,
                   "Documents": []
@@ -90,7 +90,7 @@
                 {
                   "Name": "dateTime",
                   "Value": "DateTime, DateTimeOffset, TimeSpan",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\DateTime, DateTimeOffset, TimeSpan.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\DateTime, DateTimeOffset, TimeSpan.html",
                   "IsOpen": false,
                   "Index": 5,
                   "Documents": []
@@ -98,7 +98,7 @@
                 {
                   "Name": "exceptions",
                   "Value": "Обработка исключений (try, catch, finally, when, Exception base class and fields, плюсы и минусы, практики, отказ от обработки исключений )",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\Обработка исключений (try, catch, finally, when, Exception base class and fields, плюсы и минусы, практики, отказ от обработки исключений ).html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\Обработка исключений (try, catch, finally, when, Exception base class and fields, плюсы и минусы, практики, отказ от обработки исключений ).html",
                   "IsOpen": false,
                   "Index": 6,
                   "Documents": []
@@ -106,7 +106,7 @@
                 {
                   "Name": "static",
                   "Value": "static",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\static.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\static.html",
                   "IsOpen": false,
                   "Index": 7,
                   "Documents": []
@@ -114,7 +114,7 @@
                 {
                   "Name": "abstract",
                   "Value": "abstract",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\abstract.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\abstract.html",
                   "IsOpen": false,
                   "Index": 8,
                   "Documents": []
@@ -122,7 +122,7 @@
                 {
                   "Name": "virtualOverride",
                   "Value": "virtual, override",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\virtual, override.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\virtual, override.html",
                   "IsOpen": false,
                   "Index": 9,
                   "Documents": []
@@ -130,7 +130,7 @@
                 {
                   "Name": "nullable",
                   "Value": "System.Nullable",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\System.Nullable.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\System.Nullable.html",
                   "IsOpen": false,
                   "Index": 10,
                   "Documents": []
@@ -138,7 +138,7 @@
                 {
                   "Name": "IEnumerable",
                   "Value": "IEnumerable, IEnumerable",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\IEnumerable, IEnumerable.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\IEnumerable, IEnumerable.html",
                   "IsOpen": false,
                   "Index": 11,
                   "Documents": []
@@ -146,7 +146,7 @@
                 {
                   "Name": "IComparable",
                   "Value": "IComparable",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\IComparable.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\IComparable.html",
                   "IsOpen": false,
                   "Index": 12,
                   "Documents": []
@@ -154,7 +154,7 @@
                 {
                   "Name": "ICloneable",
                   "Value": "ICloneable",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\ICloneable.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\ICloneable.html",
                   "IsOpen": false,
                   "Index": 13,
                   "Documents": []
@@ -162,7 +162,7 @@
                 {
                   "Name": "extensions",
                   "Value": "Расширения",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\Расширения.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\Расширения.html",
                   "IsOpen": false,
                   "Index": 14,
                   "Documents": []
@@ -170,7 +170,7 @@
                 {
                   "Name": "listDictionary",
                   "Value": "ListT, DictionaryT,V",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\ListT, DictionaryT,V.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\ListT, DictionaryT,V.html",
                   "IsOpen": false,
                   "Index": 15,
                   "Documents": []
@@ -178,7 +178,7 @@
                 {
                   "Name": "StackQueue",
                   "Value": "StackT, QueueT",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\StackT, QueueT.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\StackT, QueueT.html",
                   "IsOpen": false,
                   "Index": 16,
                   "Documents": []
@@ -186,7 +186,7 @@
                 {
                   "Name": "serialization",
                   "Value": "Сериализация и десериализация",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\Сериализация и десериализация.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\Сериализация и десериализация.html",
                   "IsOpen": false,
                   "Index": 17,
                   "Documents": []
@@ -194,7 +194,7 @@
                 {
                   "Name": "asyncAwait",
                   "Value": "Thread, Task, асинхронные методы, async и await",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\Thread, Task, асинхронные методы, async и await.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\Thread, Task, асинхронные методы, async и await.html",
                   "IsOpen": false,
                   "Index": 18,
                   "Documents": []
@@ -202,7 +202,7 @@
                 {
                   "Name": "asyncExceptions",
                   "Value": "Обработка ошибок в асинхронных методах",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\Обработка ошибок в асинхронных методах.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\Обработка ошибок в асинхронных методах.html",
                   "IsOpen": false,
                   "Index": 19,
                   "Documents": []
@@ -210,7 +210,7 @@
                 {
                   "Name": "linq",
                   "Value": "LINQ to Objects",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\LINQ to Objects.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\LINQ to Objects.html",
                   "IsOpen": false,
                   "Index": 20,
                   "Documents": []
@@ -218,7 +218,7 @@
                 {
                   "Name": "lazy",
                   "Value": "LazyT",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\LazyT.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\LazyT.html",
                   "IsOpen": false,
                   "Index": 21,
                   "Documents": []
@@ -226,7 +226,7 @@
                 {
                   "Name": "syncMechanisms",
                   "Value": "Механизмы синхронизации потоков (Monitor, lock, SemaphoreSlim, ManualResetEventSlim, Mutex, Semaphore, ManualResetEvent, AutoResetEvent, WaitHandle)",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 2 - Middle\\Механизмы синхронизации потоков (Monitor, lock, SemaphoreSlim, ManualResetEventSlim, Mutex, Semaphore, ManualResetEvent, AutoResetEvent, WaitHandle).html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 2 - Middle\\Механизмы синхронизации потоков (Monitor, lock, SemaphoreSlim, ManualResetEventSlim, Mutex, Semaphore, ManualResetEvent, AutoResetEvent, WaitHandle).html",
                   "IsOpen": false,
                   "Index": 22,
                   "Documents": []
@@ -243,7 +243,7 @@
                 {
                   "Name": "tuples",
                   "Value": "Кортежи",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Кортежи.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Кортежи.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
@@ -251,7 +251,7 @@
                 {
                   "Name": "refOut",
                   "Value": "ref, out",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\ref, out.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\ref, out.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
@@ -259,7 +259,7 @@
                 {
                   "Name": "newSealed",
                   "Value": "Сокрытие методов (new), sealed, раннее и позднее связывание",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Сокрытие методов (new), sealed, раннее и позднее связывание.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Сокрытие методов (new), sealed, раннее и позднее связывание.html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
@@ -267,7 +267,7 @@
                 {
                   "Name": "generics,",
                   "Value": "Generics,",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Generics,.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Generics,.html",
                   "IsOpen": false,
                   "Index": 4,
                   "Documents": []
@@ -275,7 +275,7 @@
                 {
                   "Name": "delegates",
                   "Value": "Делегаты. Action, Func",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Делегаты. Action, Func.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Делегаты. Action, Func.html",
                   "IsOpen": false,
                   "Index": 5,
                   "Documents": []
@@ -283,7 +283,7 @@
                 {
                   "Name": "events",
                   "Value": "События (как устроены внутри, стандартный и обновленный шаблон событий, средства доступа)",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\События (как устроены внутри, стандартный и обновленный шаблон событий, средства доступа).html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\События (как устроены внутри, стандартный и обновленный шаблон событий, средства доступа).html",
                   "IsOpen": false,
                   "Index": 6,
                   "Documents": []
@@ -291,7 +291,7 @@
                 {
                   "Name": "lambda",
                   "Value": "Лямбда-выражения (формат, захват переменных, замыкание)",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Лямбда-выражения (формат, захват переменных, замыкание).html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Лямбда-выражения (формат, захват переменных, замыкание).html",
                   "IsOpen": false,
                   "Index": 7,
                   "Documents": []
@@ -299,7 +299,7 @@
                 {
                   "Name": "locals",
                   "Value": "Локальные функции",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Локальные функции.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Локальные функции.html",
                   "IsOpen": false,
                   "Index": 8,
                   "Documents": []
@@ -307,7 +307,7 @@
                 {
                   "Name": "indexers",
                   "Value": "Индексаторы",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Индексаторы.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Индексаторы.html",
                   "IsOpen": false,
                   "Index": 9,
                   "Documents": []
@@ -315,7 +315,7 @@
                 {
                   "Name": "observableCollection",
                   "Value": "ObservableCollection",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\ObservableCollection.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\ObservableCollection.html",
                   "IsOpen": false,
                   "Index": 10,
                   "Documents": []
@@ -323,7 +323,7 @@
                 {
                   "Name": "regex",
                   "Value": "Регулярные выражения",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Регулярные выражения.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Регулярные выражения.html",
                   "IsOpen": false,
                   "Index": 11,
                   "Documents": []
@@ -331,7 +331,7 @@
                 {
                   "Name": "interlocked",
                   "Value": "Механизмы синхронизации потоков (Interlocked, ReaderWriterLock, ReaderWriterLockSlim)",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Механизмы синхронизации потоков (Interlocked, ReaderWriterLock, ReaderWriterLockSlim).html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Механизмы синхронизации потоков (Interlocked, ReaderWriterLock, ReaderWriterLockSlim).html",
                   "IsOpen": false,
                   "Index": 12,
                   "Documents": []
@@ -339,7 +339,7 @@
                 {
                   "Name": "cancellationToken",
                   "Value": "CancellationToken, CancellationTokenSource и отмена асинхронных операций",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\CancellationToken, CancellationTokenSource и отмена асинхронных операций.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\CancellationToken, CancellationTokenSource и отмена асинхронных операций.html",
                   "IsOpen": false,
                   "Index": 13,
                   "Documents": []
@@ -347,7 +347,7 @@
                 {
                   "Name": "reflection",
                   "Value": "Рефлексия и исследование типов",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Рефлексия и исследование типов.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Рефлексия и исследование типов.html",
                   "IsOpen": false,
                   "Index": 14,
                   "Documents": []
@@ -355,7 +355,7 @@
                 {
                   "Name": "attributes",
                   "Value": "Аттрибуты",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Аттрибуты.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Аттрибуты.html",
                   "IsOpen": false,
                   "Index": 15,
                   "Documents": []
@@ -363,9 +363,17 @@
                 {
                   "Name": "anonumous",
                   "Value": "Анонимные методы и типы",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 3 - Senior\\Анонимные методы и типы.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\Анонимные методы и типы.html",
                   "IsOpen": false,
                   "Index": 16,
+                  "Documents": []
+                },
+                {
+                  "Name": "ranges and indices",
+                  "Value": "ranges and indices",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 3 - Senior\\ranges and indices.html",
+                  "IsOpen": false,
+                  "Index": 17,
                   "Documents": []
                 }
               ]
@@ -380,7 +388,7 @@
                 {
                   "Name": "bitwiseOperations",
                   "Value": "Поразрядные операции",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\Поразрядные операции.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\Поразрядные операции.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
@@ -388,7 +396,7 @@
                 {
                   "Name": "covarianceContravariance",
                   "Value": "Ковариантность, Контрвариантность",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\Ковариантность, Контрвариантность.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\Ковариантность, Контрвариантность.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
@@ -396,7 +404,7 @@
                 {
                   "Name": "deconstructors",
                   "Value": "Деконструкторы",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\Деконструкторы.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\Деконструкторы.html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
@@ -404,7 +412,7 @@
                 {
                   "Name": "iterators",
                   "Value": "Итераторы и yield",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\Итераторы и yield.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\Итераторы и yield.html",
                   "IsOpen": false,
                   "Index": 4,
                   "Documents": []
@@ -412,7 +420,7 @@
                 {
                   "Name": "operator",
                   "Value": "operator, Перегрузка операторов",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\operator, Перегрузка операторов.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\operator, Перегрузка операторов.html",
                   "IsOpen": false,
                   "Index": 5,
                   "Documents": []
@@ -420,7 +428,7 @@
                 {
                   "Name": "gc",
                   "Value": "GC, Finalize, Деструктор",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\GC, Finalize, Деструктор.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\GC, Finalize, Деструктор.html",
                   "IsOpen": false,
                   "Index": 6,
                   "Documents": []
@@ -428,7 +436,7 @@
                 {
                   "Name": "unsafeCode",
                   "Value": "Unsafe code",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\Unsafe code.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\Unsafe code.html",
                   "IsOpen": false,
                   "Index": 7,
                   "Documents": []
@@ -436,7 +444,7 @@
                 {
                   "Name": "dlr",
                   "Value": "DLR, dynamic",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\DLR, dynamic.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\DLR, dynamic.html",
                   "IsOpen": false,
                   "Index": 8,
                   "Documents": []
@@ -444,7 +452,7 @@
                 {
                   "Name": "dynamicUpload",
                   "Value": "Динамическая загрузка сборок и позднее связывание",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\Динамическая загрузка сборок и позднее связывание.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\Динамическая загрузка сборок и позднее связывание.html",
                   "IsOpen": false,
                   "Index": 9,
                   "Documents": []
@@ -452,7 +460,7 @@
                 {
                   "Name": "plinq",
                   "Value": "PLINQ",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\PLINQ.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\PLINQ.html",
                   "IsOpen": false,
                   "Index": 10,
                   "Documents": []
@@ -460,7 +468,7 @@
                 {
                   "Name": "expressionTrees",
                   "Value": "Деревья выражений",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\Деревья выражений.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\Деревья выражений.html",
                   "IsOpen": false,
                   "Index": 11,
                   "Documents": []
@@ -468,7 +476,7 @@
                 {
                   "Name": "valueTask",
                   "Value": "ValueTask",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\ValueTask.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\ValueTask.html",
                   "IsOpen": false,
                   "Index": 12,
                   "Documents": []
@@ -476,7 +484,7 @@
                 {
                   "Name": "span",
                   "Value": "System.SpanT",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\System.SpanT.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\System.SpanT.html",
                   "IsOpen": false,
                   "Index": 13,
                   "Documents": []
@@ -484,9 +492,25 @@
                 {
                   "Name": "memory",
                   "Value": "System.MemoryT",
-                  "Path": "Разработка ПО(общее)\\C#\\Level 4 - TeamLead\\System.MemoryT.html",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\System.MemoryT.html",
                   "IsOpen": false,
                   "Index": 14,
+                  "Documents": []
+                },
+                {
+                  "Name": "async streams",
+                  "Value": "async streams",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\async streams.html",
+                  "IsOpen": false,
+                  "Index": 15,
+                  "Documents": []
+                },
+                {
+                  "Name": "ConfigureAwait",
+                  "Value": "ConfigureAwait",
+                  "Path": "Разработка ПО(общее)\\CSharp\\Level 4 - TeamLead\\ConfigureAwait.html",
+                  "IsOpen": false,
+                  "Index": 16,
                   "Documents": []
                 }
               ]
@@ -598,27 +622,19 @@
                   "Documents": []
                 },
                 {
-                  "Name": "JIT",
-                  "Value": "JIT",
-                  "Path": "Разработка ПО(общее)\\.NET Framework\\Level 3 - Senior\\JIT.html",
+                  "Name": "JIT компиляция, AOT компиляция (использование, преимущества и недостатки)",
+                  "Value": "JIT компиляция, AOT компиляция (использование, преимущества и недостатки)",
+                  "Path": "Разработка ПО(общее)\\.NET Framework\\Level 3 - Senior\\JIT компиляция, AOT компиляция (использование, преимущества и недостатки).html",
                   "IsOpen": false,
                   "Index": 4,
                   "Documents": []
-                },
-                {
-                  "Name": "компиляция, AOT компиляция (использование, преимущества и недостатки)",
-                  "Value": "компиляция, AOT компиляция (использование, преимущества и недостатки)",
-                  "Path": "Разработка ПО(общее)\\.NET Framework\\Level 3 - Senior\\компиляция, AOT компиляция (использование, преимущества и недостатки).html",
-                  "IsOpen": false,
-                  "Index": 5,
-                  "Documents": []
-                },
+                },               
                 {
                   "Name": "GC (условия, поколения)",
                   "Value": "GC (условия, поколения)",
                   "Path": "Разработка ПО(общее)\\.NET Framework\\Level 3 - Senior\\GC (условия, поколения).html",
                   "IsOpen": false,
-                  "Index": 6,
+                  "Index": 5,
                   "Documents": []
                 },
                 {
@@ -626,7 +642,7 @@
                   "Value": "Platform Invoke, DLLImport (описание подхода, какую проблему решает)",
                   "Path": "Разработка ПО(общее)\\.NET Framework\\Level 3 - Senior\\Platform Invoke, DLLImport (описание подхода, какую проблему решает).html",
                   "IsOpen": false,
-                  "Index": 7,
+                  "Index": 6,
                   "Documents": []
                 },
                 {
@@ -634,7 +650,7 @@
                   "Value": "Marshaling Data with Platform Invoke (определение и основные возможности)",
                   "Path": "Разработка ПО(общее)\\.NET Framework\\Level 3 - Senior\\Marshaling Data with Platform Invoke (определение и основные возможности).html",
                   "IsOpen": false,
-                  "Index": 8,
+                  "Index": 7,
                   "Documents": []
                 }
               ]
@@ -780,8 +796,8 @@
           "Index": 5,
           "Documents": [
             {
-              "Name": "allLevels_dotNetTools",
-              "Value": "All Levels",
+              "Name": "Junior_netCore",
+              "Value": "Level 1 - Junior",
               "Path": null,
               "IsOpen": false,
               "Index": 1,
@@ -789,7 +805,7 @@
                 {
                   "Name": "Runtime (CoreCLR), SDK, установка и развертывание",
                   "Value": "Runtime (CoreCLR), SDK, установка и развертывание",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\Runtime (CoreCLR), SDK, установка и развертывание.html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 1 - Junior\\Runtime (CoreCLR), SDK, установка и развертывание.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
@@ -797,7 +813,7 @@
                 {
                   "Name": ".NET Standard",
                   "Value": ".NET Standard",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\.NET Standard.html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 1 - Junior\\.NET Standard.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
@@ -805,89 +821,156 @@
                 {
                   "Name": "dotnet CLI (new, run, build)",
                   "Value": "dotnet CLI (new, run, build)",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\dotnet CLI (new, run, build).html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 1 - Junior\\dotnet CLI (new, run, build).html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
-                },
+                }
+              ]
+            },
+            {
+              "Name": "Middle_netCore",
+              "Value": "Level 2 - Middle",
+              "Path": null,
+              "IsOpen": false,
+              "Index": 1,
+              "Documents": [
                 {
                   "Name": "Управление зависимостями",
                   "Value": "Управление зависимостями",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\Управление зависимостями.html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 2 - Middle\\Управление зависимостями.html",
                   "IsOpen": false,
-                  "Index": 4,
+                  "Index": 1,
                   "Documents": []
                 },
                 {
                   "Name": "Способыразверытвания приложений (SCD, FDD)",
                   "Value": "Способыразверытвания приложений (SCD, FDD)",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\Способыразверытвания приложений (SCD, FDD).html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 2 - Middle\\Способыразверытвания приложений (SCD, FDD).html",
                   "IsOpen": false,
-                  "Index": 5,
+                  "Index": 2,
                   "Documents": []
-                },
+                }
+              ]
+            },
+            {
+              "Name": "Senior_netCore",
+              "Value": "Level 3 - Senior",
+              "Path": null,
+              "IsOpen": false,
+              "Index": 1,
+              "Documents": [
                 {
                   "Name": "Метапакеты",
                   "Value": "Метапакеты",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\Метапакеты.html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 3 - Senior\\Метапакеты.html",
                   "IsOpen": false,
-                  "Index": 6,
+                  "Index": 1,
                   "Documents": []
                 },
                 {
                   "Name": "RID (Runtime Identifier)",
                   "Value": "RID (Runtime Identifier)",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\RID (Runtime Identifier).html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 3 - Senior\\RID (Runtime Identifier).html",
                   "IsOpen": false,
-                  "Index": 7,
-                  "Documents": []
-                },
-                {
-                  "Name": "global.json",
-                  "Value": "global.json",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\global.json.html",
-                  "IsOpen": false,
-                  "Index": 8,
+                  "Index": 2,
                   "Documents": []
                 },
                 {
                   "Name": "dotnet CLI (restore, publish, test)",
                   "Value": "dotnet CLI (restore, publish, test)",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\dotnet CLI (restore, publish, test).html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 3 - Senior\\dotnet CLI (restore, publish, test).html",
                   "IsOpen": false,
-                  "Index": 9,
+                  "Index": 3,
                   "Documents": []
                 },
+                {
+                  "Name": "Tiered compilation",
+                  "Value": "Tiered compilation",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 3 - Senior\\Tiered compilation.html",
+                  "IsOpen": false,
+                  "Index": 4,
+                  "Documents": []
+                },
+                {
+                  "Name": "ReadyToRun images",
+                  "Value": "ReadyToRun images",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 3 - Senior\\ReadyToRun images.html",
+                  "IsOpen": false,
+                  "Index": 5,
+                  "Documents": []
+                }
+              ]
+            },
+            {
+              "Name": "TeamLead_netCore",
+              "Value": "Level 4 - TeamLead",
+              "Path": null,
+              "IsOpen": false,
+              "Index": 1,
+              "Documents": [
                 {
                   "Name": "Перенос кода в .NET Core из .NET Framework (.NET Portability Analyzer)",
                   "Value": "Перенос кода в .NET Core из .NET Framework (.NET Portability Analyzer)",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\Перенос кода в .NET Core из .NET Framework (.NET Portability Analyzer).html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 4 - TeamLead\\Перенос кода в .NET Core из .NET Framework (.NET Portability Analyzer).html",
                   "IsOpen": false,
-                  "Index": 10,
+                  "Index": 1,
                   "Documents": []
                 },
                 {
-                  "Name": "Глобальные инструменты (средства)",
-                  "Value": "Глобальные инструменты (средства)",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\Глобальные инструменты (средства).html",
+                  "Name": "Глобальные и локальные инструменты (средства)",
+                  "Value": "Глобальные и локальные инструменты (средства)",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 4 - TeamLead\\Глобальные и локальные инструменты (средства).html",
                   "IsOpen": false,
-                  "Index": 11,
+                  "Index": 2,
                   "Documents": []
                 },
                 {
                   "Name": "Хранилище пакетовсреды выполнения",
                   "Value": "Хранилище пакетовсреды выполнения",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\Хранилище пакетовсреды выполнения.html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 4 - TeamLead\\Хранилище пакетовсреды выполнения.html",
                   "IsOpen": false,
-                  "Index": 12,
+                  "Index": 3,
                   "Documents": []
                 },
                 {
                   "Name": "dotnet CLI (pack, store)",
                   "Value": "dotnet CLI (pack, store)",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\All Levels\\dotnet CLI (pack, store).html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 4 - TeamLead\\dotnet CLI (pack, store).html",
                   "IsOpen": false,
-                  "Index": 13,
+                  "Index": 4,
+                  "Documents": []
+                },
+                {
+                  "Name": "Assembly linking",
+                  "Value": "Assembly linking",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 4 - TeamLead\\Assembly linking.html",
+                  "IsOpen": false,
+                  "Index": 5,
+                  "Documents": []
+                },
+                {
+                  "Name": "Major-version runtime roll forward",
+                  "Value": "Major-version runtime roll forward",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 4 - TeamLead\\Major-version runtime roll forward.html",
+                  "IsOpen": false,
+                  "Index": 6,
+                  "Documents": []
+                },
+                {
+                  "Name": "global.json",
+                  "Value": "global.json",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 4 - TeamLead\\global.json.html",
+                  "IsOpen": false,
+                  "Index": 7,
+                  "Documents": []
+                },
+                {
+                  "Name": "Конфигурация среды выполнения (компиляция, отладка, глобализация, сеть, потоки)",
+                  "Value": "Конфигурация среды выполнения (компиляция, отладка, глобализация, сеть, потоки)",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 4 - TeamLead\\Конфигурация среды выполнения (компиляция, отладка, глобализация, сеть, потоки).html",
+                  "IsOpen": false,
+                  "Index": 8,
                   "Documents": []
                 }
               ]
@@ -965,9 +1048,9 @@
                   "Documents": []
                 },
                 {
-                  "Name": "C# Interactive",
-                  "Value": "C# Interactive",
-                  "Path": "Разработка ПО(общее)\\Среда разработки (IDE)\\Level 3 - Senior\\C# Interactive.html",
+                  "Name": "CSharp Interactive",
+                  "Value": "CSharp Interactive",
+                  "Path": "Разработка ПО(общее)\\Среда разработки (IDE)\\Level 3 - Senior\\CSharp Interactive.html",
                   "IsOpen": false,
                   "Index": 8,
                   "Documents": []
@@ -983,7 +1066,7 @@
               ]
             },
             {
-              "Name": "TeamLead_dotNet",
+              "Name": "TeamLead_ide",
               "Value": "Level 4 - TeamLead",
               "Path": null,
               "IsOpen": false,
@@ -1109,7 +1192,7 @@
           "Index": 8,
           "Documents": [
             {
-              "Name": "allLevels_scripts",
+              "Name": "allLevels_xml",
               "Value": "All Levels",
               "Path": null,
               "IsOpen": false,
@@ -1140,9 +1223,9 @@
                   "Documents": []
                 },
                 {
-                  "Name": "LINQ to XML (System.Xml.Linq)",
-                  "Value": "LINQ to XML (System.Xml.Linq)",
-                  "Path": "Разработка ПО(общее)\\xml\\All Levels\\LINQ to XML (System.Xml.Linq).html",
+                  "Name": "LINQ to XML (System.Xml.Linq) - XDocument",
+                  "Value": "LINQ to XML (System.Xml.Linq) - XDocument",
+                  "Path": "Разработка ПО(общее)\\xml\\All Levels\\LINQ to XML (System.Xml.Linq) - XDocument.html",
                   "IsOpen": false,
                   "Index": 4,
                   "Documents": []
@@ -1164,33 +1247,33 @@
                   "Documents": []
                 },
                 {
-                  "Name": "JSON in C# (JSON.NET",
-                  "Value": "JSON in C# (JSON.NET",
-                  "Path": "Разработка ПО(общее)\\xml\\All Levels\\JSON in C# (JSON.NET.html",
+                  "Name": "JSON in CSharp (JSON.NET, Serializing, Deserializing, LINQ To JSON)",
+                  "Value": "JSON in CSharp (JSON.NET, Serializing, Deserializing, LINQ To JSON)",
+                  "Path": "Разработка ПО(общее)\\xml\\All Levels\\JSON in CSharp (JSON.NET, Serializing, Deserializing, LINQ To JSON).html",
                   "IsOpen": false,
                   "Index": 7,
                   "Documents": []
-                },
-                {
-                  "Name": "Serializing, Deserializing, LINQ To JSON)",
-                  "Value": "Serializing, Deserializing, LINQ To JSON)",
-                  "Path": "Разработка ПО(общее)\\xml\\All Levels\\Serializing, Deserializing, LINQ To JSON).html",
-                  "IsOpen": false,
-                  "Index": 8,
-                  "Documents": []
-                },
+                },               
                 {
                   "Name": "XPath",
                   "Value": "XPath",
                   "Path": "Разработка ПО(общее)\\xml\\All Levels\\XPath.html",
                   "IsOpen": false,
-                  "Index": 9,
+                  "Index": 8,
                   "Documents": []
                 },
                 {
                   "Name": "XSD",
                   "Value": "XSD",
                   "Path": "Разработка ПО(общее)\\xml\\All Levels\\XSD.html",
+                  "IsOpen": false,
+                  "Index": 9,
+                  "Documents": []
+                },
+				{
+                  "Name": "migrate from newtonsoft to system text json",
+                  "Value": "migrate from newtonsoft to system text json",
+                  "Path": "Разработка ПО(общее)\\xml\\All Levels\\migrate from newtonsoft to system text json.html",
                   "IsOpen": false,
                   "Index": 10,
                   "Documents": []
@@ -1254,19 +1337,53 @@
                   "Documents": []
                 },
                 {
-                  "Name": "DI анти",
-                  "Value": "DI анти",
-                  "Path": "Разработка ПО(общее)\\DIP, DI-Containers (Ninject, AutoFac, Sample, Unity,….)\\All Levels\\DI анти.html",
+                  "Name": "DI анти паттерны (Control Freak,  Bastard Injection, Constrained Construction, Service Locator)",
+                  "Value": "DI анти паттерны (Control Freak,  Bastard Injection, Constrained Construction, Service Locator)",
+                  "Path": "Разработка ПО(общее)\\DIP, DI-Containers (Ninject, AutoFac, Sample, Unity,….)\\All Levels\\DI анти паттерны (Control Freak,  Bastard Injection, Constrained Construction, Service Locator).html",
                   "IsOpen": false,
                   "Index": 7,
                   "Documents": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Другие языки",
+          "Value": "Другие языки",
+          "Path": null,
+          "IsOpen": false,
+          "Index": 9,
+          "Documents": [
+            {
+              "Name": "allLevels_development",
+              "Value": "All Levels",
+              "Path": null,
+              "IsOpen": false,
+              "Index": 1,
+              "Documents": [
+                {
+                  "Name": "Automapper",
+                  "Value": "Automapper",
+                  "Path": "Разработка ПО(общее)\\Другие языки\\All Levels\\Automapper",
+                  "IsOpen": false,
+                  "Index": 1,
+                  "Documents": []
                 },
                 {
-                  "Name": "паттерны (Control Freak,  Bastard Injection, Constrained Construction, Service Locator)",
-                  "Value": "паттерны (Control Freak,  Bastard Injection, Constrained Construction, Service Locator)",
-                  "Path": "Разработка ПО(общее)\\DIP, DI-Containers (Ninject, AutoFac, Sample, Unity,….)\\All Levels\\паттерны (Control Freak,  Bastard Injection, Constrained Construction, Service Locator).html",
+                  "Name": "Docker",
+                  "Value": "Docker",
+                  "Path": "Разработка ПО(общее)\\Другие языки\\All Levels\\Docker.html",
                   "IsOpen": false,
-                  "Index": 8,
+                  "Index": 2,
+                  "Documents": []
+                },
+                {
+                  "Name": "Logger",
+                  "Value": "Logger",
+                  "Path": "Разработка ПО(общее)\\Другие языки\\All Levels\\Logger.html",
+                  "IsOpen": false,
+                  "Index": 2,
                   "Documents": []
                 }
               ]
@@ -2436,75 +2553,43 @@
               "Index": 1,
               "Documents": [
                 {
-                  "Name": "ASP.NET vs ASP.NET Core",
-                  "Value": "ASP.NET vs ASP.NET Core",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\ASP.NET vs ASP.NET Core.html",
+                  "Name": "Общая концепция, Создание проекта",
+                  "Value": "Общая концепция, Создание проекта",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\Общая концепция, Создание проекта.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
                 },
                 {
-                  "Name": "Структура проекта ASP.NET Core",
-                  "Value": "Структура проекта ASP.NET Core",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\Структура проекта ASP.NET Core.html",
+                  "Name": "Структура проекта",
+                  "Value": "Структура проекта",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\Структура проекта.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
                 },
                 {
-                  "Name": "Startup class (ConfigureServices, Configure)",
-                  "Value": "Startup class (ConfigureServices, Configure)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\Startup class (ConfigureServices, Configure).html",
+                  "Name": "ApiController",
+                  "Value": "ApiController",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\ApiController.html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
                 },
                 {
-                  "Name": "Middleware (порядок, жизненный цикл)",
-                  "Value": "Middleware (порядок, жизненный цикл)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\Middleware (порядок, жизненный цикл).html",
+                  "Name": "Результаты методов, HttpResponseMessage и IHttpActionResult",
+                  "Value": "Результаты методов, HttpResponseMessage и IHttpActionResult",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\Результаты методов, HttpResponseMessage и IHttpActionResult.html",
                   "IsOpen": false,
                   "Index": 4,
                   "Documents": []
                 },
                 {
-                  "Name": "ILoggerFactory, ILoggerT",
-                  "Value": "ILoggerFactory, ILoggerT",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\ILoggerFactory, ILoggerT.html",
+                  "Name": "WebApiConfig.cs",
+                  "Value": "WebApiConfig.cs",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\WebApiConfig.cs.html",
                   "IsOpen": false,
                   "Index": 5,
-                  "Documents": []
-                },
-                {
-                  "Name": "Включение ASP.NET Core MVC",
-                  "Value": "Включение ASP.NET Core MVC",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\Включение ASP.NET Core MVC.html",
-                  "IsOpen": false,
-                  "Index": 6,
-                  "Documents": []
-                },
-                {
-                  "Name": "Структура проектаASP.NET Core MVC vs ASP.NET Core Web API",
-                  "Value": "Структура проектаASP.NET Core MVC vs ASP.NET Core Web API",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\Структура проектаASP.NET Core MVC vs ASP.NET Core Web API.html",
-                  "IsOpen": false,
-                  "Index": 7,
-                  "Documents": []
-                },
-                {
-                  "Name": "Способы равертывания приложения (Kestrel, трациционный web server, AspNetCoreModule)",
-                  "Value": "Способы равертывания приложения (Kestrel, трациционный web server, AspNetCoreModule)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\Способы равертывания приложения (Kestrel, трациционный web server, AspNetCoreModule).html",
-                  "IsOpen": false,
-                  "Index": 8,
-                  "Documents": []
-                },
-                {
-                  "Name": "Program.cs (WebHost.CreateDefaultBuilder)",
-                  "Value": "Program.cs (WebHost.CreateDefaultBuilder)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 1 - Junior\\Program.cs (WebHost.CreateDefaultBuilder).html",
-                  "IsOpen": false,
-                  "Index": 9,
                   "Documents": []
                 }
               ]
@@ -2517,139 +2602,51 @@
               "Index": 2,
               "Documents": [
                 {
-                  "Name": "Static Files (UseStaticFiles, UseWebRoot)",
-                  "Value": "Static Files (UseStaticFiles, UseWebRoot)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Static Files (UseStaticFiles, UseWebRoot).html",
+                  "Name": "Типы запросов (HttpVerb)",
+                  "Value": "Типы запросов (HttpVerb)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Типы запросов (HttpVerb).html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
                 },
                 {
-                  "Name": "HttpContext.Items, Куки, Сессия",
-                  "Value": "HttpContext.Items, Куки, Сессия",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\HttpContext.Items, Куки, Сессия.html",
+                  "Name": "Model binding (FromUri, FromBody, ModelBinder)",
+                  "Value": "Model binding (FromUri, FromBody, ModelBinder)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Model binding (FromUri, FromBody, ModelBinder).html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
                 },
                 {
-                  "Name": "DI и ASP.NET Core (получение зависимостей, жизненный цикл)",
-                  "Value": "DI и ASP.NET Core (получение зависимостей, жизненный цикл)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\DI и ASP.NET Core (получение зависимостей, жизненный цикл).html",
+                  "Name": "Валидация в Web API",
+                  "Value": "Валидация в Web API",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Валидация в Web API.html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
                 },
                 {
-                  "Name": "Основы конфигурации (IConfiguration, ConfigurationBuilder, встроенные провадерыконфигурации, настройка по умолчанию)",
-                  "Value": "Основы конфигурации (IConfiguration, ConfigurationBuilder, встроенные провадерыконфигурации, настройка по умолчанию)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Основы конфигурации (IConfiguration, ConfigurationBuilder, встроенные провадерыконфигурации, настройка по умолчанию).html",
+                  "Name": "Фильтры в Web API",
+                  "Value": "Фильтры в Web API",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Фильтры в Web API.html",
                   "IsOpen": false,
                   "Index": 4,
                   "Documents": []
                 },
                 {
-                  "Name": "Переопределение контроллеров (OnActionExecuting, OnActionExecuted)",
-                  "Value": "Переопределение контроллеров (OnActionExecuting, OnActionExecuted)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Переопределение контроллеров (OnActionExecuting, OnActionExecuted).html",
+                  "Name": "Глобальные фильтры",
+                  "Value": "Глобальные фильтры",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Глобальные фильтры.html",
                   "IsOpen": false,
                   "Index": 5,
                   "Documents": []
                 },
                 {
-                  "Name": "Передача зависимостей в контроллер (конструктор, FromServices, HttpContext.RequestServices)",
-                  "Value": "Передача зависимостей в контроллер (конструктор, FromServices, HttpContext.RequestServices)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Передача зависимостей в контроллер (конструктор, FromServices, HttpContext.RequestServices).html",
+                  "Name": "Фильтры авторизации (AuthorizeAttribute, AllowAnonymous)",
+                  "Value": "Фильтры авторизации (AuthorizeAttribute, AllowAnonymous)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Фильтры авторизации (AuthorizeAttribute, AllowAnonymous).html",
                   "IsOpen": false,
                   "Index": 6,
-                  "Documents": []
-                },
-                {
-                  "Name": "Управлениепривязкой (BindRequired и BindNever, FromHeader, FromQuery, FromRoute, FromForm, FromBody)",
-                  "Value": "Управлениепривязкой (BindRequired и BindNever, FromHeader, FromQuery, FromRoute, FromForm, FromBody)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Управлениепривязкой (BindRequired и BindNever, FromHeader, FromQuery, FromRoute, FromForm, FromBody).html",
-                  "IsOpen": false,
-                  "Index": 7,
-                  "Documents": []
-                },
-                {
-                  "Name": "Tag Helpers (подключение, AnchorTagHelper, LinkTagHelper и ScriptTagHelper, Tag",
-                  "Value": "Tag Helpers (подключение, AnchorTagHelper, LinkTagHelper и ScriptTagHelper, Tag",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Tag Helpers (подключение, AnchorTagHelper, LinkTagHelper и ScriptTagHelper, Tag.html",
-                  "IsOpen": false,
-                  "Index": 8,
-                  "Documents": []
-                },
-                {
-                  "Name": "хелперы форм)",
-                  "Value": "хелперы форм)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\хелперы форм).html",
-                  "IsOpen": false,
-                  "Index": 9,
-                  "Documents": []
-                },
-                {
-                  "Name": "Фильтры в MVC (конвейерфильтров",
-                  "Value": "Фильтры в MVC (конвейерфильтров",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Фильтры в MVC (конвейерфильтров.html",
-                  "IsOpen": false,
-                  "Index": 10,
-                  "Documents": []
-                },
-                {
-                  "Name": "filter pipeline, Передача параметров в фильтры и установка зависимостей, ServiceFilterAttribute, TypeFilterAttribute)",
-                  "Value": "filter pipeline, Передача параметров в фильтры и установка зависимостей, ServiceFilterAttribute, TypeFilterAttribute)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\filter pipeline, Передача параметров в фильтры и установка зависимостей, ServiceFilterAttribute, TypeFilterAttribute).html",
-                  "IsOpen": false,
-                  "Index": 11,
-                  "Documents": []
-                },
-                {
-                  "Name": "Фильтры ресурсов (IResourceFilter, IAsyncResourceFilter)",
-                  "Value": "Фильтры ресурсов (IResourceFilter, IAsyncResourceFilter)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Фильтры ресурсов (IResourceFilter, IAsyncResourceFilter).html",
-                  "IsOpen": false,
-                  "Index": 12,
-                  "Documents": []
-                },
-                {
-                  "Name": "Фильтры действий(IActionFilter, IAsyncActionFilter)",
-                  "Value": "Фильтры действий(IActionFilter, IAsyncActionFilter)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Фильтры действий(IActionFilter, IAsyncActionFilter).html",
-                  "IsOpen": false,
-                  "Index": 13,
-                  "Documents": []
-                },
-                {
-                  "Name": "Фильтры результатов (IResultFilter, IAsyncResultFilter)",
-                  "Value": "Фильтры результатов (IResultFilter, IAsyncResultFilter)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Фильтры результатов (IResultFilter, IAsyncResultFilter).html",
-                  "IsOpen": false,
-                  "Index": 14,
-                  "Documents": []
-                },
-                {
-                  "Name": "Фильтры исключений (IExceptionFilter, IAsyncExceptionFilter)",
-                  "Value": "Фильтры исключений (IExceptionFilter, IAsyncExceptionFilter)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Фильтры исключений (IExceptionFilter, IAsyncExceptionFilter).html",
-                  "IsOpen": false,
-                  "Index": 15,
-                  "Documents": []
-                },
-                {
-                  "Name": "IHttpClientFactory, HttpClient",
-                  "Value": "IHttpClientFactory, HttpClient",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\IHttpClientFactory, HttpClient.html",
-                  "IsOpen": false,
-                  "Index": 16,
-                  "Documents": []
-                },
-                {
-                  "Name": "Environments (профили,конфиги)",
-                  "Value": "Environments (профили,конфиги)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 2 - Middle\\Environments (профили,конфиги).html",
-                  "IsOpen": false,
-                  "Index": 17,
                   "Documents": []
                 }
               ]
@@ -2662,33 +2659,33 @@
               "Index": 3,
               "Documents": [
                 {
-                  "Name": "Методы Use, Run и делегат RequestDelegate, Map, MapWhen",
-                  "Value": "Методы Use, Run и делегат RequestDelegate, Map, MapWhen",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Методы Use, Run и делегат RequestDelegate, Map, MapWhen.html",
+                  "Name": "content negotiation (согласование содержимого) и media formatting (форматирование или сериализация содержимого). Заголовок Accept",
+                  "Value": "content negotiation (согласование содержимого) и media formatting (форматирование или сериализация содержимого). Заголовок Accept",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\content negotiation (согласование содержимого) и media formatting (форматирование или сериализация содержимого). Заголовок Accept.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
                 },
                 {
-                  "Name": "Создание кастомных middleware компонентов и их регистрация",
-                  "Value": "Создание кастомных middleware компонентов и их регистрация",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Создание кастомных middleware компонентов и их регистрация.html",
+                  "Name": "Система маршрутизации в Web Api (ограничения маршрутов, атрибуты маршрутизации)",
+                  "Value": "Система маршрутизации в Web Api (ограничения маршрутов, атрибуты маршрутизации)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Система маршрутизации в Web Api (ограничения маршрутов, атрибуты маршрутизации).html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
                 },
                 {
-                  "Name": "IHosting Environment",
-                  "Value": "IHosting Environment",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\IHosting Environment.html",
+                  "Name": "Фильтры аутентификации (IAuthenticationFilter)",
+                  "Value": "Фильтры аутентификации (IAuthenticationFilter)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Фильтры аутентификации (IAuthenticationFilter).html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
                 },
                 {
-                  "Name": "Обработка ошибок (UseDeveloperExceptionPage, UseExceptionHandler,StatusCodePagesMiddleware)",
-                  "Value": "Обработка ошибок (UseDeveloperExceptionPage, UseExceptionHandler,StatusCodePagesMiddleware)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Обработка ошибок (UseDeveloperExceptionPage, UseExceptionHandler,StatusCodePagesMiddleware).html",
+                  "Name": "Фильтры исключений (IExceptionFilter, ExceptionFilterAttribute)",
+                  "Value": "Фильтры исключений (IExceptionFilter, ExceptionFilterAttribute)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Фильтры исключений (IExceptionFilter, ExceptionFilterAttribute).html",
                   "IsOpen": false,
                   "Index": 4,
                   "Documents": []
@@ -2702,244 +2699,76 @@
                   "Documents": []
                 },
                 {
-                  "Name": "Основы маршрутизации (RouterMiddleware, RouteHandler, RouteBuilder, MapRoute)",
-                  "Value": "Основы маршрутизации (RouterMiddleware, RouteHandler, RouteBuilder, MapRoute)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Основы маршрутизации (RouterMiddleware, RouteHandler, RouteBuilder, MapRoute).html",
+                  "Name": "Фильтры действий (ActionFilterAttribute, IActionFilter)",
+                  "Value": "Фильтры действий (ActionFilterAttribute, IActionFilter)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Фильтры действий (ActionFilterAttribute, IActionFilter).html",
                   "IsOpen": false,
                   "Index": 6,
                   "Documents": []
                 },
                 {
-                  "Name": "Файл _ViewImports.cshtml",
-                  "Value": "Файл _ViewImports.cshtml",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Файл _ViewImports.cshtml.html",
+                  "Name": "Авторизация на основе токенов (OAuth2)",
+                  "Value": "Авторизация на основе токенов (OAuth2)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Авторизация на основе токенов (OAuth2).html",
                   "IsOpen": false,
                   "Index": 7,
-                  "Documents": []
-                },
-                {
-                  "Name": "Внедрение зависимостей в представления (@inject)",
-                  "Value": "Внедрение зависимостей в представления (@inject)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Внедрение зависимостей в представления (@inject).html",
-                  "IsOpen": false,
-                  "Index": 8,
-                  "Documents": []
-                },
-                {
-                  "Name": "Кастомные HTML",
-                  "Value": "Кастомные HTML",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Кастомные HTML.html",
-                  "IsOpen": false,
-                  "Index": 9,
-                  "Documents": []
-                },
-                {
-                  "Name": "хелперы",
-                  "Value": "хелперы",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\хелперы.html",
-                  "IsOpen": false,
-                  "Index": 10,
-                  "Documents": []
-                },
-                {
-                  "Name": "Tag Helpers (Tag",
-                  "Value": "Tag Helpers (Tag",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Tag Helpers (Tag.html",
-                  "IsOpen": false,
-                  "Index": 11,
-                  "Documents": []
-                },
-                {
-                  "Name": "хелперы валидации, EnvironmentTagHelper, CacheTagHelper)",
-                  "Value": "хелперы валидации, EnvironmentTagHelper, CacheTagHelper)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\хелперы валидации, EnvironmentTagHelper, CacheTagHelper).html",
-                  "IsOpen": false,
-                  "Index": 12,
-                  "Documents": []
-                },
-                {
-                  "Name": "ASP.NET Core Razor Pages (как используется,структура,PageModel, BindProperty, handler, маршрутизация)",
-                  "Value": "ASP.NET Core Razor Pages (как используется,структура,PageModel, BindProperty, handler, маршрутизация)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\ASP.NET Core Razor Pages (как используется,структура,PageModel, BindProperty, handler, маршрутизация).html",
-                  "IsOpen": false,
-                  "Index": 13,
-                  "Documents": []
-                },
-                {
-                  "Name": "ASP.NET Core Identity (возможности, подключение, как работает)",
-                  "Value": "ASP.NET Core Identity (возможности, подключение, как работает)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\ASP.NET Core Identity (возможности, подключение, как работает).html",
-                  "IsOpen": false,
-                  "Index": 14,
-                  "Documents": []
-                },
-                {
-                  "Name": "Кеширование (IMemoryCache, AddMemoryCache, ResponseCache, кеширование статическихфайлов)",
-                  "Value": "Кеширование (IMemoryCache, AddMemoryCache, ResponseCache, кеширование статическихфайлов)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Кеширование (IMemoryCache, AddMemoryCache, ResponseCache, кеширование статическихфайлов).html",
-                  "IsOpen": false,
-                  "Index": 15,
-                  "Documents": []
-                },
-                {
-                  "Name": "SignalR (подключение, Hub, IHubContext)",
-                  "Value": "SignalR (подключение, Hub, IHubContext)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\SignalR (подключение, Hub, IHubContext).html",
-                  "IsOpen": false,
-                  "Index": 16,
-                  "Documents": []
-                },
-                {
-                  "Name": "Миграция c ASP.NET",
-                  "Value": "Миграция c ASP.NET",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Миграция c ASP.NET.html",
-                  "IsOpen": false,
-                  "Index": 17,
-                  "Documents": []
-                },
-                {
-                  "Name": "Health checks",
-                  "Value": "Health checks",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 3 - Senior\\Health checks.html",
-                  "IsOpen": false,
-                  "Index": 18,
                   "Documents": []
                 }
               ]
             },
             {
-              "Name": "webApi_steamlead",
+              "Name": "webApi_teamlead",
               "Value": "Level 4 - TeamLead",
               "Path": null,
               "IsOpen": false,
               "Index": 4,
               "Documents": [
                 {
-                  "Name": "OWIN middleware (UseOwin, ключи запроса, ключи ответа)",
-                  "Value": "OWIN middleware (UseOwin, ключи запроса, ключи ответа)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\OWIN middleware (UseOwin, ключи запроса, ключи ответа).html",
+                  "Name": "Обработка запроса контроллером (IHttpActionSelector, ApiControllerActionSelector,  IHttpActionInvoker, ApiControllerActionInvoker)",
+                  "Value": "Обработка запроса контроллером (IHttpActionSelector, ApiControllerActionSelector,  IHttpActionInvoker, ApiControllerActionInvoker)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Обработка запроса контроллером (IHttpActionSelector, ApiControllerActionSelector,  IHttpActionInvoker, ApiControllerActionInvoker).html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
                 },
                 {
-                  "Name": "HTTPS, HSTS",
-                  "Value": "HTTPS, HSTS",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\HTTPS, HSTS.html",
+                  "Name": "MediaTypeFormatter",
+                  "Value": "MediaTypeFormatter",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\MediaTypeFormatter.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
                 },
                 {
-                  "Name": "Создание кастомного провайдера конфигурации (ConfigurationProvider, IConfigurationSource)",
-                  "Value": "Создание кастомного провайдера конфигурации (ConfigurationProvider, IConfigurationSource)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Создание кастомного провайдера конфигурации (ConfigurationProvider, IConfigurationSource).html",
+                  "Name": "CORS",
+                  "Value": "CORS",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\CORS.html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
                 },
                 {
-                  "Name": "Работа с маршрутами (RouteData, ограничения, IRouter)",
-                  "Value": "Работа с маршрутами (RouteData, ограничения, IRouter)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Работа с маршрутами (RouteData, ограничения, IRouter).html",
+                  "Name": "OverrideFilterAttribute, IOverrideFilter",
+                  "Value": "OverrideFilterAttribute, IOverrideFilter",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\OverrideFilterAttribute, IOverrideFilter.html",
                   "IsOpen": false,
                   "Index": 4,
                   "Documents": []
                 },
                 {
-                  "Name": "Создание своего движка представлений и пресдтавления (IViewEngine, IView)",
-                  "Value": "Создание своего движка представлений и пресдтавления (IViewEngine, IView)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Создание своего движка представлений и пресдтавления (IViewEngine, IView).html",
+                  "Name": "Конвейер обработки запроса (HttpServer, HttpRoutingDispatcher, HttpControllerDispatcher)",
+                  "Value": "Конвейер обработки запроса (HttpServer, HttpRoutingDispatcher, HttpControllerDispatcher)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Конвейер обработки запроса (HttpServer, HttpRoutingDispatcher, HttpControllerDispatcher).html",
                   "IsOpen": false,
                   "Index": 5,
                   "Documents": []
                 },
                 {
-                  "Name": "Области (создание и регистрация)",
-                  "Value": "Области (создание и регистрация)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Области (создание и регистрация).html",
+                  "Name": "OData (endpoints, controllers, entity relations, attributes)",
+                  "Value": "OData (endpoints, controllers, entity relations, attributes)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\OData (endpoints, controllers, entity relations, attributes).html",
                   "IsOpen": false,
                   "Index": 6,
-                  "Documents": []
-                },
-                {
-                  "Name": "View Components (способы создания, передача параметров, возвращаемые значения)",
-                  "Value": "View Components (способы создания, передача параметров, возвращаемые значения)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\View Components (способы создания, передача параметров, возвращаемые значения).html",
-                  "IsOpen": false,
-                  "Index": 7,
-                  "Documents": []
-                },
-                {
-                  "Name": "Создание своихтаг",
-                  "Value": "Создание своихтаг",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Создание своихтаг.html",
-                  "IsOpen": false,
-                  "Index": 8,
-                  "Documents": []
-                },
-                {
-                  "Name": "хелперов",
-                  "Value": "хелперов",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\хелперов.html",
-                  "IsOpen": false,
-                  "Index": 9,
-                  "Documents": []
-                },
-                {
-                  "Name": "Бандлинг и минификация (bundleconfig.json)",
-                  "Value": "Бандлинг и минификация (bundleconfig.json)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Бандлинг и минификация (bundleconfig.json).html",
-                  "IsOpen": false,
-                  "Index": 10,
-                  "Documents": []
-                },
-                {
-                  "Name": "Сжатие ответа (AddResponseCompression, UseResponseCompression)",
-                  "Value": "Сжатие ответа (AddResponseCompression, UseResponseCompression)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Сжатие ответа (AddResponseCompression, UseResponseCompression).html",
-                  "IsOpen": false,
-                  "Index": 11,
-                  "Documents": []
-                },
-                {
-                  "Name": "URL Rewriting",
-                  "Value": "URL Rewriting",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\URL Rewriting.html",
-                  "IsOpen": false,
-                  "Index": 12,
-                  "Documents": []
-                },
-                {
-                  "Name": "Globalization, Localization (RequestLocalizationMiddleware, IStringLocalizer,AddLocalization, IViewLocalizer, AddViewLocalization, AddDataAnnotationsLocalization)",
-                  "Value": "Globalization, Localization (RequestLocalizationMiddleware, IStringLocalizer,AddLocalization, IViewLocalizer, AddViewLocalization, AddDataAnnotationsLocalization)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Globalization, Localization (RequestLocalizationMiddleware, IStringLocalizer,AddLocalization, IViewLocalizer, AddViewLocalization, AddDataAnnotationsLocalization).html",
-                  "IsOpen": false,
-                  "Index": 13,
-                  "Documents": []
-                },
-                {
-                  "Name": "Web API conventions",
-                  "Value": "Web API conventions",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Web API conventions.html",
-                  "IsOpen": false,
-                  "Index": 14,
-                  "Documents": []
-                },
-                {
-                  "Name": "Application Parts in ASP.NET Core",
-                  "Value": "Application Parts in ASP.NET Core",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\Application Parts in ASP.NET Core.html",
-                  "IsOpen": false,
-                  "Index": 15,
-                  "Documents": []
-                },
-                {
-                  "Name": "HTTP2",
-                  "Value": "HTTP2",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Web API\\Level 4 - TeamLead\\HTTP2.html",
-                  "IsOpen": false,
-                  "Index": 16,
                   "Documents": []
                 }
               ]
@@ -3031,6 +2860,14 @@
                   "IsOpen": false,
                   "Index": 9,
                   "Documents": []
+                },
+                {
+                  "Name": "Environments (Set, Check, Environment Tag Helper, launchSettings.json)",
+                  "Value": "Environments (Set, Check, Environment Tag Helper, launchSettings.json)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 1 - Junior\\Environments (Set, Check, Environment Tag Helper, launchSettings.json).html",
+                  "IsOpen": false,
+                  "Index": 9,
+                  "Documents": []
                 }
               ]
             },
@@ -3050,11 +2887,19 @@
                   "Documents": []
                 },
                 {
+                  "Name": "IStartupFilter",
+                  "Value": "IStartupFilter",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\IStartupFilter.html",
+                  "IsOpen": false,
+                  "Index": 2,
+                  "Documents": []
+                },
+                {
                   "Name": "HttpContext.Items, Куки, Сессия",
                   "Value": "HttpContext.Items, Куки, Сессия",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\HttpContext.Items, Куки, Сессия.html",
                   "IsOpen": false,
-                  "Index": 2,
+                  "Index": 3,
                   "Documents": []
                 },
                 {
@@ -3062,7 +2907,7 @@
                   "Value": "DI и ASP.NET Core (получение зависимостей, жизненный цикл)",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\DI и ASP.NET Core (получение зависимостей, жизненный цикл).html",
                   "IsOpen": false,
-                  "Index": 3,
+                  "Index": 4,
                   "Documents": []
                 },
                 {
@@ -3070,7 +2915,7 @@
                   "Value": "Основы конфигурации (IConfiguration, ConfigurationBuilder, встроенные провадерыконфигурации, настройка по умолчанию)",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Основы конфигурации (IConfiguration, ConfigurationBuilder, встроенные провадерыконфигурации, настройка по умолчанию).html",
                   "IsOpen": false,
-                  "Index": 4,
+                  "Index": 5,
                   "Documents": []
                 },
                 {
@@ -3078,7 +2923,7 @@
                   "Value": "Переопределение контроллеров (OnActionExecuting, OnActionExecuted)",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Переопределение контроллеров (OnActionExecuting, OnActionExecuted).html",
                   "IsOpen": false,
-                  "Index": 5,
+                  "Index": 6,
                   "Documents": []
                 },
                 {
@@ -3086,7 +2931,7 @@
                   "Value": "Передача зависимостей в контроллер (конструктор, FromServices, HttpContext.RequestServices)",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Передача зависимостей в контроллер (конструктор, FromServices, HttpContext.RequestServices).html",
                   "IsOpen": false,
-                  "Index": 6,
+                  "Index": 7,
                   "Documents": []
                 },
                 {
@@ -3094,39 +2939,23 @@
                   "Value": "Управлениепривязкой (BindRequired и BindNever, FromHeader, FromQuery, FromRoute, FromForm, FromBody)",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Управлениепривязкой (BindRequired и BindNever, FromHeader, FromQuery, FromRoute, FromForm, FromBody).html",
                   "IsOpen": false,
-                  "Index": 7,
-                  "Documents": []
-                },
-                {
-                  "Name": "Tag Helpers (подключение, AnchorTagHelper, LinkTagHelper и ScriptTagHelper, Tag",
-                  "Value": "Tag Helpers (подключение, AnchorTagHelper, LinkTagHelper и ScriptTagHelper, Tag",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Tag Helpers (подключение, AnchorTagHelper, LinkTagHelper и ScriptTagHelper, Tag.html",
-                  "IsOpen": false,
                   "Index": 8,
                   "Documents": []
                 },
                 {
-                  "Name": "хелперы форм)",
-                  "Value": "хелперы форм)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\хелперы форм).html",
+                  "Name": "Tag Helpers (подключение, AnchorTagHelper, LinkTagHelper и ScriptTagHelper, Tag - хелперы форм)",
+                  "Value": "Tag Helpers (подключение, AnchorTagHelper, LinkTagHelper и ScriptTagHelper, Tag - хелперы форм)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Tag Helpers (подключение, AnchorTagHelper, LinkTagHelper и ScriptTagHelper, Tag - хелперы форм).html",
                   "IsOpen": false,
                   "Index": 9,
                   "Documents": []
                 },
                 {
-                  "Name": "Фильтры в MVC (конвейерфильтров",
-                  "Value": "Фильтры в MVC (конвейерфильтров",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Фильтры в MVC (конвейерфильтров.html",
+                  "Name": "Фильтры в MVC (конвейерфильтров,filter pipeline, Передача параметров в фильтры и установка зависимостей, ServiceFilterAttribute, TypeFilter",
+                  "Value": "Фильтры в MVC (конвейерфильтров,filter pipeline, Передача параметров в фильтры и установка зависимостей, ServiceFilterAttribute, TypeFilter",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Фильтры в MVC (конвейерфильтров,filter pipeline, Передача параметров в фильтры и установка зависимостей, ServiceFilterAttribute, TypeFilter.html",
                   "IsOpen": false,
                   "Index": 10,
-                  "Documents": []
-                },
-                {
-                  "Name": "filter pipeline, Передача параметров в фильтры и установка зависимостей, ServiceFilterAttribute, TypeFilterAttribute)",
-                  "Value": "filter pipeline, Передача параметров в фильтры и установка зависимостей, ServiceFilterAttribute, TypeFilterAttribute)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\filter pipeline, Передача параметров в фильтры и установка зависимостей, ServiceFilterAttribute, TypeFilterAttribute).html",
-                  "IsOpen": false,
-                  "Index": 11,
                   "Documents": []
                 },
                 {
@@ -3134,7 +2963,7 @@
                   "Value": "Фильтры ресурсов (IResourceFilter, IAsyncResourceFilter)",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Фильтры ресурсов (IResourceFilter, IAsyncResourceFilter).html",
                   "IsOpen": false,
-                  "Index": 12,
+                  "Index": 11,
                   "Documents": []
                 },
                 {
@@ -3142,7 +2971,7 @@
                   "Value": "Фильтры действий(IActionFilter, IAsyncActionFilter)",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Фильтры действий(IActionFilter, IAsyncActionFilter).html",
                   "IsOpen": false,
-                  "Index": 13,
+                  "Index": 12,
                   "Documents": []
                 },
                 {
@@ -3150,7 +2979,7 @@
                   "Value": "Фильтры результатов (IResultFilter, IAsyncResultFilter)",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Фильтры результатов (IResultFilter, IAsyncResultFilter).html",
                   "IsOpen": false,
-                  "Index": 14,
+                  "Index": 13,
                   "Documents": []
                 },
                 {
@@ -3158,23 +2987,15 @@
                   "Value": "Фильтры исключений (IExceptionFilter, IAsyncExceptionFilter)",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Фильтры исключений (IExceptionFilter, IAsyncExceptionFilter).html",
                   "IsOpen": false,
+                  "Index": 14,
+                  "Documents": []
+                },
+                {
+                  "Name": "IHttpClientFactory, HttpClient, AddHttpMessageHandler, Polly",
+                  "Value": "IHttpClientFactory, HttpClient, AddHttpMessageHandler, Polly",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\IHttpClientFactory, HttpClient, AddHttpMessageHandler, Polly.html",
+                  "IsOpen": false,
                   "Index": 15,
-                  "Documents": []
-                },
-                {
-                  "Name": "IHttpClientFactory, HttpClient",
-                  "Value": "IHttpClientFactory, HttpClient",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\IHttpClientFactory, HttpClient.html",
-                  "IsOpen": false,
-                  "Index": 16,
-                  "Documents": []
-                },
-                {
-                  "Name": "Environments (профили,конфиги)",
-                  "Value": "Environments (профили,конфиги)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 2 - Middle\\Environments (профили,конфиги).html",
-                  "IsOpen": false,
-                  "Index": 17,
                   "Documents": []
                 }
               ]
@@ -3193,13 +3014,21 @@
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
+                },                
+                {
+                  "Name": "Основы маршрутизации (RouterMiddleware, RouteHandler, RouteBuilder, MapRoute)",
+                  "Value": "Основы маршрутизации (RouterMiddleware, RouteHandler, RouteBuilder, MapRoute)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Основы маршрутизации (RouterMiddleware, RouteHandler, RouteBuilder, MapRoute).html",
+                  "IsOpen": false,
+                  "Index": 2,
+                  "Documents": []
                 },
                 {
                   "Name": "Создание кастомных middleware компонентов и их регистрация",
                   "Value": "Создание кастомных middleware компонентов и их регистрация",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Создание кастомных middleware компонентов и их регистрация.html",
                   "IsOpen": false,
-                  "Index": 2,
+                  "Index": 3,
                   "Documents": []
                 },
                 {
@@ -3207,31 +3036,39 @@
                   "Value": "IHosting Environment",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\IHosting Environment.html",
                   "IsOpen": false,
-                  "Index": 3,
-                  "Documents": []
-                },
-                {
-                  "Name": "Обработка ошибок (UseDeveloperExceptionPage, UseExceptionHandler,StatusCodePagesMiddleware)",
-                  "Value": "Обработка ошибок (UseDeveloperExceptionPage, UseExceptionHandler,StatusCodePagesMiddleware)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Обработка ошибок (UseDeveloperExceptionPage, UseExceptionHandler,StatusCodePagesMiddleware).html",
-                  "IsOpen": false,
                   "Index": 4,
                   "Documents": []
                 },
                 {
-                  "Name": "Передача конфигурации через IOptions (AddOptions, Configure)",
-                  "Value": "Передача конфигурации через IOptions (AddOptions, Configure)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Передача конфигурации через IOptions (AddOptions, Configure).html",
+                  "Name": "Обработка ошибок (UseDeveloperExceptionPage, UseExceptionHandler, StatusCodePagesMiddleware)",
+                  "Value": "Обработка ошибок (UseDeveloperExceptionPage, UseExceptionHandler, StatusCodePagesMiddleware)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Обработка ошибок (UseDeveloperExceptionPage, UseExceptionHandler, StatusCodePagesMiddleware).html",
                   "IsOpen": false,
                   "Index": 5,
                   "Documents": []
                 },
                 {
-                  "Name": "Основы маршрутизации (RouterMiddleware, RouteHandler, RouteBuilder, MapRoute)",
-                  "Value": "Основы маршрутизации (RouterMiddleware, RouteHandler, RouteBuilder, MapRoute)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Основы маршрутизации (RouterMiddleware, RouteHandler, RouteBuilder, MapRoute).html",
+                  "Name": "Передача конфигурации через IOptions (AddOptions, Configure)1",
+                  "Value": "Передача конфигурации через IOptions (AddOptions, Configure)1",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Передача конфигурации через IOptions (AddOptions, Configure)1.html",
                   "IsOpen": false,
                   "Index": 6,
+                  "Documents": []
+                },
+                {
+                  "Name": "IOptionsSnapshot, IOptionsMonitor",
+                  "Value": "IOptionsSnapshot, IOptionsMonitor",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\IOptionsSnapshot, IOptionsMonitor.html",
+                  "IsOpen": false,
+                  "Index": 7,
+                  "Documents": []
+                },
+                {
+                  "Name": "ConfigurationBinder.Bind",
+                  "Value": "ConfigurationBinder.Bind",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\ConfigurationBinder.Bind.html",
+                  "IsOpen": false,
+                  "Index": 8,
                   "Documents": []
                 },
                 {
@@ -3239,7 +3076,7 @@
                   "Value": "Файл _ViewImports.cshtml",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Файл _ViewImports.cshtml.html",
                   "IsOpen": false,
-                  "Index": 7,
+                  "Index": 9,
                   "Documents": []
                 },
                 {
@@ -3247,37 +3084,21 @@
                   "Value": "Внедрение зависимостей в представления (@inject)",
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Внедрение зависимостей в представления (@inject).html",
                   "IsOpen": false,
-                  "Index": 8,
-                  "Documents": []
-                },
-                {
-                  "Name": "Кастомные HTML",
-                  "Value": "Кастомные HTML",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Кастомные HTML.html",
-                  "IsOpen": false,
-                  "Index": 9,
-                  "Documents": []
-                },
-                {
-                  "Name": "хелперы",
-                  "Value": "хелперы",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\хелперы.html",
-                  "IsOpen": false,
                   "Index": 10,
                   "Documents": []
                 },
                 {
-                  "Name": "Tag Helpers (Tag",
-                  "Value": "Tag Helpers (Tag",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Tag Helpers (Tag.html",
+                  "Name": "Кастомные HTML-хелперы",
+                  "Value": "Кастомные HTML-хелперы",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Кастомные HTML-хелперы.html",
                   "IsOpen": false,
                   "Index": 11,
                   "Documents": []
                 },
                 {
-                  "Name": "хелперы валидации, EnvironmentTagHelper, CacheTagHelper)",
-                  "Value": "хелперы валидации, EnvironmentTagHelper, CacheTagHelper)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\хелперы валидации, EnvironmentTagHelper, CacheTagHelper).html",
+                  "Name": "Tag Helpers (Tag-хелперы валидации, EnvironmentTagHelper, CacheTagHelper)",
+                  "Value": "Tag Helpers (Tag-хелперы валидации, EnvironmentTagHelper, CacheTagHelper)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Tag Helpers (Tag-хелперы валидации, EnvironmentTagHelper, CacheTagHelper).html",
                   "IsOpen": false,
                   "Index": 12,
                   "Documents": []
@@ -3307,9 +3128,9 @@
                   "Documents": []
                 },
                 {
-                  "Name": "SignalR (подключение, Hub, IHubContext)",
-                  "Value": "SignalR (подключение, Hub, IHubContext)",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\SignalR (подключение, Hub, IHubContext).html",
+                  "Name": "SignalR (подключение, Hub, IHubContext, Reconnecting, Auth, HubInvocationContext)",
+                  "Value": "SignalR (подключение, Hub, IHubContext, Reconnecting, Auth, HubInvocationContext)",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\SignalR (подключение, Hub, IHubContext, Reconnecting, Auth, HubInvocationContext).html",
                   "IsOpen": false,
                   "Index": 16,
                   "Documents": []
@@ -3328,6 +3149,14 @@
                   "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Health checks.html",
                   "IsOpen": false,
                   "Index": 18,
+                  "Documents": []
+                },
+                {
+                  "Name": "Environment-based Startup class and methods",
+                  "Value": "Environment-based Startup class and methods",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\ASP.NET Core\\Level 3 - Senior\\Environment-based Startup class and methods.html",
+                  "IsOpen": false,
+                  "Index": 19,
                   "Documents": []
                 }
               ]
@@ -4092,9 +3921,9 @@
                   "Documents": []
                 },
                 {
-                  "Name": "Window (свойства + жизненный цикл)",
-                  "Value": "Window (свойства + жизненный цикл)",
-                  "Path": "Разработка desktop-приложений и служб\\WPF\\Level 2 - Middle\\Window (свойства + жизненный цикл).html",
+                  "Name": "Window (свойства и жизненный цикл)",
+                  "Value": "Window (свойства и жизненный цикл)",
+                  "Path": "Разработка desktop-приложений и служб\\WPF\\Level 2 - Middle\\Window (свойства и жизненный цикл).html",
                   "IsOpen": false,
                   "Index": 12,
                   "Documents": []
@@ -4313,9 +4142,9 @@
               "Index": 2,
               "Documents": [
                 {
-                  "Name": "Security Context (Запуск от имени:)",
-                  "Value": "Security Context (Запуск от имени:)",
-                  "Path": "Разработка desktop-приложений и служб\\Windows Service (and Linux)\\Level 2 - Middle\\Security Context (Запуск от имени:).html",
+                  "Name": "Security Context (Запуск от имени)",
+                  "Value": "Security Context (Запуск от имени)",
+                  "Path": "Разработка desktop-приложений и служб\\Windows Service (and Linux)\\Level 2 - Middle\\Security Context (Запуск от имени).html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
@@ -4979,43 +4808,19 @@
                   "Documents": []
                 },
                 {
-                  "Name": "Способы управления схемами БД (Миграции",
-                  "Value": "Способы управления схемами БД (Миграции",
-                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 1 - Junior\\Способы управления схемами БД (Миграции.html",
+                  "Name": "Способы управления схемами БД (Миграции, Code first, Database first, Scaffold - DbContext)",
+                  "Value": "Способы управления схемами БД (Миграции, Code first, Database first, Scaffold - DbContext)",
+                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 1 - Junior\\Способы управления схемами БД (Миграции, Code first, Database first, Scaffold - DbContext)",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
-                },
-                {
-                  "Name": "Code first, Database first",
-                  "Value": "Code first, Database first",
-                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 1 - Junior\\Code first, Database first.html",
-                  "IsOpen": false,
-                  "Index": 4,
-                  "Documents": []
-                },
-                {
-                  "Name": "Scaffold",
-                  "Value": "Scaffold",
-                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 1 - Junior\\Scaffold.html",
-                  "IsOpen": false,
-                  "Index": 5,
-                  "Documents": []
-                },
-                {
-                  "Name": "DbContext)",
-                  "Value": "DbContext)",
-                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 1 - Junior\\DbContext).html",
-                  "IsOpen": false,
-                  "Index": 6,
-                  "Documents": []
-                },
+                },              
                 {
                   "Name": "DbContext, DbSet. Основныеоперации по работе с моделями",
                   "Value": "DbContext, DbSet. Основныеоперации по работе с моделями",
                   "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 1 - Junior\\DbContext, DbSet. Основныеоперации по работе с моделями.html",
                   "IsOpen": false,
-                  "Index": 7,
+                  "Index": 4,
                   "Documents": []
                 },
                 {
@@ -5023,7 +4828,7 @@
                   "Value": "Что такое EF, Entity",
                   "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 1 - Junior\\Что такое EF, Entity.html",
                   "IsOpen": false,
-                  "Index": 8,
+                  "Index": 5,
                   "Documents": []
                 }
               ]
@@ -5133,9 +4938,9 @@
               "Index": 3,
               "Documents": [
                 {
-                  "Name": "Логирование операций",
-                  "Value": "Логирование операций",
-                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 3 - Senior\\Логирование операций.html",
+                  "Name": "Логирование операций1",
+                  "Value": "Логирование операций1",
+                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 3 - Senior\\Логирование операций1.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
@@ -5294,9 +5099,9 @@
                   "Documents": []
                 },
                 {
-                  "Name": "Query Types",
-                  "Value": "Query Types",
-                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 4 - TeamLead\\Query Types.html",
+                  "Name": "Query Types (ToView)",
+                  "Value": "Query Types (ToView)",
+                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 4 - TeamLead\\Query Types (ToView).html",
                   "IsOpen": false,
                   "Index": 8,
                   "Documents": []
@@ -5316,7 +5121,15 @@
                   "IsOpen": false,
                   "Index": 10,
                   "Documents": []
-                }
+                },
+                {
+                  "Name": "Interceptors (AddInterceptors, DbCommandInterceptor)",
+                  "Value": "Interceptors (AddInterceptors, DbCommandInterceptor)",
+                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 4 - TeamLead\\Interceptors (AddInterceptors, DbCommandInterceptor).html",
+                  "IsOpen": false,
+                  "Index": 11,
+                  "Documents": []
+                }               
               ]
             }
           ]
@@ -5339,6 +5152,14 @@
                   "Name": "NoSQL",
                   "Value": "NoSQL",
                   "Path": "Хранение и обработка данных\\Другие фреймворки\\All Level\\NoSQL.html",
+                  "IsOpen": false,
+                  "Index": 1,
+                  "Documents": []
+                },
+                {
+                  "Name": "Cassandra",
+                  "Value": "Cassandra",
+                  "Path": "Хранение и обработка данных\\Другие фреймворки\\All Level\\Cassandra.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
@@ -5658,17 +5479,17 @@
               "Index": 1,
               "Documents": [
                 {
-                  "Name": "Общие признаки",
-                  "Value": "Общие признаки",
-                  "Path": "Проектирование\\MVC, MVVM, SOA, Microservices\\Level 2 - Middle\\Общие признаки.html",
+                  "Name": "MV-паттерны",
+                  "Value": "MV-паттерны",
+                  "Path": "Проектирование\\MVC, MVVM, SOA, Microservices\\Level 2 - Middle\\MV-паттерны.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
                 },
                 {
-                  "Name": "Общие правила выбора паттерна",
-                  "Value": "Общие правила выбора паттерна",
-                  "Path": "Проектирование\\MVC, MVVM, SOA, Microservices\\Level 2 - Middle\\Общие правила выбора паттерна.html",
+                  "Name": "SOA Микросервисы",
+                  "Value": "SOA Микросервисы",
+                  "Path": "Проектирование\\MVC, MVVM, SOA, Microservices\\Level 2 - Middle\\SOA Микросервисы.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
@@ -5766,17 +5587,17 @@
               "Index": 3,
               "Documents": [
                 {
-                  "Name": "Общая концепция",
-                  "Value": "Общая концепция",
-                  "Path": "Проектирование\\DDD\\Level 3 - Senior\\Общая концепция.html",
+                  "Name": "Общая концепция1",
+                  "Value": "Общая концепция1",
+                  "Path": "Проектирование\\DDD\\Level 3 - Senior\\Общая концепция1.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
                 },
                 {
-                  "Name": "Prodscons",
-                  "Value": "Prodscons",
-                  "Path": "Проектирование\\DDD\\Level 3 - Senior\\Prodscons.html",
+                  "Name": "Prodscons1",
+                  "Value": "Prodscons1",
+                  "Path": "Проектирование\\DDD\\Level 3 - Senior\\Prodscons1.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
@@ -5816,8 +5637,8 @@
               ]
             },
             {
-              "Name": "ddd_senior",
-              "Value": "Level 3 - Senior",
+              "Name": "ddd_teamlead",
+              "Value": "Level 4 - TeamLead",
               "Path": null,
               "IsOpen": false,
               "Index": 3,
@@ -5825,7 +5646,7 @@
                 {
                   "Name": "Domain Event",
                   "Value": "Domain Event",
-                  "Path": "Проектирование\\DDD\\Level 3 - Senior\\Domain Event.html",
+                  "Path": "Проектирование\\DDD\\Level 4 - TeamLead\\Domain Event.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
@@ -5833,7 +5654,7 @@
                 {
                   "Name": "Aggregate",
                   "Value": "Aggregate",
-                  "Path": "Проектирование\\DDD\\Level 3 - Senior\\Aggregate.html",
+                  "Path": "Проектирование\\DDD\\Level 4 - TeamLead\\Aggregate.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
@@ -5841,7 +5662,7 @@
                 {
                   "Name": "Service",
                   "Value": "Service",
-                  "Path": "Проектирование\\DDD\\Level 3 - Senior\\Service.html",
+                  "Path": "Проектирование\\DDD\\Level 4 - TeamLead\\Service.html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
@@ -5849,7 +5670,7 @@
                 {
                   "Name": "Repositories",
                   "Value": "Repositories",
-                  "Path": "Проектирование\\DDD\\Level 3 - Senior\\Repositories.html",
+                  "Path": "Проектирование\\DDD\\Level 4 - TeamLead\\Repositories.html",
                   "IsOpen": false,
                   "Index": 4,
                   "Documents": []
@@ -5857,7 +5678,7 @@
                 {
                   "Name": "Factories",
                   "Value": "Factories",
-                  "Path": "Проектирование\\DDD\\Level 3 - Senior\\Factories.html",
+                  "Path": "Проектирование\\DDD\\Level 4 - TeamLead\\Factories.html",
                   "IsOpen": false,
                   "Index": 5,
                   "Documents": []
@@ -5931,9 +5752,9 @@
                   "Documents": []
                 },
                 {
-                  "Name": "Умеет писать тесты на ожидание исключений, проводить корректную инициализацию тестов и их последующую очистку ([TestInitialize], [TestCleanup], [ClassInitialize], [ClassCleanup])",
-                  "Value": "Умеет писать тесты на ожидание исключений, проводить корректную инициализацию тестов и их последующую очистку ([TestInitialize], [TestCleanup], [ClassInitialize], [ClassCleanup])",
-                  "Path": "Тестирование\\Модульное тестирование. Unit Testing Framework (MSTest, NUnit, xUnit)\\Level 2 - Middle\\Умеет писать тесты на ожидание исключений, проводить корректную инициализацию тестов и их последующую очистку ([TestInitialize], [TestCleanup], [ClassInitialize], [ClassCleanup]).html",
+                  "Name": "тесты на ожидание исключений, проводить корректную инициализацию тестов и их последующую очистку TestInitialize,TestCleanup,ClassInitialize,ClassCleanup",
+                  "Value": "TestInitialize, TestCleanup, ClassInitialize, ClassCleanup",
+                  "Path": "Тестирование\\Модульное тестирование. Unit Testing Framework (MSTest, NUnit, xUnit)\\TestInitialize, TestCleanup, ClassInitialize, ClassCleanup.html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []

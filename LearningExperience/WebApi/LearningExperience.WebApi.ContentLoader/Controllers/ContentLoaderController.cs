@@ -3,27 +3,48 @@
 namespace LearningExperience.WebApi.ContentLoader.Controllers
 {
     using System;
-    using System.IO;
+    using System.Net;
 
     using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.FileProviders;
 
     [ApiController]
     [Route("api/[controller]")]
-    [Produces("application/json")]
     public class ContentLoaderController : ControllerBase
     {
         private readonly string folderPath;
 
-        public ContentLoaderController(IConfiguration configuration) =>
+        private readonly PhysicalFileProvider fileProvider;
+
+        public ContentLoaderController(IConfiguration configuration)
+        {
             folderPath = configuration["DocumentsSchemeFolder"]
                          ?? throw new NullReferenceException("Configuration key - DocumentsSchemeFolder doesn't exist");
+            fileProvider = new PhysicalFileProvider(folderPath);
+        }
 
-        [HttpGet]
-        public string Get(string pathToFile)
+        [HttpGet("{path}")]
+        public ContentResult Get(string path)
         {
-            var path = Path.Combine(folderPath, pathToFile);
-            var content = System.IO.File.ReadAllText(path);
-            return content;
+            try
+            {
+                var fileContent = System.IO.File.ReadAllText(fileProvider.GetFileInfo(path).PhysicalPath);
+                return new ContentResult
+                           {
+                               ContentType = "text/html",
+                               StatusCode = (int)HttpStatusCode.OK,
+                               Content = fileContent
+                };
+            }
+            catch
+            {
+                return new ContentResult
+                           {
+                               ContentType = "text/html",
+                               StatusCode = (int)HttpStatusCode.InternalServerError,
+                               Content = "<p>Произошла ошибка при получении содержимого файла</p>"
+                };
+            }
         }
     }
 }

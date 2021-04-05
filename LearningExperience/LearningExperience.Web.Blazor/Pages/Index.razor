@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using System.Text.Json
 @using LearningExperience.Web.Blazor.Models
 @inject HttpClient HttpClient
 
@@ -33,9 +32,20 @@
 
     private async Task LoadFileContentAsync(Document document)
     {
-        var response = await HttpClient.GetAsync("https://localhost:5000/weatherforecast").ConfigureAwait(false);
-        var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-        contentMarkup = JsonSerializer.Deserialize<string>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-        Console.WriteLine(contentMarkup);
+        try
+        {
+            Console.WriteLine(document.Path);
+            var decoded = Uri.EscapeUriString(document.Path);
+            // Console.WriteLine(decoded);
+            var response = await HttpClient.GetAsync($"https://localhost:5000/api/contentloader/{decoded}").ConfigureAwait(false);
+            Console.WriteLine(response.StatusCode);
+            contentMarkup = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            Console.WriteLine(contentMarkup);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }

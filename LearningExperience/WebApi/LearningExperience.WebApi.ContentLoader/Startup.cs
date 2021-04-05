@@ -6,6 +6,10 @@ using Microsoft.Extensions.Hosting;
 
 namespace LearningExperience.WebApi.ContentLoader
 {
+    using System;
+
+    using Microsoft.Extensions.FileProviders;
+
     public class Startup
     {
         public Startup(IConfiguration configuration) => Configuration = configuration;
@@ -34,6 +38,15 @@ namespace LearningExperience.WebApi.ContentLoader
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => endpoints.MapControllers());
+
+            app.UseStaticFiles();
+
+            app.UseStaticFiles(new StaticFileOptions
+                                   {
+                                       FileProvider = new PhysicalFileProvider(Configuration["DocumentsSchemeFolder"]
+                                                                               ?? throw new NullReferenceException("Configuration key - DocumentsSchemeFolder doesn't exist")),
+                                       RequestPath = "/Documents"
+                                   });
         }
     }
 }

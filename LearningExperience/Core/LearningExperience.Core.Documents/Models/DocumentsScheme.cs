@@ -8,8 +8,7 @@ namespace LearningExperience.Core.Documents.Models
     }
 
     // ReSharper disable once StyleCop.SA1402
-    public class Document : DocumentBase
+    public class Document : DocumentBase<Document>
     {
-        public List<Document> Documents { get; set; }
     }
 }

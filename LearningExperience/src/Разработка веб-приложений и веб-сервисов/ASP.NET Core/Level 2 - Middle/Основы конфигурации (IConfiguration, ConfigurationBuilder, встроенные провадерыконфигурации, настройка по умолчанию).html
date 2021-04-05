@@ -1,0 +1,20 @@
+<ul>
+    <li><p>Аргументы командной строки</p></li>
+    <li><p>Переменные среды окружения</p></li>
+    <li><p>Объекты .NET в памяти</p></li>
+    <li><p>Файлы (json, xml, ini)</p></li>
+    <li><p>Azure</p></li>
+    <li><p>Можно использовать свои кастомные источники и под них создавать провайдеры конфигурации</p></li>
+    </ul>
+<p>Объект IConfiguration по сути хранит все конфигурационные настройки в виде набора пар "ключ"-"значение".</p>
+<p>Для создания объекта IConfigurationRoot применяется метод Build() класса ConfigurationBuilder. А с помощью объекта IConfigurationSource для ConfigurationBuilder устанавливается источник конфигурационных настроек.</p>
+
+<h4>Встроенные провайдеры конфигурации</h4>
+<ul>
+    <li>Microsoft.Extensions.Configuration.Json</li>
+    <li>Microsoft.Extensions.Configuration.Xml</li>
+    <li>Microsoft.Extensions.Configuration.EnvironmentVariables</li>
+    <li>Microsoft.Extensions.Configuration.CommandLine</li>
+    <li>Microsoft.Extensions.Configuration.DockerSecrets</li>
+    <li>Microsoft.Extensions.Configuration</li>
+</ul>

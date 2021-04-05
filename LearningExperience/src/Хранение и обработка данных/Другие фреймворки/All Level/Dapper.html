@@ -1,0 +1,17 @@
+<p><b>Dapper</b> представляет собой инструмент от компании Stack Exchange, который сопоставляет результаты sql-запросов с классами c#. В этом плане Dapper немного похож на Entity Framework. Однако за счет своей легковесности Dapper обеспечивает большую производительность и быстрее позволяет выполнять запросы, чем EF Core. В частности, dapper применяется в работе сайта stackoverflow.com.</p>
+<ul>
+    <li>Устанавливает нугет Dapper</li>
+    <li>Определяем модель</li>
+    <i>public class User
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public int Age { get; set; }
+        }</i>
+        <li>Получаем запросом из базы модель, без всякой необходимости использовать reader и проходить по нему в поисках столбцов</li>
+        <i>
+            using (IDbConnection db = new SqlConnection(connectionString))
+            <br>return db.Query<User>("SELECT * FROM Users WHERE Id = @id", new { id }).FirstOrDefault();
+            
+        </i>
+</ul>

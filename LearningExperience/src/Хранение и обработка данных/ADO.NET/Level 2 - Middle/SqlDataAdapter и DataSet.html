@@ -1,0 +1,16 @@
+<p> <b>DataSet</b> представляет хранилище данных, с которыми можно работать независимо от наличия подключения, а <b>SqlDataAdapter</b> заполняет DataSet данными из БД.</p>
+<p>Рассмотрим, как получить данные в DataSet через SqlDataAdapter. Для работы с DataSet особенно удобно использовать элементы управления, которые могут заполняться из внешнего источника данных, например, DataGridView в Windows Forms. </p>
+<code>
+    <br>using (SqlConnection connection = new SqlConnection(connectionString))
+    <br>{
+        <br>connection.Open();
+        <br>// Создаем объект DataAdapter
+        <br>SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+        <br>// Создаем объект Dataset
+        <br>DataSet ds = new DataSet();
+        <br>// Заполняем Dataset
+        <br>adapter.Fill(ds);
+        <br>// Отображаем данные
+        <br>dataGridView1.DataSource = ds.Tables[0];
+    <br>}
+</code>

@@ -1,0 +1,183 @@
+<h4>Первая Нормальная Форма</h4>
+<p>Отношение находится в 1НФ, если все его атрибуты являются простыми, все используемые члены содержат только скалярные значения. Не должно быть повторений строк в таблице</p>
+<h6>Неправильно:</h6>
+<table border="1" cellpadding="1">
+    <tr>
+        <td>Фирма</td>
+        <td>Модели</td>
+    </tr>
+    <tr>
+        <td>BMW</td>
+        <td>M5, X5, M1</td>
+    </tr>
+    <tr>
+        <td>Nissan</td>
+        <td>GT-R</td>
+    </tr>
+</table>
+<h6>Правильно:</h6>
+<table  border="1" cellpadding="1">
+    <tr>
+        <td>Фирма</td>
+        <td>Модели</td>
+    </tr>
+    <tr>
+        <td>BMW</td>
+        <td>M5</td>
+    </tr>
+    <tr>
+        <td>BMW</td>
+        <td>X5</td>
+    </tr>
+    <tr>
+        <td>BMW</td>
+        <td>M1</td>
+    </tr>
+    <tr>
+        <td>Nissan</td>
+        <td>GT-R</td>
+    </tr>
+</table>
+
+<br>
+<h4>Вторая Нормальная Форма</h4>
+<p>Отношение находится в 2НФ, если оно находится в 1НФ и каждый не ключевой элемент неприводимо зависит от перичного ключа</p>
+<h6>Неправильно:</h6>
+<table border="1" cellpadding="1">
+    <tr>        
+        <td>Модель</td>
+        <td>Фирма</td>
+        <td>Цена</td>
+        <td>Скидка</td>
+    </tr>
+    <tr>
+        <td>M5</td>
+        <td>BMW</td>
+        <td>48000000</td>
+        <td>5%</td>        
+    </tr>
+    <tr>
+        <td>X5</td>
+        <td>BMW</td>
+        <td>41000000</td>
+        <td>5%</td>        
+    </tr>
+    <tr>
+        <td>M1</td>
+        <td>BMW</td>
+        <td>3000000</td>
+        <td>5%</td>        
+    </tr>
+    <tr>
+        <td>GT-R</td>
+        <td>Nissan</td>
+        <td>5000000</td>
+        <td>10%</td>
+    </tr>
+</table>
+<h6>Правильно:</h6>
+<table  border="1" cellpadding="1">
+    <tr>
+        <td>Фирма</td>
+        <td>Скидка</td>
+    </tr>
+    <tr>
+        <td>BMW</td>
+        <td>5%</td>
+    </tr>
+    <tr>
+        <td>Nissan</td>
+        <td>10%</td>
+    </tr>  
+</table>
+<br>
+<table border="1" cellpadding="1">
+    <tr>        
+        <td>Модель</td>
+        <td>Фирма</td>
+        <td>Цена</td>        
+    </tr>
+    <tr>
+        <td>M5</td>
+        <td>BMW</td>
+        <td>48000000</td>          
+    </tr>
+    <tr>
+        <td>X5</td>
+        <td>BMW</td>
+        <td>41000000</td>             
+    </tr>
+    <tr>
+        <td>M1</td>
+        <td>BMW</td>
+        <td>3000000</td>        
+    </tr>
+    <tr>
+        <td>GT-R</td>
+        <td>Nissan</td>
+        <td>5000000</td>        
+    </tr>
+</table>
+
+<br>
+<h4>Третья Нормальная Форма</h4>
+<p>Отношение находится в 3НФ, если оно находится в 2НФ и все не ключевые поля, содержимое которых может относиться к нескольким записям таблицы, вынесены в отдельные таблицы</p>
+<h6>Неправильно:</h6>
+<table border="1" cellpadding="1">
+    <tr>        
+        <td>Модель</td>
+        <td>Магазин</td>
+        <td>Телефон</td>        
+    </tr>
+    <tr>        
+        <td>BMW</td>
+        <td>Риал-авто</td>
+        <td>87-15-99</td>        
+    </tr>
+    <tr>        
+        <td>Audi</td>
+        <td>Риал-авто</td>
+        <td>87-15-99</td>        
+    </tr>
+    <tr>        
+        <td>Nissan</td>
+        <td>Некст-авто</td>
+        <td>55-66-72</td>
+    </tr>    
+</table>
+<h6>Правильно:</h6>
+<table  border="1" cellpadding="1">
+    <tr>
+        <td>Магазин</td>
+        <td>Телефон</td>
+    </tr>
+    <tr>
+        <td>Риал-авто</td>
+        <td>87-15-99</td>   
+    </tr>
+    <tr>
+        <td>Некст-авто</td>
+        <td>55-66-72</td>
+    </tr>  
+</table>
+<br>
+<table border="1" cellpadding="1">
+    <tr>        
+        <td>Модель</td>
+        <td>Магазин</td>             
+    </tr>
+    <tr>        
+        <td>BMW</td>
+        <td>Риал-авто</td>          
+    </tr>
+    <tr>
+        <td>Audi</td>
+        <td>Риал-авто</td>             
+    </tr>
+    <tr>        
+        <td>Nissan</td>
+        <td>Некст-авто</td>        
+    </tr>    
+</table>
+
+

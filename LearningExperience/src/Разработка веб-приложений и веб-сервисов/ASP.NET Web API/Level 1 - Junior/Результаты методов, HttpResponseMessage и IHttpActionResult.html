@@ -1,0 +1,22 @@
+<h4>HttpResponseMessage</h4>
+<p>HttpResponseMessage является основным способом для возврата результата из метода в контроллере Web API</p>
+<h4>IHttpActionResult</h4>
+<p>В Web API 2 был добавлен новый тип объектов, которые используются в качестве результатов методов. Этот тип представляет интерфейс IHttpActionResult. Классы, реализующие данный интерфейс, во многом аналогичны классам, производным от ActionResult в MVC.</p>
+<p>Интерфейс IHttpActionResult имеет следующее определение:</p>
+<i><pre><code>Task&lt;HttpResponseMessage&gt; ExecuteAsync(CancellationToken cancellationToken);</code></pre></i>
+<p>Единственный метод интерфейса возвращает объект HttpResponseMessage, который представляет собой ответ клиенту. Поэтому хотя метод и возвращает объект IHttpActionResult, но в итоге данный объект также продуцирует HttpResponseMessage.</p>
+<ul>
+    <li><p><span class="bb">OkResult</span> возвращает ответ <code>HttpStatusCode.OK</code>, то есть статусный код HTTP 200. Создается с помощью метода 
+    <code>Ok</code> без параметров</p></li>
+    <li><p><span class="bb">OkNegotiatedContentResult&lt;T&gt;</span> возвращает статусный код HTTP 200, а также результат обработки в виде 
+    объекта типа T. Создается с помощью метода <code>Ok</code>, который в качестве параметра принимает объект, возвращаемый клиенту</p></li>
+    <li><p><span class="bb">NotFoundResult</span> возвращает в ответ статусный код 404. Создается с помощью метода <code>NotFound</code></p></li>
+    <li><p><span class="bb">ExceptionResult</span> возвращает в ответ статусный код 500, свидетельствующий об ошибке обработки запроса. 
+     Генерируется методом <code>InternalServerError(Exception)</code>, в который передается объект с описанием ошибки</p></li>
+    <li><p><span class="bb">UnauthorizedResult</span> возвращает в ответ статусный код 401, который говорит о том, что запрос должен быть 
+    аутентифицирован. Генерируется методом <code>Unauthorized</code></p></li>
+    <li><p><span class="bb">BadRequestResult</span> возвращает в ответ статусный код 400. Генерируется методом <code>BadRequest() </code> без параметров</p></li>
+    <li><p><span class="bb">JsonResult</span> возвращает объекты в формате json. Генерируется методом <code>Json(T content) </code>, который в качестве параметра 
+    принимает некоторый объект типа T. Данный объект сериализуется в формат json и отправляет в таком виде клиенту.</p></li>
+    <li><p><span class="bb">RedirectResult</span> позволяет переадресовать выполнение запроса.  Генерируется методом <code>Redirect(string path)</code></p></li>
+    </ul>

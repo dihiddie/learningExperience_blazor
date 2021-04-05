@@ -1,0 +1,9 @@
+<p>В SQL подзапросы — или внутренние запросы, или вложенные запросы — это запрос внутри другого запроса SQL, который вложен в условие WHERE.</p>
+<pre>
+SELECT column_name [, column_name ]
+FROM   table1 [, table2 ]
+WHERE  column_name OPERATOR
+  (SELECT column_name [, column_name ]
+  FROM table1 [, table2 ]
+  [WHERE])
+</pre>

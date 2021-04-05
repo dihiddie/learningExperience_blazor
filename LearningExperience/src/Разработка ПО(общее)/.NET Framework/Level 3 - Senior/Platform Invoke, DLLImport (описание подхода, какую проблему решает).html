@@ -1,0 +1,21 @@
+<p>P/Invoke — это технология, которая позволяет обращаться к структурам, обратным вызовам и функциям в неуправляемых библиотеках из управляемого кода. Большинство API P/Invoke содержится в двух пространствах имен: System и System.Runtime.InteropServices. Эти пространства имен предоставляют средства для описания способа взаимодействия с собственным компонентом.</p>
+<pre><code>
+using System;
+using System.Runtime.InteropServices;
+
+public class Program
+{
+    // Import user32.dll (containing the function we need) and define
+    // the method corresponding to the native function.
+    [DllImport(&quot;user32.dll&quot;, CharSet = CharSet.Unicode, SetLastError = true)]
+    private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
+
+    public static void Main(string[] args)
+    {
+        // Invoke the function as a regular managed method.
+        MessageBox(IntPtr.Zero, &quot;Command-line message box&quot;, &quot;Attention!&quot;, 0);
+    }
+}</code></pre>
+<p><strong>DllImport - атрибут.</strong> Этот атрибут является критически важным, так как он сообщает среде выполнения, что требуется загрузить неуправляемую библиотеку DLL. Передаваемая строка — это библиотека DLL, в которой находится наша целевая функция. Кроме того, в ней указывается, какая кодировка используется для маршалинга строк. В конце строки указано, что эта функция вызывает SetLastError и что среда выполнения должна перехватить этот код ошибки, чтобы пользователь получил его с помощью Marshal.GetLastWin32Error().</p>
+<p>Чтобы воспользоваться механизмом P/Invoke, управляемый код должен объявить статический внешний (static extern) метод с сигнатурой (типы параметров и тип возвращаемого значения), эквивалентной функции на языке C. В нашем случае это </p>
+<i>private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);</i>

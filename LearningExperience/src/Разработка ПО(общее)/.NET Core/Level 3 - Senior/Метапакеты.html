@@ -1,0 +1,22 @@
+<p>Метапакет, если совсем просто, то это пакет, который содержит ссылки на другие пакеты. Он не содержит никакого кода или библиотек. Когда вы добавляете метапакет в свой проект, вы добавляете все пакеты, от которых он зависит, вместе с их dll</p>
+<p>К примеру, метапакет Microsoft.AspNetCore. Если заглянуть во внутрь увидим следующее:</p>
+<img src="https://andrewlock.net/content/images/2017/02/Microsoft-AspNetCore.PNG">
+<p>Не особо много файлов, самый интересный из них - Microsoft.AspNetCore.nuspec. Он содержит детали метадат для пакета, включая все зависимости.</p>
+<p>Вот список этих пакетов:</p>
+<ul>
+    <li>Microsoft.AspNetCore.Diagnostics</li>
+    <li>Microsoft.AspNetCore.Hosting</li>
+    <li>Microsoft.AspNetCore.Routing</li>
+    <li>Microsoft.AspNetCore.Server.IISIntegration</li>
+    <li>Microsoft.AspNetCore.Server.Kestrel</li>
+    <li>Microsoft.Extensions.Configuration.EnvironmentVariables</li>
+    <li>Microsoft.Extensions.Configuration.FileExtensions</li>
+    <li>Microsoft.Extensions.Configuration.Json</li>
+    <li>Microsoft.Extensions.Logging</li>
+    <li>Microsoft.Extensions.Logging.Console</li>
+    <li>Microsoft.Extensions.Options.ConfigurationExtensions</li>
+    <li>NETStandard.Library</li>
+</ul>
+<p>Версии пакетов зависят он версии метапакета.</p>
+<p>Как видите, одного метапакета обычно недостаточно для создания полного приложения. Обычно для добавления возможностей MVC в ваше приложение вы обычно используете по крайней мере пакет Microsoft.AspNetCore.Mvc или Microsoft.AspNetCore.MvcCore, и часто может потребоваться множество других пакетов.</p>
+<p>Метапакеты могут ссылаться на другие метапакеты</p>

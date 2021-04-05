@@ -1,0 +1,13 @@
+<p>Конвертеры используются при работе с binding-ами и позволяют преобразовывать значения в одностороннем или двустороннем порядке (В зависимости от режима биндинга). Конвертеры также бывают двух типов — с одним значением и со множеством. За них отвечают интерфейсы IValueConverter и IMultiValueConverter соответственно.</p>
+<p>При <b>одиночном</b> значении мы используем обычные биндинги, обычно через встроенное в XAML расширение разметки BindingBase:</p>
+<code>< TextBlock Text="{Binding IntProp, Converter={StaticResource conv:IntToStringConverter}, ConverterParameter=plusOne}" /></code>
+<p>В случае <b>мульти-значения</b>, используется такая монструозная конструкция:</p>
+<code>    
+        < TextBlock.Text>
+        <br>< MultiBinding Converter="{StaticResource conv:IntToStringConverter}" ConverterParameter="plusOne">
+        <br>    < Binding Path="IntProp" />
+        <br>    < Binding Path="StringProp" />
+        <br></MultiBinding>
+        <br></TextBlock.Text>    
+</code>
+<b>Примеры конверторов: </b><p>IntToStringConverter, BoolToVisibilityConverter</p>

@@ -1,0 +1,10 @@
+<p>Доступные с C# 7.0, кортежи представляют собой краткий синтаксис для группировки данных в легковесную структуру</p>
+
+<p>(double, int) t1 = (4.5, 3);</p>
+<p>Console.WriteLine($"Tuple with elements {t1.Item1} and {t1.Item2}.");</p>
+
+<p>As the preceding example shows, to define a tuple type, you specify types of all its data members and, optionally, the field names. Beginning with C# 7.3, tuple types support equality operators == and !=. </p>
+<p>(int a, byte b) left = (5, 10);</p>
+<p>(long a, int b) right = (5, 10);</p>
+<p>Console.WriteLine(left == right);  // output: True</p>
+<p>Console.WriteLine(left != right);  // output: False</p>

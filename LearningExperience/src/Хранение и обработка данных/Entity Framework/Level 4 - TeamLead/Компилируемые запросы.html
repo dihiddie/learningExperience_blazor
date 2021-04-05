@@ -1,0 +1,34 @@
+<p>Скомпилированные запросы позволяют приложению кэшировать перевод запроса в форму, понятную для источника данных. Поэтому достаточно один раз создать такой запрос и затем выполнять его много раз, что повышает производительность приложения.</p>
+<p>Для компиляции запроса набор выражений LINQ передается в метод EF.CompileQuery(), а скомпилированный запрос затем присваивается делегату:</p>
+<i>делегат = EF.CompileQuery((параметры) => выражения_LINQ)</i>
+<pre><code> public class Program
+    {
+        private static Func&lt;ApplicationContext, int, Phone&gt; phoneById =
+            EF.CompileQuery((ApplicationContext db, int id) =&gt; 
+                    db.Phones.Include(c =&gt; c.Company).FirstOrDefault(c =&gt; c.Id == id));
+ 
+        private static Func&lt;ApplicationContext, string, int, IEnumerable&lt;Phone&gt;&gt; phonesByNameAndPrice =
+            EF.CompileQuery((ApplicationContext db, string name, int price) =&gt;
+                    db.Phones.Include(c =&gt; c.Company)
+                            .Where(p=&gt;EF.Functions.Like(p.Name, name) &amp;&amp; p.Price&gt;price));
+ 
+        public static void Main(string[] args)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                var phone = phoneById(db, 1);
+                Console.WriteLine($&quot;{phone.Name} - {phone.Price} \n&quot;);
+ 
+                var phones = phonesByNameAndPrice(db, &quot;%Galaxy%&quot;, 30000).ToList();
+                foreach (var p in phones)
+                    Console.WriteLine($&quot;{p.Name} - {p.Price}&quot;);
+            }
+ 
+            Console.Read();
+        }
+    }</code></pre>
+
+<hr>
+<p>Если приложение многократно выполняет похожие по структуре запросы на платформе Entity Framework, во многих случаях можно повысить производительность, скомпилировав запрос один раз, а затем выполняя его несколько раз с разными параметрами. Например, приложению может понадобиться получить всех клиентов из определенного города; имя города указывается пользователем во время выполнения с помощью формы. Для этих целей технология LINQ to Entities поддерживает использование скомпилированных запросов.
+<br>
+Начиная с .NET Framework 4,5 запросы LINQ кэшируются автоматически. Тем не менее можно использовать скомпилированные запросы LINQ для снижения затрат при последующем выполнении, и скомпилированные запросы могут быть более эффективными, чем запросы LINQ, которые автоматически сохраняются в кэше. </p>

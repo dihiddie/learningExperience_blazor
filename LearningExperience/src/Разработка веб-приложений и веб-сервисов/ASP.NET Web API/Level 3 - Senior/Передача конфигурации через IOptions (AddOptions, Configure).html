@@ -1,0 +1,24 @@
+<p>Долгое время в приложениях .NET для работы с файлами конфигурации использовался объект <a href="https://msdn.microsoft.com/en-US/library/system.configuration.configurationmanager(v=vs.110).aspx"><code>ConfigurationManager</code></a>, а каждая секция в конфигурационном файле описывалась через <a href="https://msdn.microsoft.com/en-US/library/2tw134k3(v=vs.100).aspx"><code>ConfigurationSection</code></a>. В <strong>ASP.NET Core</strong> подходы к работе с конфигурационными файлами изменились и на смену пришел интерфейс <code>IOptions</code>.</p>
+<h5>IOptions</h5>
+<p>ASP.NET Core позволяет описывать конфигурацию в виде простых .NET-объектов, освобождая нас от необходимости использовать дополнительные атрибуты и наследование (как это было с ConfigurationSection). Доступ к конфигурации в таком случае осуществляется путем внедрением зависимости IOptions<> в нужный компонент.</p>
+<p>Использование:</p>
+<ul>
+    <li>Формируем конфигурационный файл</li>
+    <li>Создаем модель, которая будет повторять структуру конфигурационного файла</li>
+    <li>Настраиваем ConfigureServices: <i> services.Configure&lt;OwnerOptions&gt;(...);</i></li>
+    <li>Для доступа из контроллера просто инъектим IOptions&lt;ConfigModel&gt;</li>
+    <li>Доступ к свойствам этого объекта осуществляется через свойство Value: <i>Account = сonfigModel.Value.Field</i></li>
+
+    <hr>
+    <li>Для заполнения значений из конфигурационного файла в метод Configure() следует передать свойство Configuration, которое определено в классе Startup, и в модели будут установлены те свойства, что так же присутствуют в конфиге</li>
+    <li>Или можно заполнить модель из отдельной секции конфиг-файла: <i>services.Configure&lt;ConnectionStringOptions&gt;(Configuration.GetSection(&quot;ConnectionStrings&quot;));</i></li>
+    <pre><code>
+    {
+        &quot;ConnectionStrings&quot;: {
+          &quot;DefaultConnection&quot;: &quot;Server=(localdb)\\mssql;Database=aspnet-webapp;Trusted_Connection=True;MultipleActiveResultSets=true&quot;
+        }
+    }
+    </code></pre>
+</ul>
+
+<a href="https://blog.zwezdin.com/2016/configuring-aspnet-core-apps-with-ioptions/"></a>

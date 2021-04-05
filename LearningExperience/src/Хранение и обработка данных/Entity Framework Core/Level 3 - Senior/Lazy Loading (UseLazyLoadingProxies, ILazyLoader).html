@@ -1,0 +1,39 @@
+<p>Lazy Loading может быть включен двумя способами</p>
+<ul>
+    <li>С использованием прокси</li>
+    <p>Прокси - это объекты, производные от ваших сущностей, которые создаются во время выполнения Entity Framework Core. К этим прокси-серверам добавлено поведение, которое приводит к выполнению запросов к базе данных, необходимых для загрузки свойств навигации по запросу. Это был механизм по умолчанию, используемый для обеспечения отложенной загрузки в предыдущей версии Entity Framework.</p>
+    <ul>
+        <li>Установить нугет Microsoft.EntityFrameworkCore.Proxies</li>
+        <li>В OnConfiguring методе включить UseLazyLoadingProxies</li>
+        <li>Все навигационные свойства - virtual</li>
+    </ul>
+    <li>С использованием сервиса ILazyLoader</li>
+    <p>Интерфейс ILazyLoader представляет собой компонент, который отвечает за загрузку свойств навигации, если они еще не были загружены. Такой подход позволяет избежать генерации прокси, которая поддерживается не на всех платформах. </p>
+    <ul>
+        <li>Установить нугет Microsoft.EntityFrameworkCore.Abstractions</li>
+        <li>В класс модели добавить конструктор, который принимает ILazyLoader через DI</li>
+        <li>Все навигационное свойство в геттер добавить загрузку: _lazyLoader.Load(this, ref _books);</li>
+        <pre><code>
+        public class Author
+        {
+            private readonly ILazyLoader _lazyLoader;
+            public Author()
+            {
+            }
+            public Author(<b>ILazyLoader lazyLoader</b>)
+            {
+                _lazyLoader = lazyLoader;
+            }
+            private List&lt;Book&gt; _books;
+            public int AuthorId { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public List&lt;Book&gt; Books
+            {
+                <b>get =&gt; _lazyLoader.Load(this, ref _books);</b>
+                set =&gt; _books = value;
+            }
+        }
+        </code></pre>
+    </ul>
+</ul>

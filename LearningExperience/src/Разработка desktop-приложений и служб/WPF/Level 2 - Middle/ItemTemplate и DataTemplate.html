@@ -1,0 +1,14 @@
+<p>Все элементы управления списками имеют свойство <b>ItemTemplate</b>, которое позволяет задать свой шаблон отображения данных. В качестве значения оно принимает объект <b>DataTemplate</b>. В качестве самих данных, которые отображаются в DataTemplate, как правило, выступают объекты пользовательских классов, создаваемых самим разработчиком.</p>
+<code>
+    <br>&lt;ListBox x:Name=&quot;phonesList&quot; SelectionChanged=&quot;phonesList_SelectionChanged&quot;&gt;
+    <br>&lt;ListBox.ItemTemplate&gt;
+    <br>&lt;DataTemplate&gt;
+    <br>&lt;StackPanel Margin=&quot;5&quot;&gt;
+    <br>&lt;Image Width=&quot;100&quot; Height=&quot;75&quot; Source=&quot;{Binding Path=ImagePath}&quot; /&gt;
+    <br>&lt;TextBlock FontSize=&quot;16&quot; Text=&quot;{Binding Path=Title}&quot; HorizontalAlignment=&quot;Center&quot; /&gt;
+    <br>&lt;TextBlock FontSize=&quot;16&quot; Text=&quot;{Binding Path=Company}&quot; HorizontalAlignment=&quot;Center&quot; /&gt;
+    <br>&lt;/StackPanel&gt;
+    <br>&lt;/DataTemplate&gt;
+    <br>&lt;/ListBox.ItemTemplate&gt;<br>
+&lt;/ListBox&gt;
+</code>

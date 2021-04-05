@@ -1,0 +1,35 @@
+<h5>FromUri</h5>
+<p>Чтобы заставить web-api прочитать ссылочный тип из uri, нужно добавить FromUri атрибут в параметр</p>
+<pre><code>
+public ValuesController : ApiController
+{
+    public HttpResponseMessage Get(<b>[FromUri]</b> GeoPoint location) { ... }
+}
+</code></pre>
+<p><i>http://localhost/api/values/?Latitude=47.678558&Longitude=-122.130989</i></p>
+
+<h5>FromBody</h5>
+<p>Чтобы заставить web-api прочитать значимый тип из реквест-боди, нужно добавить FromBody атрибут в параметр</p>
+<pre>public HttpResponseMessage Post([FromBody] string name) { ... }</pre>
+<p>В этом примере веб-API будет использовать  media-type formatter для чтения значения name из тела запроса.</p>
+<pre><code>
+POST http://localhost:5076/api/values HTTP/1.1
+User-Agent: Fiddler
+Host: localhost:5076
+Content-Type: application/json
+Content-Length: 7
+
+&quot;Alice&quot;
+</code></pre>
+<h5>Type Converters</h5>
+<p>Вы можете заставить веб-API обрабатывать класс как значимый/простой тип (чтобы веб-API пытался сбиндить его с URI), создав TypeConverter и предоставив преобразование строки.</p>
+<p>После этого web api будет обращаться с объектом как с простым типом, т.е. будет пытаться сбиндить параметры этого объекта через uri, атрибут FromUri можно не использовать</p>
+<pre>public HttpResponseMessage Get(GeoPoint location) { ... }</pre>
+<p>Вызов с клиента будет таким: </p>
+<p><i>http://localhost/api/values/?location=47.678558,-122.130989</i></p>
+
+<h5>Model Binders</h5>
+<p>Более гибкий вариант, чем TypeConverter - кастомный ModelBinder. С ним можно получить доступ до Http-апросов, описание action, необработанные значение из маршрута данных</p>
+<p>Для реализации имплементим IModelBinder, у которого только один метод: BindModel</p>
+
+<a href="https://asp.net-hacker.rocks/2018/10/17/customizing-aspnetcore-08-modelbinders.html">https://asp.net-hacker.rocks/2018/10/17/customizing-aspnetcore-08-modelbinders.html</a>

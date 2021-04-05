@@ -1,0 +1,15 @@
+<p>Присоединение таблиц в запросах — это базовый инструмент в работе с базами данных.</p>
+<h5>INNER JOIN</h5>
+<p>Внутреннее присоединение. Равносильно просто JOIN или CROSS JOIN.</p>
+<img src="https://shra.ru/wp-content/uploads/2017/09/inner-join-graphics.png">
+<h5>OUTER JOIN</h5>
+<p>Внешнее присоединение. Различают LEFT OUTER JOIN и RIGHT OUTER JOIN</p>
+<h3>LEFT JOIN</h3>
+<img src="https://shra.ru/wp-content/uploads/2017/09/left-outer-join-graph.png">
+<h3>RIGHT JOIN</h3>
+<img src="https://shra.ru/wp-content/uploads/2017/09/right-outer-join-graph.png">
+<h5>Полное множество</h5>
+<p>Либо через  объединение запросов LEFT и RIGHT, либо через объединение LEFT и RIGHT, но в одном из запросов мы исключаем часть, соответствующую INNER. А объединение задаём как UNION ALL, что позволяет движку SQL обойтись без сортировки</p>
+<h5>Левое или правое подмножество</h5>
+<p>LEFT / RIGHT JOIN ограничиваем проверкой, что данных из второй таблицы нет.</p>
+<h5>Всё кроме пересечения</h5>

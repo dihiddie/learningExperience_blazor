@@ -1,0 +1,13 @@
+<p>Допустим, захотелось нам иметь круглую кнопку. В этом нам как раз поможет ControlTemplate:</p>
+<pre><code> &lt;Window.Resources&gt;
+    &lt;ControlTemplate TargetType=&quot;Button&quot; x:Key=&quot;btTemplate&quot;&gt;
+        &lt;Border CornerRadius=&quot;25&quot; BorderBrush=&quot;CadetBlue&quot; BorderThickness=&quot;2&quot;
+                Background=&quot;LightBlue&quot; Height=&quot;40&quot; Width=&quot;100&quot; &gt;
+            &lt;ContentControl Margin=&quot;5&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; Content=&quot;Hello&quot; /&gt;
+        &lt;/Border&gt;
+    &lt;/ControlTemplate&gt;
+&lt;/Window.Resources&gt;
+&lt;Grid&gt;
+    &lt;Button x:Name=&quot;myButton&quot; Template=&quot;{StaticResource btTemplate}&quot; Height=&quot;40&quot; Width=&quot;100&quot;&gt;Hello&lt;/Button&gt;
+&lt;/Grid&gt;</code></pre>
+<p>Мы можем определять шаблоны с через стили, а можем в виде отдельных ресурсов. Так, в данном случае с помощью элемента ControlTemplate определяется ресурс с ключом "btTemplate". В ControlTemplate вложены элементы Border и ContentControl, которые через свои свойства определяют, как будет выглядеть кнопка.</p>

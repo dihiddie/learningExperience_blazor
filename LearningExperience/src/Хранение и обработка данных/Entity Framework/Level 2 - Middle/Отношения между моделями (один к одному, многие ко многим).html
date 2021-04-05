@@ -1,0 +1,53 @@
+<h4>Один к одному</h4>
+<pre>
+    <code>
+public class User
+{
+    public int Id { get; set; }
+    public string Login { get; set; }
+    public string Password { get; set; }
+ 
+    <b>public UserProfile Profile { get; set; }</b>
+}
+ 
+public class UserProfile
+{
+   <b>
+    [Key]
+    [ForeignKey(&quot;User&quot;)]
+    public int Id { get; set; }</b>
+ 
+    public string Name { get; set; }
+    public int Age { get; set; }
+ 
+    <b>public User User { get; set; }</b>
+}
+    </code>
+</pre>
+<h4>Многие ко многим</h4>
+<pre><code>
+public class Team
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    
+    public ICollection&lt;Player&gt; Players { get; set; }
+    public Team()
+    {
+        Players = new List&lt;Player&gt;();
+    }
+}
+public class Player
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Position { get; set; }
+    public int Age { get; set; }
+    
+    public ICollection&lt;Team&gt; Teams { get; set; }
+    public Player()
+    {
+        Teams = new List&lt;Team&gt;();
+    }
+}
+</code></pre>

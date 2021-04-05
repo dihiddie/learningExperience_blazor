@@ -1,0 +1,45 @@
+<p>Стили помогают создать стилевое единообразие для определенных элементов. Чтобы не устанавливать значения некоторых свойств для каждого контрола и не повторяться постоянно, и чтобы потом значения из ресурсов тоже не использовать везде, используются стили</p>
+
+<pre><code> &lt;Window.Resources&gt;
+    &lt;Style x:Key=&quot;<b><i>BlackAndWhite</i></b>&quot;&gt;
+        &lt;Setter Property=&quot;Control.FontFamily&quot; Value=&quot;Verdana&quot; /&gt;
+        &lt;Setter Property=&quot;Control.Background&quot; Value=&quot;Black&quot; /&gt;
+        &lt;Setter Property=&quot;Control.Foreground&quot; Value=&quot;White&quot; /&gt;
+        &lt;Setter Property=&quot;Control.Margin&quot; Value=&quot;10&quot; /&gt;
+    &lt;/Style&gt;
+&lt;/Window.Resources&gt;
+&lt;StackPanel x:Name=&quot;buttonsStack&quot; Background=&quot;Black&quot; &gt;
+    &lt;Button x:Name=&quot;button1&quot; Content=&quot;Кнопка 1&quot;
+            Style=&quot;{StaticResource <b><i>BlackAndWhite</i></b>}&quot; /&gt;
+    &lt;Button x:Name=&quot;button2&quot; Content=&quot;Кнопка 2&quot;
+            Style=&quot;{StaticResource <b><i>BlackAndWhite</i></b>}&quot;/&gt;
+&lt;/StackPanel&gt;</code></pre>
+
+<h4>TargetType</h4>
+<p>Hам необязательно прописывать для всех кнопок стиль. Мы можем в самом определении стиля с помощью свойства TargetType задать тип элементов.</p>
+<pre><code>  &lt;Window.Resources&gt;
+    &lt;Style TargetType=&quot;Button&quot;&gt;
+        &lt;Setter Property=&quot;FontFamily&quot; Value=&quot;Verdana&quot; /&gt;
+        &lt;Setter Property=&quot;Background&quot; Value=&quot;Black&quot; /&gt;
+        &lt;Setter Property=&quot;Foreground&quot; Value=&quot;White&quot; /&gt;
+        &lt;Setter Property=&quot;Margin&quot; Value=&quot;10&quot; /&gt;
+    &lt;/Style&gt;
+&lt;/Window.Resources&gt;
+&lt;StackPanel x:Name=&quot;buttonsStack&quot; Background=&quot;Black&quot; &gt;
+    &lt;Button x:Name=&quot;button1&quot; Content=&quot;Кнопка 1&quot;  /&gt;
+    &lt;Button x:Name=&quot;button2&quot; Content=&quot;Кнопка 2&quot; /&gt;
+&lt;/StackPanel&gt;</code></pre>
+
+<h4>BasedOn</h4>
+<p>У класса Style еще есть свойство BasedOn, с помощью которого можно наследовать и расширять существующие стили:</p>
+<pre><code>&lt;Window.Resources&gt;
+    &lt;Style x:Key=&quot;<b><i>ButtonParentStyle</i></b>&quot;&gt;
+        &lt;Setter Property=&quot;Button.Background&quot; Value=&quot;Black&quot; /&gt;
+        &lt;Setter Property=&quot;Button.Foreground&quot; Value=&quot;White&quot; /&gt;
+        &lt;Setter Property=&quot;Button.FontFamily&quot; Value=&quot;Andy&quot; /&gt;
+    &lt;/Style&gt;
+    &lt;Style x:Key=&quot;ButtonChildStyle&quot;<b><i> BasedOn=&quot;{StaticResource ButtonParentStyle}</i></b>&quot;&gt;
+        &lt;Setter Property=&quot;Button.BorderBrush&quot; Value=&quot;Red&quot; /&gt;
+        &lt;Setter Property=&quot;Button.FontFamily&quot; Value=&quot;Verdana&quot; /&gt;
+    &lt;/Style&gt;
+&lt;/Window.Resources&gt;</code></pre>

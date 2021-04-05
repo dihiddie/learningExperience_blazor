@@ -1,0 +1,14 @@
+<pre><code>
+public static void Main(string[] args)
+{
+    CreateHostBuilder(args).Build().Run();
+}
+    
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =&gt;
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =&gt;
+        {
+            webBuilder.UseStartup&lt;Startup&gt;();
+        });
+</code></pre>
+<p>Метод webBuilder.UseStartup<Startup>() устанавливает класс Startup в качестве стартового. И при запуске приложения среда ASP.NET будет искать в сборке приложения класс с именем Startup и загружать его.</p>

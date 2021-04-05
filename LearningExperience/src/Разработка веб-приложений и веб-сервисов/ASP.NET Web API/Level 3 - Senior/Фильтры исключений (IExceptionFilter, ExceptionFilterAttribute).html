@@ -1,0 +1,19 @@
+<p>Написание try / catch в каждом методе обработки исключений занимает довольно много времени и требует дополнительных усилий. Чтобы избежать этого подхода, мы можем настроить глобальный обработчик ошибок, используя такие методы, как error handling middleware, фильтр исключений и т. Д.</p>
+<p>Фильтры исключений обрабатывают необработанные исключения, в том числе те, которые возникли при создании контроллера и привязки модели. При этом надо сразу отметить, что они обрабатывают не абсолютно все исключения в приложении, а только исключения, которые возникают при вызове действия контроллера. Фильтры исключений не обрабатывают исключения, которые возникают в фильтрах ресурсов, результатов или при выполнении результата.</p>
+<p>Никаких обработок до или после вызова у фильтров исключений нет</p>
+<p>Фильтры исключений (Exception Filters) должны реализовать либо интерфейс IExceptionFilter, либо интерфейс IAsyncExceptionFilter. Также мы можем создать класс фильтра исключений, унаследовав его от абстрактного класса ExceptionFilterAttribute.</p>
+<ul>
+    <li>В методе OnException() определяем поведение компонента во время исключения, не забываем про context.ExceptionHandled = true</li>
+    <li>В ConfugureServices добавляем фильтр</li>
+    <pre><code>
+    private void ConfigureControllers(IServiceCollection services)
+    {
+        services.AddControllers(
+            o =&gt;
+                {
+                    o.Filters.Add(new ServiceFilterAttribute(typeof(CatchDatabaseViolationExceptionAttribute)));
+                    o.Filters.Add(new ServiceFilterAttribute(typeof(CatchBaseExceptionAttribute)));
+                }).AddNewtonsoftJson();
+    }
+    </code></pre>
+</ul>

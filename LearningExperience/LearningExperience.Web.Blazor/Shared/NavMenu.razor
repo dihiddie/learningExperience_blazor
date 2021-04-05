@@ -9,18 +9,23 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <div id="sidebar-wrapper">
         <div class="list-group list-group-flush">
-            <NestedList Documents="@Documents" />
+            <NestedList OnBottomLevelReached="@RaiseLoadFileContentEventAsync" Documents="@Documents" />
         </div>
     </div>
 </div>
 
 @code {
 
-    [Parameter] public List<Document> Documents { get; set; }
+    [Parameter] public List<ClickableDocument> Documents { get; set; }
+
+    [Parameter] public EventCallback<ClickableDocument> OnBottomLevelReached { get; set; }
 
     private bool collapseNavMenu = true;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu() => collapseNavMenu = !collapseNavMenu;
+
+    private Task RaiseLoadFileContentEventAsync(ClickableDocument document) => OnBottomLevelReached.InvokeAsync(document);
+
 }

@@ -1,0 +1,24 @@
+<h4>Шаблоны маршрутов</h4>
+<p>Определение маршрутов по умолчанию производится в файле WebApiConfig.cs. Если мы откроем данный файл, то уже увидим регистрацию одного маршрута</p>
+<pre><code>
+public static class WebApiConfig
+{
+    public static void Register(HttpConfiguration config)
+    {
+        config.MapHttpAttributeRoutes();
+    
+        config.Routes.MapHttpRoute(
+            name: &quot;BookRoute&quot;,
+            routeTemplate: &quot;api/{controller}/{action}&quot;
+        );
+            
+        config.Routes.MapHttpRoute(
+            name: &quot;DefaultApi&quot;,
+            routeTemplate: &quot;api/{controller}/{id}&quot;,
+            // Если мы предоставим для определенного сегмента значения по умолчанию, то при сопоставлении маршрута с запросом может опускаться данный сегмент. Например:
+            defaults: new { id = RouteParameter.Optional }
+        );
+    }
+}
+</code></pre>
+<p>И если у нас в контроллере определен, например, метод GetValue, то мы можем обратиться к этому методу с помощью запроса: <i>api/values/getvalue</i></p>

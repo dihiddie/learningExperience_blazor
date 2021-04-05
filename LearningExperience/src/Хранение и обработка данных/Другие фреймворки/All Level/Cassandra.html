@@ -1,0 +1,127 @@
+
+
+<h3>Cassandra</h1>
+<h4 id="Cassandra-Установка">Установка</h2>
+<p>Установка относительно простая: нужно установить Java 8 (JDK), и затем скачать саму кассандру с официального сайта, распаковать архив в архиве и начинать работать.<br>Я устанавливала по этому <a href="https://www.youtube.com/watch?v=ricTfBRgl34" class="external-link" rel="nofollow">видео</a>&nbsp;и больше в принципе ничего не потребовалось. Если этого будет недостаточно, то вопрос легко гуглится.&nbsp;<a href="https://habr.com/ru/post/465151/" class="external-link" rel="nofollow">Тут</a> описано как развернуть кассандру как сервис, чтобы не запускать ее каждый раз в ручную.<br>Чтобы можно было работать с навороченным cqlsh нужен python 2.7. Обратите внимание, что на моей машине эта версия питона не работает с кириллицей.</p>
+<h2 id="Cassandra-КакустроенаCassandra">Как устроена Cassandra</h2>
+<p>Главная проблема синтаксиса кассандры в том, что он очень похож на sql, и это крайне сбивает с толку, когда ты только начинаешь работать с ней. Схожесть синтаксиса была сделана исключительно в целях безболезненного перехода с sql на cql, но переход так или иначе окажется болезненным, когда начинаешь разбираться более глубоко. Например, create table ничем по синтаксису не различается, но создается не table, а column family, primary key состоит из распределительного и кластерного, и у тебя уже не таблица, а строка с множеством колонок в ней.&nbsp;<br>Список статей, которые обязательно&nbsp;<img class="emoticon emoticon-warning" title="(warning)" src="http://wiki.innostage-group.ru/s/ru_RU/7901/70b99a3474165a6093a2423f21069b9c63f07abc/_/images/icons/emoticons/warning.svg" alt="(warning)" border="0">&nbsp;надо прочесть перед работой с кассандрой. Они с хабра, но раскрывают суть для новичка в удобоваримой манере (после прочтения хоть можно представить в своей голове, как у тебя хранятся данные):</p>
+<p><a href="https://habr.com/ru/post/203200/" class="external-link" rel="nofollow">https://habr.com/ru/post/203200/</a></p>
+<p><a href="https://habr.com/ru/post/204026/" class="external-link" rel="nofollow">https://habr.com/ru/post/204026/</a></p>
+<p><a href="https://habr.com/ru/post/205176/" class="external-link" rel="nofollow">https://habr.com/ru/post/205176/</a></p>
+<p>По синтаксису cql документация&nbsp;<a href="https://docs.datastax.com/en/dse/6.0/cql/cql/cql_reference/cqlReferenceTOC.html" class="external-link" rel="nofollow">здесь</a>. По тому, как хранятся данных <a href="https://habr.com/ru/post/155115/" class="external-link" rel="nofollow">тут</a>.</p>
+<h2 id="Cassandra-Началоработы">Начало работы</h2>
+<p>1) Переходим в папку bin кассандры, содержимое выглядит так:</p>
+<img src="https://wiki.innostage-group.ru/download/attachments/66501032/image2020-5-28_7-56-55.png?version=1&modificationDate=1590641782648&api=v2">
+<p>2) через cmd запускаем cassandra.bat</p>
+<img src="https://wiki.innostage-group.ru/download/attachments/66501032/image2020-5-28_7-58-2.png?version=1&modificationDate=1590641849674&api=v2">
+<p>3) Дожидаемся окончания запуска</p>
+<p>4) Профит! Вы великолепны, запустили кассандру</p>
+<h2 id="Cassandra-Структуратаблицы">Структура таблицы</h2>
+<p>Структуру таблицы надо формировать исходя из запросов, которые будут к ней строится, именно из-за ее способа хранения данных. Вот некоторая структура данных, которых планируется хранить около 35 триллионов.</p>
+<pre><span style="color: rgb(152,118,170);">indicatorName </span><span style="color: rgb(204,120,50);">text<br></span><span style="color: rgb(152,118,170);">value </span><span style="color: rgb(204,120,50);">text<br></span><span style="color: rgb(152,118,170);">isActual </span><span style="color: rgb(204,120,50);">boolean<br></span><span style="color: rgb(152,118,170);">periodStartValue </span><span style="color: rgb(204,120,50);">timestamp<br></span><span style="color: rgb(152,118,170);">periodEndValue </span><span style="color: rgb(204,120,50);">timestamp<br></span><span style="color: rgb(152,118,170);">momentValue </span><span style="color: rgb(204,120,50);">timestamp<br></span><span style="color: rgb(152,118,170);">objects </span><span style="color: rgb(204,120,50);">list</span>&lt;<span style="color: rgb(204,120,50);">text</span>&gt;<span style="color: rgb(204,120,50);"><br></span><span style="color: rgb(152,118,170);">version </span><span style="color: rgb(204,120,50);">int<br></span><span style="color: rgb(152,118,170);">versionTime </span><span style="color: rgb(204,120,50);">timestamp</span></pre>
+<p>Например, мы знаем, что всегда будем искать значения показателей для какого-то определенного показателя, значит, indicatorName - распределительный ключ (помним, что все значения по этому ключу будут записаны на одной ноде, реплицироваться вместе). Теперь смотрим далее на те условия where, что будут применяться: мы точно знаем, что будем фильтровать по актуальности (isActual), по диапазону дат (periodStartValue and periodEndValue) или же просто по вхождению даты в определенный промежуток (momentValue), будем сравнивать список объектов с указанными (objects). И так же нам важно, что бы каждое значение показателя всегда было записано.</p>
+<pre><span style="color: rgb(204,120,50);">create keyspace </span>indicatorValueStorage <span style="color: rgb(204,120,50);">with replication </span>={<span style="color: rgb(106,135,89);">'class' </span>: <span style="color: rgb(106,135,89);">'SimpleStrategy'</span><span style="color: rgb(204,120,50);">, </span><span style="color: rgb(106,135,89);">'replication_factor'</span>: <span style="color: rgb(106,135,89);">'3'</span>}<span style="color: rgb(204,120,50);">;<br></span><span style="color: rgb(204,120,50);">use </span>indicatorValueStorage<span style="color: rgb(204,120,50);">;</span></pre>
+<pre><span style="color: rgb(204,120,50);">create table </span>IndicatorsValueStorage3<br>(<br>    <span style="color: rgb(152,118,170);">indicatorName </span><span style="color: rgb(204,120,50);">text,<br></span><span style="color: rgb(204,120,50);">    </span><span style="color: rgb(152,118,170);">value </span><span style="color: rgb(204,120,50);">text,<br></span><span style="color: rgb(204,120,50);">    </span><span style="color: rgb(152,118,170);">isActual </span><span style="color: rgb(204,120,50);">boolean,<br></span><span style="color: rgb(204,120,50);">    </span><span style="color: rgb(152,118,170);">periodStartValue </span><span style="color: rgb(204,120,50);">timestamp,<br></span><span style="color: rgb(204,120,50);">    </span><span style="color: rgb(152,118,170);">periodEndValue </span><span style="color: rgb(204,120,50);">timestamp,<br></span><span style="color: rgb(204,120,50);">    </span><span style="color: rgb(152,118,170);">momentValue </span><span style="color: rgb(204,120,50);">timestamp,<br></span><span style="color: rgb(204,120,50);">    </span><span style="color: rgb(152,118,170);">objects </span><span style="color: rgb(204,120,50);">list</span>&lt;<span style="color: rgb(204,120,50);">text</span>&gt;<span style="color: rgb(204,120,50);">,<br></span><span style="color: rgb(204,120,50);">    </span><span style="color: rgb(152,118,170);">version </span><span style="color: rgb(204,120,50);">int,<br></span><span style="color: rgb(204,120,50);">    </span><span style="color: rgb(152,118,170);">versionTime </span><span style="color: rgb(204,120,50);">timestamp,<br></span><span style="color: rgb(204,120,50);">    primary key </span>((<span style="color: rgb(152,118,170);">indicatorName</span>)<span style="color: rgb(204,120,50);">, </span><span style="color: rgb(152,118,170);">isActual</span><span style="color: rgb(204,120,50);">, </span><span style="color: rgb(152,118,170);">periodStartValue</span><span style="color: rgb(204,120,50);">, </span><span style="color: rgb(152,118,170);">periodEndValue</span><span style="color: rgb(204,120,50);">, </span><span style="color: rgb(152,118,170);">momentValue</span><span style="color: rgb(204,120,50);">, </span><span style="color: rgb(152,118,170);">value</span>)<br>)<span style="color: rgb(204,120,50);">;<br></span></pre>
+<p>То есть:&nbsp;</p>
+<p>indicatorName - ключ раздела</p>
+<p>isActual - первый ключ группировки. Этот ключ показывает актуальность показателя, и сортируются записи в зависимости от этого показателя.</p>
+<p>Остальные ключи добавлены, чтобы показать, что это часть уникальной записи.&nbsp;</p>
+<p>На более простом примере про ключи можно почитать <a href="http://datareview.info/article/kak-vyibrat-optimalnyiy-pervichnyiy-klyuch-v-cassandra/" class="external-link" rel="nofollow">здесь</a>.&nbsp;</p>
+<p>И вот теперь начинают загвоздки. Например, если мы хотим просто получить список значений показателя по его названию: отлично, нет проблем. Привычный нам select вернет большое количество записей за очень маленькое время:&nbsp;</p>
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code">
+   <div class="codeContent panelContent pdl">
+      <div>
+         <div id="highlighter_311350" class="syntaxhighlighter sh-confluence nogutter  java">
+            <div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tbody>
+                  <tr>
+                     <td class="code">
+                        <div class="container" title="Hint: double-click to select code">
+                           <div class="line number1 index0 alt2"><code class="java plain">select * from IndicatorsValueStorage2 where indicatorName = </code><code class="java string">'Indicator 1'</code><code class="java plain">;</code></div>
+                        </div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>
+<p>Но если вдруг мы захотим получить данные по какому-то показателю, зная его значение,&nbsp; то тут начинается веселье:</p>
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code">
+   <div class="codeContent panelContent pdl">
+      <div>
+         <div id="highlighter_355546" class="syntaxhighlighter sh-confluence nogutter  java">
+            <div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tbody>
+                  <tr>
+                     <td class="code">
+                        <div class="container" title="Hint: double-click to select code">
+                           <div class="line number1 index0 alt2"><code class="java plain">select * from IndicatorsValueStorage2 where indicatorName = </code><code class="java string">'Indicator 1'</code> <code class="java plain">and value = </code><code class="java string">'5'</code><code class="java plain">;</code></div>
+                        </div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>
+<p>Получаем ошибку:&nbsp;Error from server: code=2200 [Invalid query] message="PRIMARY KEY column "value" cannot be restricted as preceding column "isactual" is not restricted".</p>
+<div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">
+   <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span>
+   <div class="confluence-information-macro-body">
+      <p><strong>И именно по этому надо формировать структуру своей таблицы в зависимости от тех запросов, которые будут к ней обращаться!</strong></p>
+   </div>
+</div>
+<p>В остальном, скорость выполнения запросов на достаточно больших объемах данных, для человека, привыкшего работать с реляционкой, поражает.</p>
+<h2 id="Cassandra-ClientGui">Client Gui</h2>
+<p>Я попробовала три (две из них платные, с 30-дневным бесплатным периодом, ключей не искала):</p>
+<p>3) NoSqlManager for Cassandra. Выглядит как привет из прошлого, но цель свою вроде выполняет</p>
+<img src="https://wiki.innostage-group.ru/download/attachments/66501032/image2020-5-28_7-55-8.png?version=1&modificationDate=1590641675378&api=v2">
+<p>2) DataGrip от JetBrains. Вообще этот клиент предназначен для значительного количества СУБД (как реляционных, так и не реляционных). Выглядит получше, чем предыдущий, но умер при добавлении 9000 строк.&nbsp;</p>
+<img width="1050px" src="https://wiki.innostage-group.ru/download/attachments/66501032/image2020-5-28_8-0-20.png?version=1&modificationDate=1590641987671&api=v2">
+<p>1) И наконец победитель - консоль! Вызываете cqlsh, устанавливаете keyspace, с которым работаете, и вперед. 9000 записей обработал в миг, на 990 000 упал.</p>
+<img src="https://wiki.innostage-group.ru/download/attachments/66501032/image2020-5-28_8-2-17.png?version=1&modificationDate=1590642104887&api=v2">
+<h2 id="Cassandra-Работаизкода">Работа из кода</h2>
+<p>Для dotnet есть целая одна библиотека,&nbsp;<a href="https://www.nuget.org/packages/CassandraCSharpDriver/3.15.0?_src=template" class="external-link" rel="nofollow">CassandraCSharpDriver</a>. Работать с ней очень просто, главное, забыть о том, как можно работать с базой данных из кода в принципе (про ОРМ вообще не вспоминайте, ado.net еще можно помянуть)</p>
+<div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code">
+   <div class="codeContent panelContent pdl">
+      <div>
+         <div id="highlighter_807" class="syntaxhighlighter sh-confluence nogutter  java">
+            <div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tbody>
+                  <tr>
+                     <td class="code">
+                        <div class="container" title="Hint: double-click to select code">
+                           <div class="line number1 index0 alt2"><code class="java keyword">static</code> <code class="java keyword">void</code> <code class="java plain">Main(string[] args)</code></div>
+                           <div class="line number2 index1 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">{</code></div>
+                           <div class="line number3 index2 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">var cluster = Cluster.Builder().AddContactPoints(</code><code class="java string">"localhost"</code><code class="java plain">).Build(); </code><code class="java comments">// подключаемся к хосту</code></div>
+                           <div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">var session = cluster.Connect(</code><code class="java string">"indicatorvaluestorage"</code><code class="java plain">); </code><code class="java comments">// указываем keyspace</code></div>
+                           <div class="line number5 index4 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">var rows = session.Execute(</code><code class="java string">"select * from IndicatorsValueStorage"</code><code class="java plain">); </code><code class="java comments">// выполняем запрос</code></div>
+                           <div class="line number6 index5 alt1">&nbsp;</div>
+                           <div class="line number7 index6 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// строки вернутся только для select, insert rows не возвращает</code></div>
+                           <div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">foreach (var row in rows)</code></div>
+                           <div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">{</code></div>
+                           <div class="line number10 index9 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// получаем значения из каждой строки</code></div>
+                           <div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">var nameValue = row.GetValue&lt;string&gt;(</code><code class="java string">"indicatorName"</code><code class="java plain">); </code></div>
+                           <div class="line number12 index11 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">var valueValue = row.GetValue&lt;</code><code class="java keyword">int</code><code class="java plain">&gt;(</code><code class="java string">"value"</code><code class="java plain">);</code></div>
+                           <div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">var isActualValue = row.GetValue&lt;bool&gt;(</code><code class="java string">"isActual"</code><code class="java plain">);</code></div>
+                           <div class="line number14 index13 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Console.WriteLine($</code><code class="java string">"{nameValue} - {valueValue} - {isActualValue}"</code><code class="java plain">);</code></div>
+                           <div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+                           <div class="line number16 index15 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+                        </div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>
+<p>И все. Все операции проводим именно так. И добавление, и обновление, и удаление.&nbsp;</p>
+<h2 id="Cassandra-Заключение">Заключение</h2>
+<p>Я, когда начинала только разбираться с кассандрой, много где видела фразы типа "нужно точно понимать, что кассандра узконаправленная" или "нужно очень тщательно продумывать структуру данных, чтобы кассандра работала по максимуму". И под конец двух-дневных изысканий и тестирований могу повторить это слово в слово. Нужно точно знать, что и как и в какой последовательности будет происходить с вашей таблицей и во что обернется добавленная вами строка. А в целом, это отличный инструмент для работы с большими объемами данных.</p>

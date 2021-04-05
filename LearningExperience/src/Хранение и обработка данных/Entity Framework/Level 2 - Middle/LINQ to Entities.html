@@ -1,0 +1,6 @@
+<pre><code>using(PhoneContext db = new PhoneContext())
+    {
+        var phones = from p in db.Phones
+                    where p.CompanyId == 1
+                    select p;
+    }</code></pre>

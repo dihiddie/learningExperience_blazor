@@ -1,0 +1,114 @@
+<p>Событие — это член типа, с помощью которого этот тип (или его экземпляр) может уведомлять другие объекты о наступлении особых ситуациях (т.е. уведомлять о наступлении определенных «событий»), например, клик по кнопке, получение письма и т.д. Другие объекты, получив такое уведомление, смогут на него отреагировать, выполнив определенные действия. События — член типа, обеспечивающий такого рода взаимодействие объектов.</p>
+<p>Модель событий в C# основана на делегатах. По сути, событие — член типа, который ссылается на экземпляр любого объявленного ранее типа делегата. Регистрация обработчиков события осуществляется путем добавления методов-обработчиков в этот делегат. Отмена регистрации — путем удаления методов-обработчиков из делегата. А уведомление зарегистрированных обработчиков о наступлении события происходит путем вызова этого делегата.</p>
+<p>События в языке C# могут быть определены двумя способами:</p>
+<ul>
+    <li>Неявная реализация события (field-like event). (где используется EventHandler без параметров)</li>
+    <li>Явная реализация события. (где явно указывается делегат поле, которое в дальнейшем используется в событии)</li>
+</ul>
+<p>Любое событие разворачивается компилятором в следующий код:</p>
+<pre><code>class Class {
+    EventHandler сhanged;
+    public event EventHandler Changed {
+        <b>// вызывается при подписке на событие</b>
+        add {
+            EventHandler eventHandler = this.changed;
+            EventHandler comparand;
+            do {
+                comparand = eventHandler;
+                eventHandler = Interlocked.CompareExchange<EventHandler>(ref this.changed,
+                    comparand + value, comparand);
+            } while(eventHandler != comparand);
+        }
+        <b>// вызывается при отписке от события</b>
+        remove {
+            EventHandler eventHandler = this.changed;
+            EventHandler comparand;
+            do {
+                comparand = eventHandler;
+                eventHandler = Interlocked.CompareExchange<EventHandler>(ref this.changed,
+                    comparand - value, comparand);
+            } while (eventHandler != comparand);
+        }
+    }
+}</code></pre>
+<h4>Стандартный шаблон событий</h4>
+<ol>
+    <li>Тип для хранения информации о событии (PriceChangedEventArgs). Можно использовать просто EventArgs</li>
+    <li>Определение члена-события (обобщенный делегат System.EventHandler<TEventArgs>(object sender, TEventArgs e)</li>
+    <li>Метод, вызывающий член-событие</li>
+    <li>Метод (свойство), генерирующий событие</li>
+    <li>Тип, отслеживающий событие</li>
+</ul>
+<pre><code>
+<b>1. Тип для хранения информации о событии (PriceChangedEventArgs). Можно использовать просто EventArgs    </b>
+public class PriceChangedEventArgs : EventArgs
+{
+    public readonly decimal LastPrice, NewPrice;
+    public PriceChangedEventArgs (decimal lastPrice, decimal newPrice)
+    {
+        LastPrice = lastPrice; NewPrice = newPrice;
+    }
+}
+public class Stock
+{
+    string symbol; decimal price;
+    public Stock (string symbol) { this.symbol = symbol; }
+    <b>2. Определение члена-события (обобщенный делегат System.EventHandler<TEventArgs>(object sender, TEventArgs e)</b>
+    public event EventHandler<PriceChangedEventArgs> PriceChanged;
+    <b>3. Метод, вызывающий член-событие</b>
+    protected virtual void OnPriceChanged (PriceChangedEventArgs e)
+    {
+        if (PriceChanged != null) PriceChanged (this, e);
+    }
+    <b>4. Метод (свойство), генерирующий событие</b>
+    public decimal Price
+    {
+        get { return price; }
+        set
+        {
+            if (price == value) return;
+            OnPriceChanged (new PriceChangedEventArgs (price, value));
+            price = value;
+        }
+    }
+}
+class Someclass
+{
+    static void Main()
+    {
+        Stock stock = new Stock ("THPW");
+        stock.Price = 27.10M;
+        <b>5. Тип, отслеживающий событие</b>
+        stock.PriceChanged += stock_PriceChanged; // Добавляем обработчик
+        stock.Price = 31.59M;
+    }
+    // Метод обработчик
+    static void stock_PriceChanged (object sender, PriceChangedEventArgs e)
+    {
+        if ((e.NewPrice - e.LastPrice) / e.LastPrice > 0.1M)
+        Console.WriteLine ("Alert, 10% price increase!");
+    }
+}
+</code></pre>
+<br>
+<h4>Обновленный шаблон событий</h4>
+<p>.Net Core имеет менее жесткий шаблон</p>
+<ol>
+    <li>В этой версии определение EventHandler<TEventArgs> больше не имеет ограничения, указывающего на то, что TEventArgs должен быть классом, производным от System.EventArgs.</li>
+    <li>Асинхронные подписчики (советуют оборачивать оператор await для асинхронных задач в собственный блок try.)</li>
+</ol>
+<br>
+<h4>Средства доступа (Event Accessors)</h4>
+<p>Средства доступа событий являются всего лишь реализацией функций, выполняемых операторами делегатов <b>+= (подписка)</b> и <b>-= (отписка)</b>. По умолчанию средства доступа генерируются компилятором автоматически</p>
+<p>То есть, конструкция вида <i>public event EventHandler PriceChanged;</i> разворачивается в такого рода конструкцию:</p>
+<pre><code>
+EventHandler _priceChanged; // Частный делегат
+public event EventHandler PriceChanged
+{
+    add { _priceChanged += value; }
+    remove { _priceChanged -= value; }
+}
+</code></pre>
+<p>Однако эти действия компилятора можно переопределить, явно задав поле-делегат и средства доступа к нему из члена-события. В этом случае компилятор автоматически ничего проделывать не будет. Возможность явно задать средства доступа дает возможность более гибко управлять процессом добавления обработчиков в делегат.</p>
+
+<h6>Разница между делегатами и событиями <a href="https://docs.microsoft.com/ru-ru/dotnet/csharp/distinguish-delegates-events">тут</a></h6>

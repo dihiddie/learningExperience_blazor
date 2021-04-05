@@ -1,0 +1,13 @@
+<h4>Прикрепляемые свойства</h4>
+<p>Прикрепляемые свойства (attached properties) также являются свойствами зависимостей с той разницей, что они определяются в одном классе, а применяются в другом. Например, при установке столбца или строки грида, в которых размещается элемент управления, используются свойства Grid.Row и Grig.Column, которые как раз и представляют прикрепляемые свойства. То есть эти свойства определены в классе Grid, но используются в других вложенных элементах</p>
+<pre><code>  &lt;Grid&gt;
+    &lt;Grid.RowDefinitions&gt;
+        &lt;RowDefinition /&gt;
+        &lt;RowDefinition /&gt;
+    &lt;/Grid.RowDefinitions&gt;
+    &lt;Grid.ColumnDefinitions&gt;
+        &lt;ColumnDefinition /&gt;
+        &lt;ColumnDefinition /&gt;
+    &lt;/Grid.ColumnDefinitions&gt;
+    &lt;Button x:Name=&quot;button1&quot; Content=&quot;Hello&quot;<b> Grid.Column=&quot;1&quot;</b> <b>Grid.Row=&quot;0&quot;</b> /&gt;
+&lt;/Grid&gt;</code></pre>

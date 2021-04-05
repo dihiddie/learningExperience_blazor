@@ -1,9 +1,10 @@
 ﻿@page "/"
+@using LearningExperience.Core.Documents.Models
 @using LearningExperience.Web.Blazor.Models
 @inject HttpClient HttpClient
 
 <div class="sidebar">
-    <NavMenu Documents="@documents"/>
+    <NavMenu OnBottomLevelReached="@LoadFileContentAsync" Documents="@documents" />
 </div>
 
 <div class="main">
@@ -12,19 +13,36 @@
     </div>
 
     <div class="content px-4">
-        <h4>This is my body</h4>
+        @((MarkupString)contentMarkup)
     </div>
 </div>
 
 @code
 {
-    DocumentsScheme documentsScheme;
+    DocumentsScheme<ClickableDocument> documentsScheme;
 
-    List<Document> documents;
+    List<ClickableDocument> documents;
+
+    string contentMarkup = "<p>Выберите тему, чтобы увидеть ее содержимое</p>";
 
     protected override async Task OnInitializedAsync()
     {
-        documentsScheme = await HttpClient.GetFromJsonAsync<DocumentsScheme>("src/base.json").ConfigureAwait(false);
+        documentsScheme = await HttpClient.GetFromJsonAsync<DocumentsScheme<ClickableDocument>>($"https://localhost:5000/api/contentloader").ConfigureAwait(false);
         documents = documentsScheme.Documents;
+    }
+
+    private async Task LoadFileContentAsync(ClickableDocument document)
+    {
+        try
+        {
+            var decoded = Uri.EscapeUriString(document.Path);
+            var response = await HttpClient.GetAsync($"https://localhost:5000/api/contentloader/{decoded}").ConfigureAwait(false);
+            contentMarkup = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }

@@ -1,0 +1,19 @@
+<p>Вместе все эти типы фильтров образуют конвейер фильтров (filter pipeline), который встроен в процесс обработки запроса в MVC и который начинает выполняется после того, как инфраструктура MVC выбрала метод контроллера для обработки запроса. На разных этапах обработки запроса в этом конвейере вызывается соответствующий фильтр:</p>
+<img src="https://metanit.com/sharp/aspnet5/pics/filters1.png">
+<img src="https://docs.microsoft.com/ru-ru/aspnet/core/mvc/controllers/filters/_static/filter-pipeline-1.png?view=aspnetcore-3.1">
+<h4>Передача параметров и установка зависимостей</h4>
+<ul>
+    <li>[SimpleResourceFilter(<i>30, "8h6ell3o5wor5ld8"</i>)]</li>
+    <li>services.AddControllersWithViews()
+        .AddMvcOptions(options=> options.Filters.Add(new SimpleResourceFilter(<i>22, "jkrgbjkjgjghddw"</i>)));</li>
+</ul>
+<p>Если фильтр применяется непосредственно к контроллеру или его методу, то установка зависимостей через встроенный механизм Dependency Injection не будет работать. Все потому, что при применении атрибутов все значения должны быть переданы напрямую в их конструктор. Чтобы обойти это ограничение, надо использовать один из классов ServiceFilterAttribute или TypeFilterAttribute.</p>
+<p>Допустим, у нас инъектится ILoggerFactory в SimpleResourceFilter</p>
+<p>Класс <b>ServiceFilterAttribute</b> извлекает экземпляр фильтра напрямую из DI.</p>
+<ul>
+    <li>Регистрируем в ConfigureServices - <i>services.AddScoped< SimpleResourceFilter >();</i></li>
+    <li>Навешиваем атрибут над контроллером <i>[ServiceFilter(typeof(SimpleResourceFilter))]</i></li>
+</ul>
+
+<p>Класс <b>TypeFilterAttribute</b> создает объект фильтра с помощью фабрики Microsoft.Extensions.DependencyInjection.ObjectFactory, а с помощью механизма DI устанавливает все зависимости для создаваемого фильтра.  В этом случае класс фильтра больше не надо регистрировать в ConfigureServices(), просто навешиваем атрибут <i>[TypeFilter(typeof(SimpleResourceFilter))]</i></p>
+<p>Разница между ServiceFilterAttribute и TypeFilterAttribute в том что с помощью ServiceFilterAttribute можно контролировать жизненный цикл атрибута (Scoped, Transient, Singleton) тк он зарегистрирован как сервис. А TypeFilterAttribute создает новый экземпляр для каждого http запроса и это никак нельзя изменить.</p>

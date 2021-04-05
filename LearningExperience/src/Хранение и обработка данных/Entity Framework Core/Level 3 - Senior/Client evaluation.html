@@ -1,0 +1,21 @@
+<p>Как правило, Entity Framework Core пытается выполнить как можно большую часть работы по вычислению запроса на сервере. Некоторые части запроса преобразуются в параметры, которые могут вычисляться на стороне клиента. Остальные части запроса (вместе с созданными параметрами) передаются поставщику базы данных, который должен определить эквивалентный запрос к базе данных для вычисления на сервере. EF Core поддерживает вычисление на стороне клиента в проекции верхнего уровня (в основном это последний вызов Select())</p>
+<pre><code>var blogs = context.Blogs
+    .OrderByDescending(blog =&gt; blog.Rating)
+    .Select(blog =&gt; new
+    {
+        Id = blog.BlogId,
+        <b>Url = StandardizeUrl(blog.Url)</b>
+    })
+    .ToList();</code></pre>
+    
+    <pre><code>public static string StandardizeUrl(string url)
+        {
+            url = url.ToLower();
+        
+            if (!url.StartsWith(&quot;http://&quot;))
+            {
+                url = string.Concat(&quot;http://&quot;, url);
+            }
+        
+            return url;
+        }</code></pre>

@@ -1,0 +1,23 @@
+<p><b>Команды</b> представляют механизм выполнения какой-нибудь задачи, например, копирования текста - когда мы нажимаем Ctrl+C, то мы копируем текст в буффер. В процессе копирования выполняется ряд действий, и все вместе эти действия объединяются в одну команду. Использование команд помогает нам сократить объем кода и использовать одну и ту же команду для нескольких элементов управления в различных местах программы.</p>
+
+<h4>ICommand</h4>
+<p>Все команды реализуют интерфейс System.Window.Input.ICommand</p>
+<p>WPF имеет в качестве реализации этого интерфейса имеет класс System.Windows.Input.RoutedCommand, который ограничен по функциональности. Поэтому, как правило, придется реализовывать свои собственные команды с помощью реализации ICommand (RelayCommand). Например, для кнопок определена поддержка команд. Однако сами команды определяются в ViewModel и затем через механизм привязки устанавливаются для элементов управления.</p>
+
+<h4>ICommandSource</h4>
+<p>Определяет объект, который знает, как вызвать команду. То есть нужно имплементить этот интерфейс, если хотите, что бы кастом контол возможность использовать Command из xaml</p>
+
+<h4>CommandBindings</h4>
+<p>Привязка команд представляет объект CommandBinding. Его событие Executed прикрепляет обработчик, который будет выполняться при вызове команды. А свойство Command уставливает саму команду, к которой относится обработчик.</p>
+<pre><code>&lt;Window x:Class=&quot;WpfTutorialSamples.Commands.UsingCommandsSample&quot;
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+    Title=&quot;UsingCommandsSample&quot; Height=&quot;100&quot; Width=&quot;200&quot;&gt;
+&lt;Window.CommandBindings&gt;
+    &lt;CommandBinding Command=&quot;ApplicationCommands.New&quot; Executed=&quot;NewCommand_Executed&quot; CanExecute=&quot;NewCommand_CanExecute&quot; /&gt;
+&lt;/Window.CommandBindings&gt;
+
+&lt;StackPanel HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;&gt;
+    &lt;Button Command=&quot;ApplicationCommands.New&quot;&gt;New&lt;/Button&gt;
+&lt;/StackPanel&gt;
+&lt;/Window&gt;</code></pre>

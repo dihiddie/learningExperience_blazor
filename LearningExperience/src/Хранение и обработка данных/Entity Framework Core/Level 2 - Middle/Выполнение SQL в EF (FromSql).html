@@ -1,0 +1,5 @@
+<p>В EF Core версии 2.2 и более ранних версиях существовали две перегрузки метода FromSql, действие которых было аналогично поведению новых FromSqlRaw и FromSqlInterpolated</p>
+<h5>FromSqlRaw</h5>
+<p>Метод DbSet.FromSqlRaw (DbSet.FromSql до Entity Framework Core 3.0) позволяет передать команду SQL, которая будет выполняться в базе данных, чтобы вернуть экземпляры типа, представленного DbSet</p>
+<h5>FromSqlInterpolated </h5>
+<p>Метод FromSqlInterpolated похож на FromSqlRaw, но позволяет использовать синтаксис интерполяции строк. Как и FromSqlRaw, метод FromSqlInterpolated можно использовать только в корневых элементах запроса</p>

@@ -1,0 +1,17 @@
+<p>Объект SqlCommandBuilder действует как Event Listener для RowUpdating, когда установлено свойство DataAdapter. Не нужно выяснять, как создать InsertCommand для таблицы, потому что CommandBuilder сделал это за вас. Все, что вам нужно было сделать, это добавить строку в DataSet, вызвать и обновить в DataAdapter.</p>
+<code> 
+    <br>SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Employee ORDER by EmployeeID", conn);
+    <br>// Create a command builder object
+    <br>SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+    <br>DataSet ds = new DataSet("EmployeeSet");
+    <br>adapter.Fill(ds, "Employees");
+    <br>// Create a data table object and add a new row
+    <br>DataTable EmployeeTable = ds.Tables["Employees"];
+    <br>DataRow row = EmployeeTable.NewRow();
+    <br>row["FirstName"] = "Rodney";
+    <br>row["LastName"] = "DangerField";
+    <br>row["Title"] = "Comedian";
+    <br>EmployeeTable.Rows.Add(row);
+    <br>// update data adapter
+    <br>adapter.Update(ds, "Emlpoyees");
+</code>

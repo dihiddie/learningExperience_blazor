@@ -1,0 +1,39 @@
+<h5>BindRequired и BindNever</h5>
+<p><b>BindRequired</b> - указывает, что свойство обязательно должно быть установлено</p>
+<p><b>BindNever</b> - указывает, что свойство не должно быть установлено <i>напрямую</i> никогда</p>
+<p>Если для свойства с атрибутом BindRequired не будет передано значение, то в объект ModelState будет помещена информация об ошибках, а свойство ModelState.IsValid возвратит false. И в данном случае, проверяя значение ModelState.IsValid, мы можем проверить корректность создания объекта User.</p>
+<h5>FromHeader</h5>
+<p>данные берутся из заголовков запроса</p>
+<pre><code>
+    public void OnGet([FromHeader(Name = &quot;Accept-Language&quot;)] string language)
+</code></pre>
+<h5>FromQuery</h5>
+<p> данные берутся из строки запроса</p>
+
+<h5>FromRoute</h5>
+<p>данные берутся из значений маршрута</p>
+<pre><code>
+    [HttpGet(&quot;{facilityId}&quot;, Name = &quot;GetTotalBandwidth&quot;)]
+    public IActionResult GetTotalBandwidth([FromRoute] int facilityId)
+</code></pre>
+<pre><code>
+    Complete route definition: /api/Settings/GetTotalBandwidth/{facilityId}
+    Complete received url: /api/Settings/GetTotalBandwidth/100
+</code></pre>
+
+<h5>FromForm</h5>
+<p>данные берутся из полученных форм. Атрибут FromForm предназначен для входящих данных из представленной формы, отправленной приложением типа контента / x-www-url-formencoded.</p>
+
+<h5>FromBody</h5>
+<p>Чтобы заставить web-api прочитать значимый тип из реквест-боди, нужно добавить FromBody атрибут в параметр</p>
+<pre>public HttpResponseMessage Post([FromBody] string name) { ... }</pre>
+<p>В этом примере веб-API будет использовать  media-type formatter для чтения значения name из тела запроса.</p>
+<pre><code>
+POST http://localhost:5076/api/values HTTP/1.1
+User-Agent: Fiddler
+Host: localhost:5076
+Content-Type: application/json
+Content-Length: 7
+
+&quot;Alice&quot;
+</code></pre>

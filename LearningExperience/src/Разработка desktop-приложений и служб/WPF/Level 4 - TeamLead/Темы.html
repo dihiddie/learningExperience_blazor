@@ -1,0 +1,14 @@
+<p>Стили позволяют задать стилевые особенности для определенного элемента или элементов одного типа. Но иногда возникает необходимость применить ко всем элементам какое-то общее стилевое единообразие. И в этом случае мы можем объединять стили элементов в темы.</p>
+<p>По сути, темы - это несколько словарей ресурсов, которые определяют для одинакового набора элементов разные свойства (например, светлая и темная темы). Как мы уже знаем, для таких свойств подключение ресурсов должно быть динамическим. И соответственно, даем пользователю выпадашку, в которой будут заданы наши темы и обрабатываем клик - подгружаем тот или иной словарь ресурсов</p>
+<pre><code> private void ThemeChange(object sender, SelectionChangedEventArgs e)
+    {
+        string style = styleBox.SelectedItem as string;
+        // определяем путь к файлу ресурсов
+        var uri = new Uri(style + &quot;.xaml&quot;, UriKind.Relative);
+        // загружаем словарь ресурсов
+        ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+        // очищаем коллекцию ресурсов приложения
+        Application.Current.Resources.Clear();
+        // добавляем загруженный словарь ресурсов
+        Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+    }</code></pre>

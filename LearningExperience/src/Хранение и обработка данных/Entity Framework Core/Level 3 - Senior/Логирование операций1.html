@@ -1,0 +1,12 @@
+<p> Entity Framework Core поддерживает логгирование, однако сам логгер нам надо определять самостоятельно. Класс провайдера логгирования должен реализовать интерфейс ILoggerProvider.</p>
+<p>Логирование можно установить локально (при создании и использовании объекта контекста данных) и глобально (в самом контексте)</p>
+<pre><code>  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer(@&quot;Server=(localdb)\mssqllocaldb;Database=helloappdb;Trusted_Connection=True;&quot;);
+        optionsBuilder.UseLoggerFactory(MyLoggerFactory);
+    }
+    // устанавливаем фабрику логгера
+    public static readonly ILoggerFactory MyLoggerFactory = LoggerFactory.Create(builder =&gt;
+    {
+        builder.AddProvider(new MyLoggerProvider());    // указываем наш провайдер логгирования
+    });</code></pre>

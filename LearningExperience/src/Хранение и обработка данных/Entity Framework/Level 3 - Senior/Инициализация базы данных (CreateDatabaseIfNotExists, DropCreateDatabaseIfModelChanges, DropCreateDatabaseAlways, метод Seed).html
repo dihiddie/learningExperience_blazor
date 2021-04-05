@@ -1,0 +1,23 @@
+<p>Для инициализации мы можем использовать один из классов инициализаторов, которые имеются в библиотеке .NET:</p>
+<ul>
+    <li><b>CreateDatabaseIfNotExists:</b> инициализатор, используемый по умолчанию. Он не удаляет автоматчески базу данных и данные, а в случае изменения структуры моделей и контекста данных выбрасывает исключение.</li>
+    <li><b>DropCreateDatabaseIfModelChanges:</b> данный инициализатор проверяет на соответствие моделям определения таблиц в базе данных. И если модели не соответствуют определению таблиц, то база данные пересоздается</li>
+    <li><b>DropCreateDatabaseAlways:</b> этот инициализатор будет всегда пересоздавать базу данных.</li>
+    <li><b>Seed</b> - метод, который используется для заполнения бд данными при инициализации</li>
+</ul>
+<p>Используем один из инициализаторов. Для этого нам надо переопределить метод Seed</p>
+<pre><code>public class SchoolDBInitializer : DropCreateDatabaseAlways&lt;SchoolDBContext&gt;
+    {
+        protected override void Seed(SchoolDBContext context)
+        {
+            IList&lt;Standard&gt; defaultStandards = new List&lt;Standard&gt;();
+    
+            defaultStandards.Add(new Standard() { StandardName = &quot;Standard 1&quot;, Description = &quot;First Standard&quot; });
+            defaultStandards.Add(new Standard() { StandardName = &quot;Standard 2&quot;, Description = &quot;Second Standard&quot; });
+            defaultStandards.Add(new Standard() { StandardName = &quot;Standard 3&quot;, Description = &quot;Third Standard&quot; });
+    
+            context.Standards.AddRange(defaultStandards);
+    
+            base.Seed(context);
+        }
+    }</code></pre>

@@ -1,0 +1,12 @@
+<p><i>Когда использовать XMLDocument, а когда XDocument?</i></p>
+<p>Если вы используете .NET версии 3.0 или меньше, вы должны использовать XmlDocument aka классический DOM API. А если есть выбор, стоит использовать XDocument aka LINQ to XML. С ним намного проще создавать документы и работать с ними.</p>
+<ul>
+    <li>Намного компактнее, чем XmlDocument</li>
+    <p>XDocument doc = new XDocument(
+        new XElement("root",
+                     new XAttribute("name", "value"),
+                     new XElement("child", "text node")));</p>
+    <li>Поддердка неймспейсов и аттрибутов</li>
+    <p>XNamespace ns = "http://somewhere.com";
+        XElement element = new XElement(ns + "elementName");</p>
+</ul>

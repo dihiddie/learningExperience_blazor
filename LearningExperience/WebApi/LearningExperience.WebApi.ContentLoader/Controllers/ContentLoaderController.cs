@@ -51,10 +51,10 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
         }
 
         [HttpGet]
-        public DocumentsScheme GetScheme()
+        public DocumentsScheme<Document> GetScheme()
         {
             var baseJson = System.IO.File.ReadAllText(fileProvider.GetFileInfo(baseJsonFileName).PhysicalPath);
-            return JsonSerializer.Deserialize<DocumentsScheme>(baseJson);
+            return JsonSerializer.Deserialize<DocumentsScheme<Document>>(baseJson);
         }
     }
 }

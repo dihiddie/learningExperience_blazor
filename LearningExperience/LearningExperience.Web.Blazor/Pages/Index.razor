@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using LearningExperience.Core.Documents.Models
 @using LearningExperience.Web.Blazor.Models
 @inject HttpClient HttpClient
 
@@ -18,29 +19,25 @@
 
 @code
 {
-    DocumentsScheme documentsScheme;
+    DocumentsScheme<ClickableDocument> documentsScheme;
 
-    List<Document> documents;
+    List<ClickableDocument> documents;
 
     string contentMarkup = "<p>Выберите тему, чтобы увидеть ее содержимое</p>";
 
     protected override async Task OnInitializedAsync()
     {
-        documentsScheme = await HttpClient.GetFromJsonAsync<DocumentsScheme>($"https://localhost:5000/api/contentloader").ConfigureAwait(false);
+        documentsScheme = await HttpClient.GetFromJsonAsync<DocumentsScheme<ClickableDocument>>($"https://localhost:5000/api/contentloader").ConfigureAwait(false);
         documents = documentsScheme.Documents;
     }
 
-    private async Task LoadFileContentAsync(Document document)
+    private async Task LoadFileContentAsync(ClickableDocument document)
     {
         try
         {
-            Console.WriteLine(document.Path);
             var decoded = Uri.EscapeUriString(document.Path);
-            // Console.WriteLine(decoded);
             var response = await HttpClient.GetAsync($"https://localhost:5000/api/contentloader/{decoded}").ConfigureAwait(false);
-            Console.WriteLine(response.StatusCode);
             contentMarkup = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            Console.WriteLine(contentMarkup);
         }
         catch (Exception e)
         {

@@ -1,0 +1,42 @@
+<pre><code>
+public void ConfigureServices(IServiceCollection services)
+{
+    <b>services.AddHealthChecks().AddCheck&lt;SqlServerHealthCheck&gt;(&quot;sql&quot;);</b>
+}
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    app.UseEndpoints(endpoints =&gt;
+    {
+    endpoints.MapControllers();
+    <b>endpoints.MapHealthChecks(&quot;/health&quot;);</b>
+    });    
+}
+</code></pre>
+<pre><code>
+public class SqlServerHealthCheck : IHealthCheck
+{
+    SqlConnection _connection;
+
+    public string Name =&gt; &quot;sql&quot;;
+
+    public SqlServerHealthCheck(SqlConnection connection)
+    {
+        _connection = connection;
+    }
+
+    public async Task&lt;HealthCheckResult&gt; CheckHealthAsync(CancellationToken cancellationToken = default(CancellationToken))
+    {
+        try
+        {
+            connection.Open();
+        }
+        catch (SqlException)
+        {
+            return HealthCheckResult.Unhealthy();
+        }
+        
+        return HealthCheckResult.Healthy();
+    }
+}
+</code></pre>

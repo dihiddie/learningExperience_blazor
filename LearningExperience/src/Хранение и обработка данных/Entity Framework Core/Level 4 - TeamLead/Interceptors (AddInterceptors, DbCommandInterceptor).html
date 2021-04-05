@@ -1,0 +1,22 @@
+<p>Интерсепторы (перехватчики) позволяют автоматически <b>вызывать настраиваемую логику всякий раз, когда низкоуровневые операции с базой данных выполняются как часть нормальной работы EF Core</b>. Например, при открытии соединений, совершении транзакций или выполнении команд.
+<br>Подобно функциям перехвата, которые существовали в EF 6, перехватчики позволяют перехватывать операции до или после того, как они произойдут. Когда вы перехватываете их до того, как они происходят, вы можете обойти выполнение и предоставить альтернативные результаты из логики перехвата</p>
+<h4>DbCommandInterceptor</h4>
+<pre><code>
+public class HintCommandInterceptor : <b>DbCommandInterceptor</b>
+{
+    public override InterceptionResult&lt;DbDataReader&gt; ReaderExecuting(
+        DbCommand command,
+        CommandEventData eventData,
+        InterceptionResult&lt;DbDataReader&gt; result)
+    {
+        // Manipulate the command text, etc. here...
+        command.CommandText += &quot; OPTION (OPTIMIZE FOR UNKNOWN)&quot;;
+        return result;
+    }
+}</code></pre>
+<hr>
+<pre>
+    services.AddDbContext(b => b
+    .UseSqlServer(connectionString)
+    .<b>AddInterceptors</b>(new HintCommandInterceptor()));
+</pre>

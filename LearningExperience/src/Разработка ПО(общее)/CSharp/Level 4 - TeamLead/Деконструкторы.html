@@ -1,0 +1,13 @@
+<p>Деконструкторы (не путать с деструкторами) позволяют выполнить декомпозицию объекта на отдельные части. Кортежи поддерживают ее изначально, </p>
+<p>Чтобы тип поддерживал деконструкцию, нужно релаизовать следующий метод:</p>
+<p>public void Deconstruct(out Type1 var1, ..., out TypeN varN) { … }</p>
+<p>public void Deconstruct(out string name, out int age)</p>
+<p>{</p>
+    name = this.Name;
+    age = this.Age;
+<p>}</p>
+<p>Использование:</p>
+<p>Person person = new Person { Name = "Tom", Age = 33 };</p> 
+<p>(string name, int age) = person;</p> 
+<p>Console.WriteLine(name);    // Tom</p>
+<p>Console.WriteLine(age);     // 33</p>

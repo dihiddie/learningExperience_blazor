@@ -1,0 +1,14 @@
+<h3>SqlConnection</h3>
+<p>Представляет подключение к базе данных SQL Server</p>
+<code class="lang-csharp" name="Classic WebData SqlCommand.ExecuteNonQuery Example#1">
+<br>private static void CreateCommand(string queryString,string connectionString)
+<br>{
+    <br>using (SqlConnection connection = new SqlConnection(connectionString))
+    <br>{
+        <br>        SqlCommand command = new SqlCommand(queryString, connection);
+        <br>command.Connection.Open();
+        <br>command.ExecuteNonQuery();
+        <br>}
+        <br>}
+</code></pre>
+<P>Объект SqlConnection представляет собой уникальный сеанс для SQL Server источника данных. В системе базы данных клиента или сервера она эквивалентна сетевому подключению к серверу. SqlConnection используется вместе с SqlDataAdapter и SqlCommand для повышения производительности при подключении к базе данных Microsoft SQL Server. </P>

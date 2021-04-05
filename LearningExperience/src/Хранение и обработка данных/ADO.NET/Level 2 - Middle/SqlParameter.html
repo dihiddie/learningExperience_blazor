@@ -1,0 +1,13 @@
+<p>Представляет параметр для объекта SqlCommand и (необязательно) его сопоставление со столбцами DataSet. </p>
+<code>
+    <br>private static void AddSqlParameter(SqlCommand command, string paramValue)
+    <br>{
+        <br>SqlParameter parameter = new SqlParameter("@Description", SqlDbType.VarChar);
+        <br>parameter.IsNullable = true;
+        <br>parameter.Direction = ParameterDirection.Output;
+        <br>parameter.Size = 88;
+        <br>parameter.Value = paramValue;
+        <br>    
+        <br>command.Parameters.Add(parameter);
+        <br>}
+</code>

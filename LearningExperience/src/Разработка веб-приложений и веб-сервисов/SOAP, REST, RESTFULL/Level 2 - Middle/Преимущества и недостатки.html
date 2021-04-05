@@ -1,0 +1,19 @@
+<pre><code>
+    |          #           |                                 SOAP                                 |                                REST                                 |
+    |----------------------|----------------------------------------------------------------------|---------------------------------------------------------------------|
+    | Meaning              | Simple Object Access Protocol                                        | Representational State Transfer                                     |
+    | Design               | Standardized protocol with pre-defined rules to follow.              | Architectural style with loose guidelines and recommendations.      |
+    | Approach             | Function-driven (data available as services, e.g.: “getUser”)        | Data-driven (data available as resources, e.g. “user”).             |
+    | Statefulness         | Stateless by default, but it’s possible to make a SOAP API stateful. | Stateless (no server-side sessions).                                |
+    | Caching              | API calls cannot be cached.                                          | API calls can be cached.                                            |
+    | Security             | WS-Security with SSL support. Built-in ACID compliance.              | Supports HTTPS and SSL.                                             |
+    | Performance          | Requires more bandwidth and computing power.                         | Requires fewer resources.                                           |
+    | Message format       | Only XML.                                                            | Plain text, HTML, XML, JSON, YAML, and others.                      |
+    | Transfer protocol(s) | HTTP, SMTP, UDP, and others.                                         | Only HTTP                                                           |
+    | Recommended for      | Enterprise apps, high-security apps, distributed environment,        | Public APIs for web services, mobile services, social networks.     |
+    |                      | financial services, payment gateways, telecommunication services.    |                                                                     |
+    | Advantages           | High security, standardized, extensibility.                          | Scalability, better performance, browser-friendliness, flexibility. |
+    | Disadvantages        | Poorer performance, more complexity, less flexibility.               | LesLess security, not suitable for distributed environments.        |
+    
+    
+    </code></pre>

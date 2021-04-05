@@ -1,0 +1,46 @@
+<p>Тригерры позволяют декларативно задать некоторые действия, которые выполняются при изменении свойств стиля. </p>
+<ul>
+    <li>Триггеры свойств: вызываются в ответ на изменения свойствами зависимостей своего значения</li>
+    <p>Они следят за значением свойств и в случае их изменения с помощью объекта Setter устанавливают значение других свойств.</p>
+    <pre><code>  &lt;Style TargetType=&quot;Button&quot;&gt;
+        &lt;Style.Setters&gt;
+            &lt;Setter Property=&quot;Button.Background&quot; Value=&quot;Black&quot; /&gt;
+            &lt;Setter Property=&quot;Button.Foreground&quot; Value=&quot;White&quot; /&gt;
+            &lt;Setter Property=&quot;Button.FontFamily&quot; Value=&quot;Verdana&quot; /&gt;
+            &lt;Setter Property=&quot;Button.Margin&quot; Value=&quot;10&quot; /&gt;
+        &lt;/Style.Setters&gt;
+        &lt;<b><i>Style.Triggers</i></b>&gt;
+            &lt;Trigger Property=&quot;IsMouseOver&quot; Value=&quot;True&quot;&gt;
+                &lt;Setter Property=&quot;FontSize&quot; Value=&quot;14&quot; /&gt;
+                &lt;Setter Property=&quot;Foreground&quot; Value=&quot;Red&quot; /&gt;
+            &lt;/Trigger&gt;
+        &lt;<b><i>/Style.Triggers</i></b>&gt;
+    &lt;/Style&gt;</code></pre>
+    <li>Триггеры данных: вызываются в ответ на изменения значений любых свойств (они необязательно должны быть свойствами зависимостей)</li>    
+    <p>С помощью свойства Binding триггер данных устанавливает привязку к отслеживаемому свойству. Свойство Value задает значение отлеживаемого свойства, при котором сработает триггер. Так, в данном случае, если чекбокс будет отмечен, то сработает триггер, который установит у кнопки IsEnabled="False".</p>
+    <pre><code> &lt;Style TargetType=&quot;Button&quot;&gt;
+        &lt;Style.Triggers&gt;
+            &lt;DataTrigger Binding=&quot;{Binding ElementName=checkBox1, Path=IsChecked}&quot;
+                    Value=&quot;True&quot;&gt;
+                &lt;Setter Property=&quot;IsEnabled&quot; Value=&quot;False&quot;/&gt;
+            &lt;/DataTrigger&gt;
+        &lt;/Style.Triggers&gt;
+    &lt;/Style&gt;</code></pre>
+    <img src="https://metanit.com/sharp/wpf/pics/10.3.png">
+    <li>Триггеры событий: вызываются в ответ на генерацию событий</li>
+    <p>EventTrigger определяет анимацию и, если событие происходит, запускает ее на выполнение.</p>
+    <li>Мультитриггеры: вызываются при выполнении ряда условий</li>
+    <p>При необходимости отслеживания не одного, а сразу нескольких свойств используют объект MultiTrigger.</p>
+    <pre><code>&lt;Style.Triggers&gt;
+        &lt;<b><i>MultiTrigger</i></b>&gt;
+            &lt;MultiTrigger.Conditions&gt;
+                &lt;Condition Property=&quot;IsMouseOver&quot; Value=&quot;True&quot; /&gt;
+                &lt;Condition Property=&quot;IsPressed&quot; Value=&quot;True&quot; /&gt;
+            &lt;/MultiTrigger.Conditions&gt;
+            &lt;MultiTrigger.Setters&gt;
+                &lt;Setter Property=&quot;FontSize&quot; Value=&quot;14&quot; /&gt;
+                &lt;Setter Property=&quot;Foreground&quot; Value=&quot;Red&quot; /&gt;
+            &lt;/MultiTrigger.Setters&gt;
+        &lt;<b><i>/MultiTrigger</i></b>&gt;
+    &lt;/Style.Triggers&gt;</code></pre>
+</ul>

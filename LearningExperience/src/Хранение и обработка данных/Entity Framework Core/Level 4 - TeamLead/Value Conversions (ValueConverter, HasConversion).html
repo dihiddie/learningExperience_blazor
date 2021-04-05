@@ -1,0 +1,29 @@
+<p>Конвертеры значений позволяют преобразовывать значения свойств при чтении или записи в базу данных. Это преобразование может осуществляться от одного значения к другому того же типа (например, шифрование строк) или от значения одного типа к значению другого типа (например, преобразование значений перечисления в строки в базе данных и обратно).</p>
+<pre><code>
+public class Rider
+{
+    public int Id { get; set; }
+    public EquineBeast Mount { get; set; }
+}
+
+public enum EquineBeast
+{
+    Donkey,
+    Mule,
+    Horse,
+    Unicorn
+}
+</code></pre>
+    <hr>
+    <pre><code>
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder
+        .Entity&lt;Rider&gt;()
+        .Property(e =&gt; e.Mount)
+        .<b>HasConversion</b>(
+            <b><i>// конвертируем Enum в строку</i></b>
+            v =&gt; v.ToString(),
+            v =&gt; (EquineBeast)Enum.Parse(typeof(EquineBeast), v));
+}
+    </code></pre>

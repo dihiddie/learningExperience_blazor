@@ -1,0 +1,17 @@
+<p>Перебираемая коллекция должна реализовать интерфейс IEnumerable.<p>
+ public interface IEnumerable<out T> : IEnumerable
+    {
+        //
+        // Summary:
+        //     Returns an enumerator that iterates through the collection.
+        //
+        // Returns:
+        //     An enumerator that can be used to iterate through the collection.
+        IEnumerator<T> GetEnumerator();
+    }
+
+    109
+
+
+<p>IEnumerable is an interface that defines one method GetEnumerator which returns an IEnumerator interface, this in turn allows readonly access to a collection. 
+    A collection that implements IEnumerable can be used with a foreach statement.</p>

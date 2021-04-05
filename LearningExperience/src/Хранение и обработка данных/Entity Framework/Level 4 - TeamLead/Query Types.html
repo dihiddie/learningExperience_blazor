@@ -1,0 +1,7 @@
+<p>Query Types должен быть настроен в методе OnModelCreating, как показано ниже. Обратите внимание, что в отличие от типа объекта, вам потребуется класс DbQuery для включения типов запросов в DbContext. Метод ToView используется для указания источника данных (имя таблицы или имя представления) для типа запроса.</p>
+<pre><code>
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Query&lt;AuthorBook&gt;().ToView(&quot;AuthorBookCount&quot;);
+}
+</code></pre>

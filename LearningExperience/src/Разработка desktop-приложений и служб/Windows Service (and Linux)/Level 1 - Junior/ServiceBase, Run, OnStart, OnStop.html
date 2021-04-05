@@ -1,0 +1,16 @@
+<h4>ServiceBase</h4>
+<p>Служба представляет обычное приложение, но она не запускает сама по себе. Все вызовы и обращения к ней проходят через менеджер управления службами (Service Control Manager или SCM).</p>
+<pre><code>static class Program
+    {
+        static void Main()
+        {
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[]
+            {
+                new Service1()
+            };
+            ServiceBase.Run(ServicesToRun);
+        }
+    }</code></pre>
+    <p>Метод Main по умолчанию определен таким образом, чтобы запускать сразу несколько служб, которые определены в массиве ServicesToRun.</p>
+    <p>Класс службы Service1 должен наследоваться от базового класса ServiceBase. Этот класс определяет ряд методов, важнейшие из которых метод <b>OnStart()</b>, который запускает действия, выпоняемые службой, и метод <b>OnStop()</b>, останавливающий службу.</p>

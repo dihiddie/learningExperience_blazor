@@ -1,0 +1,6 @@
+<p>Метод HasQueryFilter Fluent API Entity Framework Core используется для применения глобального фильтра запроса к определенной сущности, чтобы фильтр был включен во все операторы запроса, созданные для сущности EF Core. Наиболее распространенные варианты использования этой функции включают свойства, указывающие, что экземпляр объекта удален или не активен иным образом, а также идентификатор клиента в приложении, в котором хранятся данные для нескольких клиентов.</p>
+<pre><code>protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity&lt;Magazine&gt;().HasQueryFilter(m =&gt; EF.Property&lt;int&gt;(m, &quot;MagazineId&quot;) == 1);
+    }</code></pre>
+<p>Если вы не хотите применять фильтр, используйте метод IgnoreQueryFilters</p>

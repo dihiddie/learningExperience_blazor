@@ -1,0 +1,43 @@
+<p>Automapper позволяет проецировать одну модель на другую, что позволяет сократить объемы кода и упростить программу.</p>
+<h4>Список возможностей</h4>
+<ul>
+    <li>Flattening (преобразование сложной иерархической объектной структуры в простой объект с несколькими полями)</li>
+    <li>Projection (получение из исходного объекта его проекции, пример выше)</li>
+    <li>Работа со списками</li>
+    <li>Маппинг вложенных объектов</li>
+    <li>Маппинги с условиями</li>
+</ul>
+
+<h4>Установка в проект</h4>
+<ol>
+    <li>Устанавливаем нугет пакет</li>
+    <li>Регистрируем сервис в ConfigureServices в классе Startup.cs</li>
+    <li>Создаем модели для маппинга</li>
+    <li>Создаем профиль автомаппера</li>
+    <pre><code>using AutoMapper;
+        public class AutoMapping : Profile
+        {
+            public AutoMapping()
+            {
+                CreateMap&lt;User, UserDTO&gt;(); // means you want to map from User to UserDTO
+            }
+        }</code></pre>
+    <li>Производим маппинг в коде</li>
+    <pre><code>using AutoMapper;
+        public class HomeController : Controller
+        {
+            private readonly IMapper _mapper;
+            public HomeController(IMapper mapper)
+            {
+                _mapper = mapper;
+            }
+            public IActionResult GetUser()
+            {
+                User user = new User();
+                var userDTO = _mapper.Map&lt;UserDTO&gt;(user);
+                return View(userDTO);
+            }
+        }</code></pre>
+        <li>Готово! Вы восхитительны!</li>
+</ol>
+

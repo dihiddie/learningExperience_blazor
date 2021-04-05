@@ -1,0 +1,12 @@
+<h4>Управление зависимостями с использованием csproj или CLI</h4>
+<h5><pre><code>&lt;PackageReference&gt;</code></pre></h5>
+<pre><code>&lt;PackageReference Include=&quot;PACKAGE_ID&quot; Version=&quot;PACKAGE_VERSION&quot; /&gt;</code></pre>
+<p>Атрибут Include указывает идентификатор пакета, который нужно добавить в проект. Атрибут Version указывает версию, которую нужно получить. Версии указываются в соответствии с правилами версии NuGet.</p>
+<p><b>Чтобы добавить новую зависимость или удалить имеющуюся:</b></p>
+<ul>
+    <li>csproj</li>
+    <p><pre><code>Чтобы добавить/удалить зависимость, добавьте элемент &lt;PackageReference&gt; внутри элемента &lt;ItemGroup&gt;. Вы можете добавить к существующей &lt;ItemGroup&gt; или создать новую.</code></pre> </p>
+    <li>CLI</li>
+    <p>Чтобы добавить зависимость, выполните команду dotnet add package</p>
+    <i>dotnet add package Microsoft.EntityFrameworkCore</i>
+</ul>

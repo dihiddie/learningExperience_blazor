@@ -1,0 +1,48 @@
+<p> Один из встроенных способов проверки введенных данных в WPF представлен классом ExceptionValidationRule. Этот класс обозначает введенные данные как некорректные, если в процессе ввода возникает какое-либо исключение, например, исключение преобразования типов</p>
+<h4>ExceptionValidationRule</h4>
+<p>Например, у нас есть модель, в которой сказано, что возраст всегда число. В этом случае для textbox нужно навесить правило, которое проверяло бы правильно введенного пользователем значения:</p>
+<pre><code>  &lt;TextBox Grid.Column=&quot;1&quot; Grid.Row=&quot;1&quot; Height=&quot;30&quot;  Margin=&quot;0 0 15 0&quot;&gt;
+    &lt;TextBox.Text&gt;
+        &lt;Binding Path=&quot;Age&quot;&gt;
+            &lt;Binding.ValidationRules&gt;
+                &lt;ExceptionValidationRule /&gt;
+            &lt;/Binding.ValidationRules&gt;
+        &lt;/Binding&gt;
+    &lt;/TextBox.Text&gt;
+&lt;/TextBox&gt;</code></pre>
+
+<h4>IDataErrorInfo</h4>
+<p>Мы также можем реализовать свою логику валидации для класса модели. Для этого модель должна реализовать интерфейс IDataErrorInfo. Допустим, мы хотим ограничить возраст человека только положительными значениями от 0 до 100. Тогда валидация модели будет выглядеть следующим образом</p>
+<pre><code> public string this[string columnName]
+    {
+        get
+        {
+            string error=String.Empty;
+            switch (columnName)
+            {
+                case &quot;Age&quot; :
+                    if ((Age &lt; 0) || (Age &gt; 100))
+                    {
+                        error = &quot;Возраст должен быть больше 0 и меньше 100&quot;;
+                    }
+                    break;
+                case &quot;Name&quot; :
+                    //Обработка ошибок для свойства Name
+                    break;
+                case &quot;Position&quot; :
+                    //Обработка ошибок для свойства Position
+                    break;
+            }
+            return error;
+        }
+    }</code></pre>
+<p>И последнее - нам осталось немного подкорректировать xaml-код. Теперь нам надо использовать в качестве правила валидации класс <b>DataErrorValidationRule</b></p>
+<pre><code>  &lt;TextBox.Text&gt;
+    &lt;Binding Path=&quot;Age&quot;&gt;
+        &lt;Binding.ValidationRules&gt;
+            &lt;DataErrorValidationRule /&gt;
+        &lt;/Binding.ValidationRules&gt;
+    &lt;/Binding&gt;
+&lt;/TextBox.Text&gt;</code></pre>
+
+<i>Настройка внешнего вида при ошибке валидации так же возможна</i>

@@ -1,0 +1,8 @@
+<p>Представления или Views представляют виртуальные таблицы. Но в отличии от обычных стандартных таблиц в базе данных представления содержат запросы, которые динамически извлекают используемые данные.</p>
+<p>Для создания представления используется команда CREATE VIEW, которая имеет следующую форму:</p>
+<pre>CREATE VIEW OrdersProductsCustomers AS
+    SELECT Orders.CreatedAt AS OrderDate, 
+            Customers.FirstName AS Customer,
+            Products.ProductName As Product  
+    FROM Orders INNER JOIN Products ON Orders.ProductId = Products.Id
+    INNER JOIN Customers ON Orders.CustomerId = Customers.Id</pre>

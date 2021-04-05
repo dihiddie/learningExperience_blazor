@@ -1,0 +1,23 @@
+<h4>ПОИСК КОНТРОЛЛЕРА</h4>
+<p>Стандартное поведение ASP.NET WebAPI при поиске контроллера - это найти класс, имя которого состоит из имени запрашиваемого контроллера и Controller. Этот класс также должен быть наследником базового класса ApiController.</p>
+<p>Если требуется переопределить это поведение, следует реализовать сервис <b>IHttpControllerSelector</b>. В методе <b>SelectController()</b>должна быть определена логика поиска контроллера в приложении. Чтобы использовать этот объект нужно заменить соответствующий сервис в инфраструктуре ASP.NET WebAPI</p>
+<pre><code>
+public static class WebApiConfig
+{
+    public static void Register(HttpConfiguration config)
+    {
+        config.Services.Replace(typeof(IHttpControllerSelector), new CustomControllerSelector(config));
+    }
+}
+</code></pre>
+<h4>ПОИСК ДЕЙСТВИЯ КОНТРОЛЛЕРА</h4>
+<p>ASP.NET WebAPI позволяет также переопределить логику поиска действия контроллера. Для этого следует создать отдельный сервис, реализующий <b>IHttpActionSelector</b>. В методе <b>SelectAction()</b> производится поиск метода, который будет выбран в качестве действия контроллера. Используя рефлексию, нужно сообщить инфраструктуре какой именно метод следует использовать. Замена сервиса ASP.NET WebAPI для поиска действий:</p>
+<pre><code>
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            config.Services.Replace(typeof(IHttpActionSelector), new CustomActionSelector());
+        }
+    }
+    </code></pre>

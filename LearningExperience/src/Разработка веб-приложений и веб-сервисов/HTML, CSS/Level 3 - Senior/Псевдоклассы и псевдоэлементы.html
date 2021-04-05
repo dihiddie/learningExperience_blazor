@@ -1,0 +1,26 @@
+<h5>Псевдоклассы</h5>
+<p>Псевдокласс-это селектор, который выбирает элементы, находящиеся в определенном состоянии, например, они являются первым элементом своего типа, или на них наводится указатель мыши.</p>
+<i>:pseudo-class-name</i>
+<p> Вместо добавления класса мы могли бы использовать селектор псевдокласса: first-child-это всегда будет относиться к первому дочернему элементу в статье, и нам больше не нужно будет редактировать HTML</p>
+<pre><code>article p:first-child {
+    font-size: 120%;
+    font-weight: bold;
+}</code></pre>
+<hr>
+<pre><code>&lt;article&gt;
+    &lt;p&gt;Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo
+            melon azuki bean garlic.&lt;/p&gt;
+
+    &lt;p&gt;Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard
+            greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+<h5>Псевдоэлементы</h5>
+<p>Псевдо-элементы ведут себя аналогично, однако они действуют так, как если бы вы добавили в разметку совершенно новый HTML-элемент, а не применяли класс к существующим элементам</p>
+<i>::pseudo-element-name</i>
+<p>Например, если вы хотите выбрать первую строку абзаца, вы можете обернуть ее в элемент <span> и использовать селектор элементов; однако это не сработает, если количество слов, которые вы обернули, будет больше или меньше ширины родительского элемента. Поскольку мы, как правило, не знаем, сколько слов поместится в строке, т.к. это меняется, если меняется ширина экрана или размер шрифта,-при помощи HTML мы это сделать не сможем.
+<br><br>Селектор псевдоэлементов ::first-line сделает это — если количество слов увеличивается и уменьшается, он все равно будет выбирать только первую строку.</p>
+<pre><code>article p::first-line {
+    font-size: 120%;
+    font-weight: bold;
+}   
+    </code></pre>

@@ -1,0 +1,7 @@
+<h5>Метод SqlQuery</h5>
+using(PhoneContext db = new PhoneContext())
+{
+    var comps = db.Database.SqlQuery&lt;Company&gt;(&quot;SELECT * FROM Companies&quot;);
+    foreach (var company in comps)
+        Console.WriteLine(company.Name);
+}

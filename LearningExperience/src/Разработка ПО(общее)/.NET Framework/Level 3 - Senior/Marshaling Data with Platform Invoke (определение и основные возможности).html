@@ -1,0 +1,128 @@
+<p>Для вызова функций, экспортированных из неуправляемой библиотеки, приложению .NET Framework требуется прототип функции в управляемом коде, представляющий неуправляемую функцию. В этом разделе содержатся примеры, демонстрирующие способы создания прототипов управляемых функций для передачи аргументов и получения значений от функций, экспортируемых из неуправляемых библиотек.</p>
+<p>То есть по сути это есть сопоставление типов api windows и дотнет.</p>
+<div class="table-scroll-wrapper"><table class="table"><caption class="visually-hidden">Типы данных в вызове неуправляемого кода</caption>
+    <thead>
+    <tr>
+    <th><span data-ttu-id="dcb5c-118">Неуправляемый тип в API Windows</span><span class="sxs-lookup"><span data-stu-id="dcb5c-118">Unmanaged type in Windows APIs</span></span></th>
+    <th><span data-ttu-id="dcb5c-119">Неуправляемый тип языка C</span><span class="sxs-lookup"><span data-stu-id="dcb5c-119">Unmanaged C language type</span></span></th>
+    <th><span data-ttu-id="dcb5c-120">Управляемый тип</span><span class="sxs-lookup"><span data-stu-id="dcb5c-120">Managed type</span></span></th>
+    <th><span data-ttu-id="dcb5c-121">Описание</span><span class="sxs-lookup"><span data-stu-id="dcb5c-121">Description</span></span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><code>VOID</code></td>
+    <td><code>void</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.void" data-linktype="absolute-path">System.Void</a></td>
+    <td><span data-ttu-id="dcb5c-122">Применяется к функции, которая не возвращает значение.</span><span class="sxs-lookup"><span data-stu-id="dcb5c-122">Applied to a function that does not return a value.</span></span></td>
+    </tr>
+    <tr>
+    <td><code>HANDLE</code></td>
+    <td><code>void *</code></td>
+    <td><span data-ttu-id="dcb5c-123"><a href="/ru-ru/dotnet/api/system.intptr" data-linktype="absolute-path">System.IntPtr</a> или <a href="/ru-ru/dotnet/api/system.uintptr" data-linktype="absolute-path">System.UIntPtr</a></span><span class="sxs-lookup"><span data-stu-id="dcb5c-123"><a href="/ru-ru/dotnet/api/system.intptr" data-linktype="absolute-path">System.IntPtr</a> or <a href="/ru-ru/dotnet/api/system.uintptr" data-linktype="absolute-path">System.UIntPtr</a></span></span></td>
+    <td><span data-ttu-id="dcb5c-124">32&nbsp;бита в 32-разрядных операционных системах Windows, 64&nbsp;бита в 64-разрядных операционных системах Windows.</span><span class="sxs-lookup"><span data-stu-id="dcb5c-124">32 bits on 32-bit Windows operating systems, 64 bits on 64-bit Windows operating systems.</span></span></td>
+    </tr>
+    <tr>
+    <td><code>BYTE</code></td>
+    <td><code>unsigned char</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.byte" data-linktype="absolute-path">System.Byte</a></td>
+    <td><span data-ttu-id="dcb5c-125">8 бит</span><span class="sxs-lookup"><span data-stu-id="dcb5c-125">8 bits</span></span></td>
+    </tr>
+    <tr>
+    <td><code>SHORT</code></td>
+    <td><code>short</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.int16" data-linktype="absolute-path">System.Int16</a></td>
+    <td><span data-ttu-id="dcb5c-126">16&nbsp;бит</span><span class="sxs-lookup"><span data-stu-id="dcb5c-126">16 bits</span></span></td>
+    </tr>
+    <tr>
+    <td><code>WORD</code></td>
+    <td><code>unsigned short</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.uint16" data-linktype="absolute-path">System.UInt16</a></td>
+    <td><span data-ttu-id="dcb5c-127">16&nbsp;бит</span><span class="sxs-lookup"><span data-stu-id="dcb5c-127">16 bits</span></span></td>
+    </tr>
+    <tr>
+    <td><code>INT</code></td>
+    <td><code>int</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.int32" data-linktype="absolute-path">System.Int32</a></td>
+    <td><span data-ttu-id="dcb5c-128">32&nbsp;бита</span><span class="sxs-lookup"><span data-stu-id="dcb5c-128">32 bits</span></span></td>
+    </tr>
+    <tr>
+    <td><code>UINT</code></td>
+    <td><code>unsigned int</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.uint32" data-linktype="absolute-path">System.UInt32</a></td>
+    <td><span data-ttu-id="dcb5c-129">32&nbsp;бита</span><span class="sxs-lookup"><span data-stu-id="dcb5c-129">32 bits</span></span></td>
+    </tr>
+    <tr>
+    <td><code>LONG</code></td>
+    <td><code>long</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.int32" data-linktype="absolute-path">System.Int32</a></td>
+    <td><span data-ttu-id="dcb5c-130">32&nbsp;бита</span><span class="sxs-lookup"><span data-stu-id="dcb5c-130">32 bits</span></span></td>
+    </tr>
+    <tr>
+    <td><code>BOOL</code></td>
+    <td><code>long</code></td>
+    <td><span data-ttu-id="dcb5c-131"><a href="/ru-ru/dotnet/api/system.boolean" data-linktype="absolute-path">System.Boolean</a> или <a href="/ru-ru/dotnet/api/system.int32" data-linktype="absolute-path">System.Int32</a></span><span class="sxs-lookup"><span data-stu-id="dcb5c-131"><a href="/ru-ru/dotnet/api/system.boolean" data-linktype="absolute-path">System.Boolean</a> or <a href="/ru-ru/dotnet/api/system.int32" data-linktype="absolute-path">System.Int32</a></span></span></td>
+    <td><span data-ttu-id="dcb5c-132">32&nbsp;бита</span><span class="sxs-lookup"><span data-stu-id="dcb5c-132">32 bits</span></span></td>
+    </tr>
+    <tr>
+    <td><code>DWORD</code></td>
+    <td><code>unsigned long</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.uint32" data-linktype="absolute-path">System.UInt32</a></td>
+    <td><span data-ttu-id="dcb5c-133">32&nbsp;бита</span><span class="sxs-lookup"><span data-stu-id="dcb5c-133">32 bits</span></span></td>
+    </tr>
+    <tr>
+    <td><code>ULONG</code></td>
+    <td><code>unsigned long</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.uint32" data-linktype="absolute-path">System.UInt32</a></td>
+    <td><span data-ttu-id="dcb5c-134">32&nbsp;бита</span><span class="sxs-lookup"><span data-stu-id="dcb5c-134">32 bits</span></span></td>
+    </tr>
+    <tr>
+    <td><code>CHAR</code></td>
+    <td><code>char</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.char" data-linktype="absolute-path">System.Char</a></td>
+    <td><span data-ttu-id="dcb5c-135">В кодировке ANSI.</span><span class="sxs-lookup"><span data-stu-id="dcb5c-135">Decorate with ANSI.</span></span></td>
+    </tr>
+    <tr>
+    <td><code>WCHAR</code></td>
+    <td><code>wchar_t</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.char" data-linktype="absolute-path">System.Char</a></td>
+    <td><span data-ttu-id="dcb5c-136">В кодировке Юникод.</span><span class="sxs-lookup"><span data-stu-id="dcb5c-136">Decorate with Unicode.</span></span></td>
+    </tr>
+    <tr>
+    <td><code>LPSTR</code></td>
+    <td><code>char *</code></td>
+    <td><span data-ttu-id="dcb5c-137"><a href="/ru-ru/dotnet/api/system.string" data-linktype="absolute-path">System.String</a> или <a href="/ru-ru/dotnet/api/system.text.stringbuilder" data-linktype="absolute-path">System.Text.StringBuilder</a></span><span class="sxs-lookup"><span data-stu-id="dcb5c-137"><a href="/ru-ru/dotnet/api/system.string" data-linktype="absolute-path">System.String</a> or <a href="/ru-ru/dotnet/api/system.text.stringbuilder" data-linktype="absolute-path">System.Text.StringBuilder</a></span></span></td>
+    <td><span data-ttu-id="dcb5c-138">В кодировке ANSI.</span><span class="sxs-lookup"><span data-stu-id="dcb5c-138">Decorate with ANSI.</span></span></td>
+    </tr>
+    <tr>
+    <td><code>LPCSTR</code></td>
+    <td><code>const char *</code></td>
+    <td><span data-ttu-id="dcb5c-139"><a href="/ru-ru/dotnet/api/system.string" data-linktype="absolute-path">System.String</a> или <a href="/ru-ru/dotnet/api/system.text.stringbuilder" data-linktype="absolute-path">System.Text.StringBuilder</a></span><span class="sxs-lookup"><span data-stu-id="dcb5c-139"><a href="/ru-ru/dotnet/api/system.string" data-linktype="absolute-path">System.String</a> or <a href="/ru-ru/dotnet/api/system.text.stringbuilder" data-linktype="absolute-path">System.Text.StringBuilder</a></span></span></td>
+    <td><span data-ttu-id="dcb5c-140">В кодировке ANSI.</span><span class="sxs-lookup"><span data-stu-id="dcb5c-140">Decorate with ANSI.</span></span></td>
+    </tr>
+    <tr>
+    <td><code>LPWSTR</code></td>
+    <td><code>wchar_t *</code></td>
+    <td><span data-ttu-id="dcb5c-141"><a href="/ru-ru/dotnet/api/system.string" data-linktype="absolute-path">System.String</a> или <a href="/ru-ru/dotnet/api/system.text.stringbuilder" data-linktype="absolute-path">System.Text.StringBuilder</a></span><span class="sxs-lookup"><span data-stu-id="dcb5c-141"><a href="/ru-ru/dotnet/api/system.string" data-linktype="absolute-path">System.String</a> or <a href="/ru-ru/dotnet/api/system.text.stringbuilder" data-linktype="absolute-path">System.Text.StringBuilder</a></span></span></td>
+    <td><span data-ttu-id="dcb5c-142">В кодировке Юникод.</span><span class="sxs-lookup"><span data-stu-id="dcb5c-142">Decorate with Unicode.</span></span></td>
+    </tr>
+    <tr>
+    <td><code>LPCWSTR</code></td>
+    <td><code>const wchar_t *</code></td>
+    <td><span data-ttu-id="dcb5c-143"><a href="/ru-ru/dotnet/api/system.string" data-linktype="absolute-path">System.String</a> или <a href="/ru-ru/dotnet/api/system.text.stringbuilder" data-linktype="absolute-path">System.Text.StringBuilder</a></span><span class="sxs-lookup"><span data-stu-id="dcb5c-143"><a href="/ru-ru/dotnet/api/system.string" data-linktype="absolute-path">System.String</a> or <a href="/ru-ru/dotnet/api/system.text.stringbuilder" data-linktype="absolute-path">System.Text.StringBuilder</a></span></span></td>
+    <td><span data-ttu-id="dcb5c-144">В кодировке Юникод.</span><span class="sxs-lookup"><span data-stu-id="dcb5c-144">Decorate with Unicode.</span></span></td>
+    </tr>
+    <tr>
+    <td><code>FLOAT</code></td>
+    <td><code>float</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.single" data-linktype="absolute-path">System.Single</a></td>
+    <td><span data-ttu-id="dcb5c-145">32&nbsp;бита</span><span class="sxs-lookup"><span data-stu-id="dcb5c-145">32 bits</span></span></td>
+    </tr>
+    <tr>
+    <td><code>DOUBLE</code></td>
+    <td><code>double</code></td>
+    <td><a href="/ru-ru/dotnet/api/system.double" data-linktype="absolute-path">System.Double</a></td>
+    <td><span data-ttu-id="dcb5c-146">64&nbsp;бита</span><span class="sxs-lookup"><span data-stu-id="dcb5c-146">64 bits</span></span></td>
+    </tr>
+    </tbody>
+    </table></div>

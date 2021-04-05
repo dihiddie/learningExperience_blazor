@@ -1,0 +1,159 @@
+<div class="user-content">
+    <div class="b-row" style="padding: 0 15px;">
+        <div class="content-head-link clearfix">
+            <div class="ad-items linkAdContainer" id="LinkAdContainerTop"></div>
+        </div>
+    </div>
+    <div id='div2' class='PaddingLeft5'>        
+        <p>
+            <strong>Introduction</strong>
+        </p>
+        <div></div>
+        <div>
+            Pre/Post build events are useful when we wish to perform some operations before/after a project is built. These operations are nothing but the Shell commands being used from the command line. Think of a scenario where we build our library project and its <em>.dll</em>
+            is saved into the <em>Project/bin/Release</em>
+            &nbsp;directory. For some reason, we want all our library files in one common directory that we would refer somewhere in our project.<br/>
+            <br/>
+            One way to do it is to manually copy the library files from their respective release or debug directories into the desired directory. Just kidding! We obviously don't want to do that. A preferred way to do it is by using Pre/Post Build Events.<br/>            
+
+            <strong>
+                Event Macros<br/>
+                <br/>
+            </strong>
+            We use post build events when we wish to perform an operation <em>after</em>
+            &nbsp;the build is successful. Pre build events, on the other hand, are used when we want an operation to be performed before the build starts. These build events are composed of the Shell commands similar to the following one,&nbsp;
+        </div>
+        <div>
+            <div class="dp-highlighter">
+                <div class="bar"></div>
+                <ol start="1" class="dp-c">
+                    <li class="alt">
+                        <span>
+                            <span>
+                                <br/>
+                            </span>
+                        </span>
+                    </li>
+                    <li class="alt">
+                        <span>
+                            <span>copy &nbsp;</span>
+                            <span class="string">"$(TargetDir)*$(TargetExt)"</span>
+                            <span>&nbsp;</span>
+                            <span class="string">"$(ProjectDir)..\Library\"</span>
+                            <span>&nbsp;&nbsp;</span>
+                        </span>
+                    </li>
+                    <li class="alt">
+                        <span>
+                            <span>
+                                <br/>
+                            </span>
+                        </span>
+                    </li>
+                </ol>
+            </div>
+            <div id="pastingspan1">Assume that the above line of code is a post build event. The event will copy the targeted files from the project directory into the Library directory, which resides in the main directory. Let's have a closer look at the command line event in parts.</div>
+            <div id="pastingspan1">
+                <ul>
+                    <li>
+                        <em>copy</em>
+                        &nbsp;is the Shell command that we wish to execute when our build is successful. Similarly, we can use other commands as well. For example, we can use <em>move</em>
+                        instead of copy.<br/>
+                        <br/>
+                    </li>
+                    <li>
+                        <em>$(TargetDir)</em>
+                        &nbsp;returns the value of TargetDir macro, which is nothing but a directory path. This is the directory from where we wish to extract our files. Visual Studio provides a list of macros that we can use while creating our build event command. You may read more about the available macros <a href="https://msdn.microsoft.com/en-us/library/42x5kfw4.aspx" target="_blank" title="here">here</a>
+                        .<br/>
+                        <br/>
+                    </li>
+                    <li>
+                        <span>
+                            <em>*$(TargetExt)</em>
+                        </span>
+                        &nbsp;returns the list of all files that have the TargetExt. If the value of TargetExt is not what we want, we can simply replace the macro with our own extension. It is because of the '<strong>*</strong>
+                        '&nbsp;that we get all the files. If we know the file name we can use the file name with the target extension and that file will be copied to the desired location.<br/>
+                        <br/>
+                    </li>
+                    <li>
+                        <em>$(ProjectDir)</em>
+                        &nbsp;gives us the project directory path. In the sample command, I have used the project directory, however we can always replace it with other available macros as per our need.<br/>
+                        <br/>
+                    </li>
+                    <li>
+                        Because I want to store my desired files into the Library directory which lies in the main directory, I have used "<strong>..\</strong>
+                        " followed by the directory name Library.<br/>
+                        <br/>
+                    </li>
+                    <li>When the build event is triggered, we can see the actual command executed by Visual Studio in the background, in its output window.</li>
+                </ul>
+            </div>
+            <div id="pastingspan1">
+                <strong>Conditional Events &nbsp;</strong>
+            </div>
+            <div>&nbsp;</div>
+            <div>
+                We can execute multiple commands in our build event. All we need, is to add a new line between the two commands. Not only this, we can also execute commands based on some condition. In order to achieve it, we use the <strong>if</strong>
+                &nbsp;operator as shown in the following example,
+            </div>
+            <div>
+                <div class="dp-highlighter">
+                    <div class="bar"></div>
+                    <ol start="1" class="dp-c">
+                        <li class="alt">
+                            <span>
+                                <span>
+                                    <br/>
+                                </span>
+                            </span>
+                        </li>
+                        <li class="alt">
+                            <span>
+                                <span>move &nbsp;</span>
+                                <span class="string">"$(ProjectDir)..\Library\*$(TargetExt)"</span>
+                                <span>&nbsp;</span>
+                                <span class="string">"$(ProjectDir)..\Test\"</span>
+                                <span>&nbsp;&nbsp;</span>
+                            </span>
+                        </li>
+                        <li class="">
+                            <span>
+                                <span class="keyword">if</span>
+                                <span>&nbsp;$(ConfigurationName)&nbsp;==&nbsp;Release &nbsp;copy &nbsp;</span>
+                                <span class="string">"$(TargetDir)*$(TargetExt)"</span>
+                                <span>&nbsp;</span>
+                                <span class="string">"$(ProjectDir)..\Library\"</span>
+                                <span>&nbsp;&nbsp;</span>
+                            </span>
+                        </li>
+                        <li class="">
+                            <br/>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div id="pastingspan1">&nbsp;In the above event, we are executing two commands. </div>
+            <div>
+                <ul>
+                    <li>
+                        The first command moves the targeted files from <em>Library</em>
+                        &nbsp;directory into the <em>Test</em>
+                        &nbsp;directory.&nbsp;
+                    </li>
+                    <li>
+                        The second command is, however, a conditional command which executes only if the value of <em>$(ConfigurationName)</em>
+                        is <span>Release</span>
+                        .
+                    </li>
+                </ul>
+            </div>
+            <div id="pastingspan1"></div>
+            <p>
+                <strong>
+                    Summary<br/>
+                    <br/>
+                </strong>
+                The article talked how we can make use of pre/post build events to perform an operation. It can be formed using a single, multiple or conditional command. While writing my own first build event, I found it a bit difficult to understand the parts of the command. Through this article, I tried to forward my learnings and help others get a basic understanding about the topic.<br/>
+                <br/>It &#8217;s always great to have feedback from the readers. Your valuable feedback, questions, or comments about this article are always welcome and much appreciated.
+            </p>
+        </div>

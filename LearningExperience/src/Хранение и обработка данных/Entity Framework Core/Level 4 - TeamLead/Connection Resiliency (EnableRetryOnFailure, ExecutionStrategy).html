@@ -1,0 +1,12 @@
+<p>Устойчивые SQL-соединения в EF Core - это простой способ настройки. С помощью нескольких строк кода мы можем иметь такие вещи, как попытка подключения X количество времени, если соединение не удается в первый раз. Помимо отказоустойчивости соединения мы можем добавить стратегии транзакций. поэтому в случае полного отказа данные не пострадают.</p>
+<pre><code>services.AddDbContext(options =&gt;
+    {
+       options.UseSqlServer(Configuration[&quot;ConnectionString&quot;],
+       sqlServerOptionsAction: sqlOptions =&gt;
+       {
+          sqlOptions.EnableRetryOnFailure(
+             maxRetryCount: 10,
+             maxRetryDelay: TimeSpan.FromSeconds(30),
+             errorNumbersToAdd: null)
+        });
+     });</code></pre>

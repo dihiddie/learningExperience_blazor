@@ -1,0 +1,7 @@
+<p>Срабатывают сразу после фильтра авторизации, если в последнем не произошло исключения.</p>
+<p>На примере кэширования</p>
+<ul>
+    <li>Имплементим либо IResourceFilter, либо IAsyncResourceFilter</li>
+    <li>Два метода: <b>OnResourceExecuted</b> (<i>Метод, который сработает до доступа к ресурсу.</i>) и <b>OnResourceExecuting</b> (<i>Если данные в кэше найти не удалось их нужно кэшировать здесь на случай следующего обращения к ним.</i>) </li>
+    <li>Регистрируем в ConfigureServices: <b>services.AddScoped< MyResourceFilter >();</b></li>
+</ul>

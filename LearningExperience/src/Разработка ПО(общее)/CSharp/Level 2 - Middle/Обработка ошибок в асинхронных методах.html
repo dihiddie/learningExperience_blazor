@@ -1,0 +1,13 @@
+<pre><code>Task&lt;string&gt; theTask = DelayAsync();
+
+    try
+    {
+        string result = await theTask;
+        Debug.WriteLine(&quot;Result: &quot; + result);
+    }
+    catch (Exception ex)
+    {
+        Debug.WriteLine(&quot;Exception Message: &quot; + ex.Message);
+    }</code></pre>
+    <p>При исключении будет: theTask.IsFaulted = true, в Exception.InnerException(s)(если использовался метод Task.WhenAll(t1, t2, t3) и в нескольких тасках произошла ошибка</p>
+    <p>Следует учитывать, что если мы запускаем данный код в режиме отладки в Visual Studio, то VS просигнализирует нам о генерации исключении и остановит выполнение а строке throw new Exception($"{n} : число не должно быть меньше 1");. В режиме запуска без отладки VS не будет останавливаться.</p>

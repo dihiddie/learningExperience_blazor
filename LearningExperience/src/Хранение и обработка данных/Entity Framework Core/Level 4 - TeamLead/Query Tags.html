@@ -1,0 +1,14 @@
+<p>Эта функция помогает сопоставить запросы LINQ в коде с сгенерированными запросами SQL, записанными в журналы. Вы аннотируете запрос LINQ с помощью нового метода TagWith()</p>
+<pre><code>  
+    var nearestFriends =
+    (from f in context.Friends.TagWith(<i>&quot;This is my spatial query!&quot;</i>)
+    orderby f.Location.Distance(myLocation) descending
+    select f).Take(5).ToList();
+</code></pre>
+<hr>
+<pre><code>
+    <i>-- This is my spatial query!</i>
+
+    SELECT TOP(@__p_1) [f].[Name], [f].[Location]
+    FROM [Friends] AS [f]
+    ORDER BY [f].[Location].STDistance(@__myLocation_0) DESC</code></pre>

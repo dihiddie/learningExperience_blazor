@@ -1,0 +1,31 @@
+<p>Tag-хелперы представляют собой функциональность, предназначенную для генерации HTML-разметки. Tag-хелперы используются в представлениях и выглядят как обычные html-элементы или атрибуты, однако при работе приложения они обрабатываются движком Razor на стороне сервера и в конечном счете преобразуются в стандартные html-элементы.</p>
+<pre><code>	
+    <i>&lt;a asp-controller=&quot;Home&quot; asp-action=&quot;Contacts&quot;&gt;Контакты&lt;/a&gt;</i>
+</code></pre>
+<p>Выглядит как обычный html - tag, но обладает расширенным набором элементов: asp-controller="Home" asp-action="Details" asp-route-id="@item.Id"</p>
+
+<pre><code>
+<i>    &lt;link rel=&quot;stylesheet&quot;  
+    href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css&quot;  
+    // URL-адрес таблицы стилей CSS, к которой следует вернуться в случае сбоя основного URL-адреса.
+    asp-fallback-href=&quot;~/lib/bootstrap/dist/css/bootstrap.min.css&quot;  
+    asp-fallback-test-class=&quot;sr-only&quot;   
+asp-fallback-test-property=&quot;position&quot;  
+    asp-fallback-test-value=&quot;absolute&quot;  
+    integrity=&quot;sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh&quot;  
+    crossorigin=&quot;anonymous&quot;&gt;</i>
+ </code></pre>
+
+ <pre><code>
+     <i>&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js&quot;  
+        // Метод сценария, определенный в основном сценарии, который будет использоваться для резервного теста.
+        asp-fallback-src=&quot;~/lib/jquery/dist/jquery.min.js&quot;  
+        asp-fallback-test=&quot;window.jQuery&quot;  
+        crossorigin=&quot;anonymous&quot;  
+        integrity=&quot;sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT&quot;&gt;  </i>
+ </code></pre>
+ <pre><code>
+    <i>&lt;form asp-controller=&quot;Demo&quot; asp-action=&quot;Register&quot; method=&quot;post&quot;&gt;
+        &lt;!-- Input and Submit elements --&gt;
+    &lt;/form&gt;</i>
+</code></pre>

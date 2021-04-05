@@ -13,4 +13,8 @@
     <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Core\LearningExperience.Core.Documents\LearningExperience.Core.Documents.csproj" />
+  </ItemGroup>
+
 </Project>

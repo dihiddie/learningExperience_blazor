@@ -4,6 +4,9 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
 {
     using System;
     using System.Net;
+    using System.Text.Json;
+
+    using LearningExperience.Core.Documents.Models;
 
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.FileProviders;
@@ -12,14 +15,14 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
     [Route("api/[controller]")]
     public class ContentLoaderController : ControllerBase
     {
-        private readonly string folderPath;
+        private readonly string baseJsonFileName;
 
         private readonly PhysicalFileProvider fileProvider;
 
         public ContentLoaderController(IConfiguration configuration)
         {
-            folderPath = configuration["DocumentsSchemeFolder"]
-                         ?? throw new NullReferenceException("Configuration key - DocumentsSchemeFolder doesn't exist");
+            var folderPath = configuration["DocumentsSchemeFolder"] ?? throw new NullReferenceException("Configuration key - DocumentsSchemeFolder doesn't exist");
+            baseJsonFileName = configuration["DocumentsSchemeFile"] ?? throw new NullReferenceException("Configuration key - DocumentsSchemeFile doesn't exist");
             fileProvider = new PhysicalFileProvider(folderPath);
         }
 
@@ -45,6 +48,13 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
                                Content = "<p>Произошла ошибка при получении содержимого файла</p>"
                 };
             }
+        }
+
+        [HttpGet]
+        public DocumentsScheme<Document> GetScheme()
+        {
+            var baseJson = System.IO.File.ReadAllText(fileProvider.GetFileInfo(baseJsonFileName).PhysicalPath);
+            return JsonSerializer.Deserialize<DocumentsScheme<Document>>(baseJson);
         }
     }
 }

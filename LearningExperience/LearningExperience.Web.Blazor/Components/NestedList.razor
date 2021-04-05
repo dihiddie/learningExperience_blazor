@@ -28,13 +28,13 @@
 }
 
 @code {
-    [Parameter] public List<Document> Documents { get; set; }
+    [Parameter] public List<ClickableDocument> Documents { get; set; }
 
-    [Parameter] public EventCallback<Document> OnBottomLevelReached { get; set; }
+    [Parameter] public EventCallback<ClickableDocument> OnBottomLevelReached { get; set; }
 
     private string listGroupActionClass = "list-group-item list-group-item-action";
 
-    private async Task OnDocumentClickAsync(Document clickedDocument)
+    private async Task OnDocumentClickAsync(ClickableDocument clickedDocument)
     {
         clickedDocument.IsClicked = !clickedDocument.IsClicked;
         if (!clickedDocument.Documents.Any())
@@ -44,7 +44,7 @@
         await CloseNestedTabsAsync(clickedDocument).ConfigureAwait(false);
     }
 
-    private async Task CloseNestedTabsAsync(Document document)
+    private async Task CloseNestedTabsAsync(ClickableDocument document)
     {
         if (document.Documents == null) return;
         foreach (var nestedDoc in document.Documents)

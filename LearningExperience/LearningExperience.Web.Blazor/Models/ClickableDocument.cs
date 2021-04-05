@@ -1,6 +1,8 @@
 ﻿namespace LearningExperience.Web.Blazor.Models
 {
-    public class Clickable
+    using LearningExperience.Core.Documents.Models;
+
+    public class ClickableDocument : DocumentBase<ClickableDocument>
     {
         public bool IsClicked { get; set; }
 

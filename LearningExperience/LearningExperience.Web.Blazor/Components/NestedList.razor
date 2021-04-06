@@ -11,12 +11,12 @@
             <div class="doc" style="display: @docLevel1.DisplayState; padding-left: 7px;">
                 <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel2)"><i class="arrow @docLevel2.ArrowState"></i>@docLevel2.Value</a>
             </div>
-            foreach(var docLevel3 in docLevel2.Documents)
+            foreach (var docLevel3 in docLevel2.Documents)
             {
                 <div class="doc" style="display: @docLevel2.DisplayState; padding-left: 17px;">
                     <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel3)"><i class="arrow @docLevel3.ArrowState"></i>@docLevel3.Value</a>
                 </div>
-                foreach(var docLevel4 in docLevel3.Documents)
+                foreach (var docLevel4 in docLevel3.Documents)
                 {
                     <div class="doc" style="display: @docLevel3.DisplayState; padding-left: 24px;">
                         <a id="@(docLevel4.IsSelected ? "selected" : string.Empty)" class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel4)"><i class="dot filled"></i>@docLevel4.Value</a>
@@ -25,6 +25,10 @@
             }
         }
     }
+}
+else
+{
+    <div class="lds-hourglass"></div>
 }
 
 @code {

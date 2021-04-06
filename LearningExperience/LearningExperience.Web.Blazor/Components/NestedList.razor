@@ -19,7 +19,7 @@
                 foreach(var docLevel4 in docLevel3.Documents)
                 {
                     <div class="doc" style="display: @docLevel3.DisplayState; padding-left: 24px;">
-                        <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel4)"><i class="dot filled"></i>@docLevel4.Value</a>
+                        <a id="@(docLevel4.IsSelected ? "selected" : string.Empty)" class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel4)"><i class="dot filled"></i>@docLevel4.Value</a>
                     </div>
                 }
             }
@@ -39,6 +39,8 @@
         clickedDocument.IsClicked = !clickedDocument.IsClicked;
         if (!clickedDocument.Documents.Any())
         {
+            clickedDocument.IsSelected = true;
+            ResetSelected(clickedDocument);
             await OnBottomLevelReached.InvokeAsync(clickedDocument).ConfigureAwait(false);
         }
         await CloseNestedTabsAsync(clickedDocument).ConfigureAwait(false);
@@ -53,4 +55,14 @@
             await CloseNestedTabsAsync(nestedDoc).ConfigureAwait(false);
         }
     }
+
+    private void ResetSelected(ClickableDocument clickedDocument)
+    {
+        foreach (var docLevel1 in Documents)
+            foreach (var docLevel2 in docLevel1.Documents)
+                foreach (var docLevel3 in docLevel2.Documents)
+                    foreach (var selectedDocument in docLevel3.Documents.Where(x => x.IsSelected))
+                        if (selectedDocument != clickedDocument) selectedDocument.IsSelected = false;
+    }
+
 }

@@ -6,6 +6,8 @@
     {
         public bool IsClicked { get; set; }
 
+        public bool IsSelected { get; set; }
+
         public string DisplayState => IsClicked ? "show" : "none";
 
         public string ArrowState => IsClicked ? "down" : "right";

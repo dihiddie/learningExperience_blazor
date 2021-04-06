@@ -37,7 +37,8 @@
         {
             var decoded = Uri.EscapeUriString(document.Path);
             var response = await HttpClient.GetAsync($"https://localhost:5000/api/contentloader/{decoded}").ConfigureAwait(false);
-            contentMarkup = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            contentMarkup = $"<h4>{document.Value}</h4><hr/>{Environment.NewLine}{content}";
         }
         catch (Exception e)
         {

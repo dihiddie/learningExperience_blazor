@@ -2,12 +2,13 @@
 @using LearningExperience.Core.Documents.Models
 @using LearningExperience.Web.Blazor.Models
 @inject HttpClient HttpClient
+@inject IJSRuntime JsRuntime
 
 <div class="sidebar">
     <NavMenu OnBottomLevelReached="@LoadFileContentAsync" Documents="@documents" />
 </div>
 
-<div class="main">
+<div class="main" id="main">
     <div class="top-row px-4">
         <input class="form-control" type="search" placeholder="Поиск" aria-label="Search" asp-for="SearchText" style="width:100%">
     </div>
@@ -40,6 +41,7 @@
             var response = await HttpClient.GetAsync($"https://localhost:5000/api/contentloader/{decoded}").ConfigureAwait(false);
             var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             contentMarkup = $"<h4>{document.Value}</h4><hr/>{Environment.NewLine}{content}";
+            await ScrollToElementIdAsync("main").ConfigureAwait(false);
         }
         catch (Exception e)
         {
@@ -47,4 +49,6 @@
             throw;
         }
     }
+
+    private ValueTask ScrollToElementIdAsync(string elementId) => JsRuntime.InvokeVoidAsync("scrollToElementId", elementId);
 }

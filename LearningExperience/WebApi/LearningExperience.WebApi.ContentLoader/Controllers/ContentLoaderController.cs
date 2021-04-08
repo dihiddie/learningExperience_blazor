@@ -3,6 +3,7 @@
 namespace LearningExperience.WebApi.ContentLoader.Controllers
 {
     using System;
+    using System.IO;
     using System.Net;
     using System.Text.Json;
 
@@ -54,7 +55,20 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
         public DocumentsScheme<Document> GetScheme()
         {
             var baseJson = System.IO.File.ReadAllText(fileProvider.GetFileInfo(baseJsonFileName).PhysicalPath);
-            return JsonSerializer.Deserialize<DocumentsScheme<Document>>(baseJson);
+            var documentScheme = JsonSerializer.Deserialize<DocumentsScheme<Document>>(baseJson);
+            return SetHasContent(documentScheme);
+        }
+
+        private DocumentsScheme<Document> SetHasContent(DocumentsScheme<Document> documentsScheme)
+        {
+            foreach (var docLevel1 in documentsScheme.Documents)
+                foreach (var docLevel2 in docLevel1.Documents)
+                    foreach (var docLevel3 in docLevel2.Documents)
+                        foreach (var docLevel4 in docLevel3.Documents)
+                            if (new FileInfo(fileProvider.GetFileInfo(docLevel4.Path).PhysicalPath).Length != 0)
+                                docLevel4.HasContent = true;
+
+            return documentsScheme;
         }
     }
 }

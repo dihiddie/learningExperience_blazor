@@ -8,6 +8,10 @@
 
         public bool IsSelected { get; set; }
 
+        public string SelectedId => IsSelected ? "selected" : string.Empty;
+
+        public string FilledState => HasContent ? "filled" : "unfilled";
+
         public string DisplayState => IsClicked ? "show" : "none";
 
         public string ArrowState => IsClicked ? "down" : "right";

@@ -813,7 +813,7 @@
                 {
                   "Name": ".NET Standard",
                   "Value": ".NET Standard",
-                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 1 - Junior\\.NET Standard.html",
+                  "Path": "Разработка ПО(общее)\\.NET Core\\Level 1 - Junior\\NET Standard.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
@@ -1365,7 +1365,7 @@
                 {
                   "Name": "Automapper",
                   "Value": "Automapper",
-                  "Path": "Разработка ПО(общее)\\Другие языки\\All Levels\\Automapper",
+                  "Path": "Разработка ПО(общее)\\Другие языки\\All Levels\\Automapper.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
@@ -1683,7 +1683,7 @@
                 {
                   "Name": "Явное указание this:call, apply",
                   "Value": "Явное указание this:call, apply",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\Javascript\\Level 4 - TeamLead\\Явное указание this:call, apply.html",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\Javascript\\Level 4 - TeamLead\\Явное указание this.html",
                   "IsOpen": false,
                   "Index": 1,
                   "Documents": []
@@ -1691,7 +1691,7 @@
                 {
                   "Name": "Привязка контекста и карринг:bind ",
                   "Value": "Привязка контекста и карринг: bind",
-                  "Path": "Разработка веб-приложений и веб-сервисов\\Javascript\\Level 4 - TeamLead\\Привязка контекста и карринг: bind.html",
+                  "Path": "Разработка веб-приложений и веб-сервисов\\Javascript\\Level 4 - TeamLead\\Привязка контекста и карринг.html",
                   "IsOpen": false,
                   "Index": 2,
                   "Documents": []
@@ -4810,7 +4810,7 @@
                 {
                   "Name": "Способы управления схемами БД (Миграции, Code first, Database first, Scaffold - DbContext)",
                   "Value": "Способы управления схемами БД (Миграции, Code first, Database first, Scaffold - DbContext)",
-                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 1 - Junior\\Способы управления схемами БД (Миграции, Code first, Database first, Scaffold - DbContext)",
+                  "Path": "Хранение и обработка данных\\Entity Framework Core\\Level 1 - Junior\\Способы управления схемами БД (Миграции, Code first, Database first, Scaffold - DbContext).html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []
@@ -5754,7 +5754,7 @@
                 {
                   "Name": "тесты на ожидание исключений, проводить корректную инициализацию тестов и их последующую очистку TestInitialize,TestCleanup,ClassInitialize,ClassCleanup",
                   "Value": "TestInitialize, TestCleanup, ClassInitialize, ClassCleanup",
-                  "Path": "Тестирование\\Модульное тестирование. Unit Testing Framework (MSTest, NUnit, xUnit)\\TestInitialize, TestCleanup, ClassInitialize, ClassCleanup.html",
+                  "Path": "Тестирование\\Модульное тестирование. Unit Testing Framework (MSTest, NUnit, xUnit)\\Level 2 - Middle\\TestInitialize, TestCleanup, ClassInitialize, ClassCleanup.html",
                   "IsOpen": false,
                   "Index": 3,
                   "Documents": []

@@ -8,6 +8,8 @@
 
         public string Path { get; set; }
 
+        public bool HasContent { get; set; }
+
         public List<T> Documents { get; set; }
     }
 }

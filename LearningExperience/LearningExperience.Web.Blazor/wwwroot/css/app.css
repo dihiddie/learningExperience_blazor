@@ -3,6 +3,10 @@
     display: flex;
     flex-direction: column;
 }
+em {
+    font-style: italic;
+    background-color: yellow;
+}
 
 .dot {
     height: 9px;

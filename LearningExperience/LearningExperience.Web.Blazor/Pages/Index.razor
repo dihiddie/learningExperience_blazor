@@ -9,10 +9,7 @@
 </div>
 
 <div class="main" id="main">
-    <div class="top-row px-4">
-        <input class="form-control" type="search" placeholder="Поиск" aria-label="Search" asp-for="SearchText" style="width:100%">
-    </div>
-
+    <Search OnDocumentsFiltered ="@ReloadDocuments" Documents="@documents"></Search>
     <div class="content px-4">
         @((MarkupString)contentMarkup)
     </div>
@@ -51,4 +48,6 @@
     }
 
     private ValueTask ScrollToElementIdAsync(string elementId) => JsRuntime.InvokeVoidAsync("scrollToElementId", elementId);
+
+    private void ReloadDocuments(List<ClickableDocument> filteredDocuments) => documents = filteredDocuments;
 }

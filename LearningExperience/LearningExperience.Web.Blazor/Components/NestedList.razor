@@ -4,22 +4,23 @@
     foreach (var docLevel1 in Documents)
     {
         <div class="doc" style="display: inline-block">
-            <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel1)"><i class="arrow @docLevel1.ArrowState"></i>@docLevel1.Value</a>
+            <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel1)"><i class="arrow @docLevel1.ArrowState"></i> @((MarkupString)docLevel1.Value)</a>
         </div>
         foreach (var docLevel2 in docLevel1.Documents)
         {
             <div class="doc" style="display: @docLevel1.DisplayState; padding-left: 7px;">
-                <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel2)"><i class="arrow @docLevel2.ArrowState"></i>@docLevel2.Value</a>
+                <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel2)"><i class="arrow @docLevel2.ArrowState"></i>@((MarkupString)docLevel2.Value)</a>
             </div>
             foreach (var docLevel3 in docLevel2.Documents)
             {
                 <div class="doc" style="display: @docLevel2.DisplayState; padding-left: 17px;">
-                    <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel3)"><i class="arrow @docLevel3.ArrowState"></i>@docLevel3.Value</a>
+                    <a class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel3)"><i class="arrow @docLevel3.ArrowState"></i>@((MarkupString)docLevel3.Value)</a>
                 </div>
                 foreach (var docLevel4 in docLevel3.Documents)
                 {
                     <div class="doc" style="display: @docLevel3.DisplayState; padding-left: 24px;">
-                        <a id="@(docLevel4.SelectedId)" class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel4)"><i class="dot @(docLevel4.FilledState)"></i>@docLevel4.Value
+                        <a id="@(docLevel4.SelectedId)" class="@listGroupActionClass" @onclick="() => OnDocumentClickAsync(docLevel4)">
+                            <i class="dot @(docLevel4.FilledState)"></i>@((MarkupString)docLevel4.Value)
                         </a>
                     </div>
                 }

@@ -65,78 +65,79 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
         [HttpGet("search")]
         public DocumentsScheme<Document> Filter(string text)
         {
-            var filteredScheme = new DocumentsScheme<Document>();
+            var filteredScheme = new DocumentsScheme<Document>() { Documents = new List<Document>() };
             var originalScheme = GetScheme();
 
             foreach (var docLevel1 in originalScheme.Documents)
             {
-                Document firstLevel;
                 Document secondLevel;
                 Document thirdLevel;
                 var foundedAny = false;
 
-                if (docLevel1.Value.Contains(text))
-                {
-                    docLevel1.Value = docLevel1.Value.WrapWordsInTag(new List<string> { text }, "em");
-                    foundedAny = true;
-                }
+                var firstLevel = new Document
+                                     {
+                                         Value = docLevel1.Value, Path = docLevel1.Path, Documents = new List<Document>()
+                                     };
 
-                firstLevel = new Document { Value = docLevel1.Value, Path = docLevel1.Path };
+                if (docLevel1.Value.CaseInsensitiveContains(text))
+                {
+                    firstLevel.Value = docLevel1.Value.WrapWordsInTag(new List<string> { text }, "em");
+                    firstLevel.Documents = docLevel1.Documents;
+                    filteredScheme.Documents.Add(firstLevel);
+                    continue;
+                }
 
                 foreach (var docLevel2 in docLevel1.Documents)
                 {
                     if (docLevel2.Value.CaseInsensitiveContains(text))
                     {
                         docLevel2.Value = docLevel2.Value.WrapWordsInTag(new List<string> { text }, "em");
-                        foundedAny = true;
-                    }
+                        firstLevel.Documents.Add(docLevel2);
 
-                    secondLevel = new Document { Value = docLevel2.Value, Path = docLevel2.Path };
-                    if (firstLevel.Documents != null) firstLevel.Documents.Add(secondLevel);
-                    else firstLevel.Documents = new List<Document> { secondLevel };
+                        if (!filteredScheme.Documents.Select(x => x.Value).Contains(firstLevel.Value))
+                            filteredScheme.Documents.Add(firstLevel);
+                        continue;
+                    }
 
                     foreach (var docLevel3 in docLevel2.Documents)
                     {
                         if (docLevel3.Value.CaseInsensitiveContains(text))
-                        {
                             docLevel3.Value = docLevel3.Value.WrapWordsInTag(new List<string> { text }, "em");
-                            foundedAny = true;
-                        }
-
-                        thirdLevel = new Document { Value = docLevel3.Value, Path = docLevel3.Path };
-                        if (secondLevel.Documents != null) secondLevel.Documents.Add(thirdLevel);
-                        else secondLevel.Documents = new List<Document> { thirdLevel };
 
                         var foundedList = new List<Document>();
 
                         foreach (var docLevel4 in docLevel3.Documents)
-                        {
                             if (docLevel4.Value.CaseInsensitiveContains(text))
                             {
                                 docLevel4.Value = docLevel4.Value.WrapWordsInTag(new List<string> { text }, "em");
                                 foundedList.Add(docLevel4);
                             }
-                        }
 
                         if (foundedList.Any())
                         {
                             foundedAny = true;
-                            if (thirdLevel.Documents != null) thirdLevel.Documents.AddRange(foundedList);
+
+                            secondLevel = new Document { Value = docLevel2.Value, Path = docLevel2.Path, Documents = new List<Document>() };
+
+                            thirdLevel = new Document { Value = docLevel3.Value, Path = docLevel3.Path, Documents = new List<Document>() };
+                            if (!secondLevel.Documents.Select(x => x.Value).Contains(thirdLevel.Value))
+                                secondLevel.Documents.Add(thirdLevel);
+                            thirdLevel.Documents.AddRange(foundedList);
+
+                            if (!firstLevel.Documents.Select(x => x.Value).Contains(secondLevel.Value))
+                                firstLevel.Documents.Add(secondLevel);
                             else
                             {
-                                thirdLevel.Documents = new List<Document>();
-                                thirdLevel.Documents.AddRange(foundedList);
+                                var second = firstLevel.Documents.FirstOrDefault(x => x.Value == secondLevel.Value);
+                                second?.Documents.Add(thirdLevel);
                             }
-
                         }
                     }
                 }
 
                 if (foundedAny)
-                {
-                    if (filteredScheme.Documents != null) filteredScheme.Documents.Add(firstLevel);
-                    else filteredScheme.Documents = new List<Document> { firstLevel };
-                }
+                    if (!filteredScheme.Documents.Select(x => x.Value).Contains(firstLevel.Value))
+                        filteredScheme.Documents.Add(firstLevel);
             }
 
             return filteredScheme;

@@ -10,13 +10,11 @@
 
     public string SearchText;
 
-    private List<ClickableDocument> originalDocumentList;
-
-    [Parameter]
-    public List<ClickableDocument> Documents { get; set; }
-
     [Parameter]
     public EventCallback<List<ClickableDocument>> OnDocumentsFiltered { get; set; }
+
+    [Parameter]
+    public EventCallback OnDocumentsFilterStarted { get; set; }
 
     private void OnInput(ChangeEventArgs args)
     {
@@ -27,6 +25,7 @@
     {
         if (e.Code == "Enter" || e.Code == "NumpadEnter")
         {
+            await OnDocumentsFilterStarted.InvokeAsync(null).ConfigureAwait(false);
             var response = await HttpClient.GetFromJsonAsync<DocumentsScheme<ClickableDocument>>($"https://localhost:5000/api/contentloader/search?text={SearchText}").ConfigureAwait(false);
             await OnDocumentsFiltered.InvokeAsync(response.Documents).ConfigureAwait(false);
         }

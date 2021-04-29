@@ -9,7 +9,7 @@
 </div>
 
 <div class="main" id="main">
-    <Search OnDocumentsFiltered ="@ReloadDocuments" Documents="@documents"></Search>
+    <Search OnDocumentsFiltered ="@ReloadDocuments" OnDocumentsFilterStarted="@SetLoader"></Search>
     <div class="content px-4">
         @((MarkupString)contentMarkup)
     </div>
@@ -31,23 +31,24 @@
 
     private async Task LoadFileContentAsync(ClickableDocument document)
     {
-        try
-        {
-            contentMarkup = @"<div class=""lds-hourglass""></div>";
-            var decoded = Uri.EscapeUriString(document.Path);
-            var response = await HttpClient.GetAsync($"https://localhost:5000/api/contentloader/{decoded}").ConfigureAwait(false);
-            var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            contentMarkup = $"<h4>{document.Value}</h4><hr/>{Environment.NewLine}{content}";
-            await ScrollToElementIdAsync("main").ConfigureAwait(false);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
+        SetLoader();
+        var decoded = Uri.EscapeUriString(document.Path);
+        var response = await HttpClient.GetAsync($"https://localhost:5000/api/contentloader/{decoded}").ConfigureAwait(false);
+        var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+        contentMarkup = $"<h4>{document.Value}</h4><hr/>{Environment.NewLine}{content}";
+        await ScrollToElementIdAsync("main").ConfigureAwait(false);
     }
 
     private ValueTask ScrollToElementIdAsync(string elementId) => JsRuntime.InvokeVoidAsync("scrollToElementId", elementId);
 
-    private void ReloadDocuments(List<ClickableDocument> filteredDocuments) => documents = filteredDocuments;
+    private void ReloadDocuments(List<ClickableDocument> filteredDocuments)
+    {
+        contentMarkup = "<p>Выберите тему, чтобы увидеть ее содержимое</p>";
+        documents = filteredDocuments;
+    }
+
+    private void SetLoader()
+    {
+        contentMarkup = @"<div class=""lds-hourglass""></div>";
+    }
 }

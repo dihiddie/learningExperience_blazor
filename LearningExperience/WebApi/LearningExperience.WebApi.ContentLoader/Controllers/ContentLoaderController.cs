@@ -8,6 +8,7 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
     using System.Linq;
     using System.Net;
     using System.Text.Json;
+    using System.Threading;
 
     using LearningExperience.Core.Documents.Models;
     using LearningExperience.Core.Extensions;
@@ -65,13 +66,15 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
         [HttpGet("search")]
         public DocumentsScheme<Document> Filter(string text)
         {
+            if (string.IsNullOrEmpty(text)) return GetScheme();
+
+            Thread.Sleep(1000);
+
             var filteredScheme = new DocumentsScheme<Document>() { Documents = new List<Document>() };
             var originalScheme = GetScheme();
 
             foreach (var docLevel1 in originalScheme.Documents)
             {
-                Document secondLevel;
-                Document thirdLevel;
                 var foundedAny = false;
 
                 var firstLevel = new Document
@@ -83,6 +86,7 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
                 {
                     firstLevel.Value = docLevel1.Value.WrapWordsInTag(new List<string> { text }, "em");
                     firstLevel.Documents = docLevel1.Documents;
+                    HighLightLowerDocuments(firstLevel, text);
                     filteredScheme.Documents.Add(firstLevel);
                     continue;
                 }
@@ -95,7 +99,11 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
                         firstLevel.Documents.Add(docLevel2);
 
                         if (!filteredScheme.Documents.Select(x => x.Value).Contains(firstLevel.Value))
+                        {
+                            HighLightLowerDocuments(firstLevel, text);
                             filteredScheme.Documents.Add(firstLevel);
+                        }
+
                         continue;
                     }
 
@@ -113,24 +121,22 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
                                 foundedList.Add(docLevel4);
                             }
 
-                        if (foundedList.Any())
+                        if (!foundedList.Any()) continue;
+                        foundedAny = true;
+
+                        var secondLevel = new Document { Value = docLevel2.Value, Path = docLevel2.Path, Documents = new List<Document>() };
+
+                        var thirdLevel = new Document { Value = docLevel3.Value, Path = docLevel3.Path, Documents = new List<Document>() };
+                        if (!secondLevel.Documents.Select(x => x.Value).Contains(thirdLevel.Value))
+                            secondLevel.Documents.Add(thirdLevel);
+                        thirdLevel.Documents.AddRange(foundedList);
+
+                        if (!firstLevel.Documents.Select(x => x.Value).Contains(secondLevel.Value))
+                            firstLevel.Documents.Add(secondLevel);
+                        else
                         {
-                            foundedAny = true;
-
-                            secondLevel = new Document { Value = docLevel2.Value, Path = docLevel2.Path, Documents = new List<Document>() };
-
-                            thirdLevel = new Document { Value = docLevel3.Value, Path = docLevel3.Path, Documents = new List<Document>() };
-                            if (!secondLevel.Documents.Select(x => x.Value).Contains(thirdLevel.Value))
-                                secondLevel.Documents.Add(thirdLevel);
-                            thirdLevel.Documents.AddRange(foundedList);
-
-                            if (!firstLevel.Documents.Select(x => x.Value).Contains(secondLevel.Value))
-                                firstLevel.Documents.Add(secondLevel);
-                            else
-                            {
-                                var second = firstLevel.Documents.FirstOrDefault(x => x.Value == secondLevel.Value);
-                                second?.Documents.Add(thirdLevel);
-                            }
+                            var second = firstLevel.Documents.FirstOrDefault(x => x.Value == secondLevel.Value);
+                            second?.Documents.Add(thirdLevel);
                         }
                     }
                 }
@@ -153,6 +159,18 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
                                 docLevel4.HasContent = true;
 
             return documentsScheme;
+        }
+
+        private void HighLightLowerDocuments(Document document, string text)
+        {
+            if (document.Documents == null) return;
+            foreach (var doc in document.Documents)
+            {
+                if (doc.Value.CaseInsensitiveContains(text))
+                    doc.Value = doc.Value.WrapWordsInTag(new List<string> { text }, "em");
+                HighLightLowerDocuments(doc, text);
+            }
+
         }
     }
 }

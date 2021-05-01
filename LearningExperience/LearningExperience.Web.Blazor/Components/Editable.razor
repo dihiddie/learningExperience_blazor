@@ -1,0 +1,21 @@
+﻿    <div class="content px-4">
+        @if (!string.IsNullOrEmpty(Header))
+        {
+        <div>
+            <a href="" style="display: inline-block; cursor: pointer; text-decoration: none; font-size: 20px; font-weight: bold; color: black;">
+                <img src="icons/edit.png" style="width: 20px; height: 20px; margin-right: 10px" />
+            </a>
+            <h4 style="display: inline-block; vertical-align: middle">@Header</h4>
+        </div>
+            <hr/>
+        }
+        @((MarkupString)Content)
+    </div>
+
+@code {
+    [Parameter]
+    public string Content { get; set; }
+
+    [Parameter]
+    public string Header{ get; set; }
+}

@@ -10,9 +10,7 @@
 
 <div class="main" id="main">
     <Search OnDocumentsFiltered ="@ReloadDocuments" OnDocumentsFilterStarted="@SetLoader"></Search>
-    <div class="content px-4">
-        @((MarkupString)contentMarkup)
-    </div>
+    <Editable Content="@contentMarkup" Header="@header"></Editable>
 </div>
 
 @code
@@ -20,6 +18,8 @@
     DocumentsScheme<ClickableDocument> documentsScheme;
 
     List<ClickableDocument> documents;
+
+    string header;
 
     string contentMarkup = "<p>Выберите тему, чтобы увидеть ее содержимое</p>";
 
@@ -34,8 +34,8 @@
         SetLoader();
         var decoded = Uri.EscapeUriString(document.Path);
         var response = await HttpClient.GetAsync($"https://localhost:5000/api/contentloader/{decoded}").ConfigureAwait(false);
-        var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-        contentMarkup = $"<h4>{document.Value}</h4><hr/>{Environment.NewLine}{content}";
+        contentMarkup = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+        header = document.Value;
         await ScrollToElementIdAsync("main").ConfigureAwait(false);
     }
 

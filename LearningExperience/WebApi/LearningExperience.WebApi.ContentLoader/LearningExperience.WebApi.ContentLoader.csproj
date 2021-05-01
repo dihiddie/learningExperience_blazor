@@ -6,7 +6,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\LearningExperience.Core.Documents\LearningExperience.Core.Documents.csproj" />
+    <ProjectReference Include="..\..\Core\LearningExperience.Core.Extensions\LearningExperience.Core.Extensions.csproj" />
   </ItemGroup>
 
 
 </Project>
+<!---->

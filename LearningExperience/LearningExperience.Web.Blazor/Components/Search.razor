@@ -1,0 +1,34 @@
+﻿@using LearningExperience.Core.Documents.Models
+@using LearningExperience.Web.Blazor.Models
+@inject HttpClient HttpClient
+
+<div class="top-row px-4">
+    <input value="@SearchText" @oninput="@OnInput" @onkeydown="@OnEnterAsync" class="form-control" type="text" placeholder="Поиск" style="width:100%">
+</div>
+
+@code {
+
+    public string SearchText;
+
+    [Parameter]
+    public EventCallback<List<ClickableDocument>> OnDocumentsFiltered { get; set; }
+
+    [Parameter]
+    public EventCallback OnDocumentsFilterStarted { get; set; }
+
+    private void OnInput(ChangeEventArgs args)
+    {
+        SearchText = args.Value.ToString();
+    }
+
+    private async Task OnEnterAsync(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            await OnDocumentsFilterStarted.InvokeAsync(null).ConfigureAwait(false);
+            var response = await HttpClient.GetFromJsonAsync<DocumentsScheme<ClickableDocument>>($"https://localhost:5000/api/contentloader/search?text={SearchText}").ConfigureAwait(false);
+            await OnDocumentsFiltered.InvokeAsync(response.Documents).ConfigureAwait(false);
+        }
+    }
+
+}

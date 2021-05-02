@@ -10,7 +10,7 @@
 
 <div class="main" id="main">
     <Search OnDocumentsFiltered ="@ReloadDocuments" OnDocumentsFilterStarted="@SetLoader"></Search>
-    <Editor Content="@contentMarkup" Header="@header" NewDoc="true"></Editor>
+    <Editor Content="@contentMarkup" Header="@clickedDocument?.Value" NewDoc="true" DocumentPath="@clickedDocument?.Path"></Editor>
 </div>
 
 @code
@@ -19,9 +19,9 @@
 
     List<ClickableDocument> documents;
 
-    string header;
-
     string contentMarkup = "<p>Выберите тему, чтобы увидеть ее содержимое</p>";
+
+    ClickableDocument clickedDocument;
 
     protected override async Task OnInitializedAsync()
     {
@@ -35,7 +35,7 @@
         var decoded = Uri.EscapeUriString(document.Path);
         var response = await HttpClient.GetAsync($"https://localhost:5000/api/contentloader/{decoded}").ConfigureAwait(false);
         contentMarkup = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-        header = document.Value;
+        clickedDocument = document;
         await ScrollToElementIdAsync("main").ConfigureAwait(false);
     }
 

@@ -1,46 +1,69 @@
-﻿    <div class="content px-4">
-        @if (!string.IsNullOrEmpty(Header))
-        {
+﻿@inject HttpClient HttpClient
+<div class="content px-4">
+    @if (!string.IsNullOrEmpty(Header))
+    {
         <div>
-            <a id="edit" href="" @onclick="OnEditClick">
-                <img src="icons/edit.png" style="width: 20px; height: 20px; margin-right: 10px" />
+            <a class="edit" href="" @onclick="OnEditClick">
+                <img src="icons/edit.png" style="width: 20px; height: 20px; margin-right: 5px" />
+            </a>
+            <a class="edit" href="" @onclick="SaveChangesAsync">
+                <img src="icons/floppy-disk.png" style="width: 20px; height: 20px; margin-right: 5px; display: @(NewDoc ? "none" : saveButtonDisplay)" />
             </a>
             <h4 style="display: inline-block; vertical-align: middle">@((MarkupString)Header)</h4>
             <i style="font-size: 14px;">@(NewDoc ? string.Empty : onEditModeSuffix)</i>
         </div>
-            <hr/>
-        }
-        @if (onEditMode && !NewDoc)
-        {
-            <div style="position: relative;">
-                <textarea style="position: absolute; width: 100%; height: 850px" class="form-control" @bind-value="Content" @bind-value:event="oninput"></textarea>
-            </div>
-        }
-        else
-        {
-            @((MarkupString)Content)
-        }
-    </div>
+        <hr />
+    }
+    @if (onEditMode && !NewDoc)
+    {
+        <div style="position: relative;">
+            <textarea style="position: absolute; width: 100%; height: 850px" class="form-control" @bind-value="Content" @bind-value:event="oninput"></textarea>
+        </div>
+    }
+    else
+    {
+        @((MarkupString)Content)
+    }
+</div>
 
 @code {
     [Parameter]
     public string Content { get; set; }
 
     [Parameter]
-    public string Header{ get; set; }
+    public string Header { get; set; }
+
+    [Parameter]
+    public string DocumentPath { get; set; }
 
     [Parameter]
     public bool NewDoc { get; set; }
 
     string onEditModeSuffix;
 
+    string saveButtonDisplay = "none";
+
     bool onEditMode;
 
     private void OnEditClick()
     {
         if (NewDoc) onEditMode = false;
+
         NewDoc = false;
         onEditMode = !onEditMode;
-        onEditModeSuffix = onEditMode ? " (в режиме редактирования)" : null;
+
+        if (onEditMode)
+        {
+            saveButtonDisplay = "show";
+            onEditModeSuffix = " (в режиме редактирования)";
+        }
+        else
+        {
+            saveButtonDisplay = "none";
+            onEditModeSuffix = null;
+        }
     }
+
+    private Task SaveChangesAsync() => HttpClient.PostAsync($"https://localhost:5000/api/contentloader?path={DocumentPath}&content={Content}", null);
+
 }

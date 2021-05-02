@@ -10,7 +10,7 @@
 
 <div class="main" id="main">
     <Search OnDocumentsFiltered ="@ReloadDocuments" OnDocumentsFilterStarted="@SetLoader"></Search>
-    <Editable Content="@contentMarkup" Header="@header"></Editable>
+    <Editor Content="@contentMarkup" Header="@header" NewDoc="true"></Editor>
 </div>
 
 @code

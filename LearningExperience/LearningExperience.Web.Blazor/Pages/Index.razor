@@ -25,7 +25,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        documentsScheme = await HttpClient.GetFromJsonAsync<DocumentsScheme<ClickableDocument>>($"https://localhost:5000/api/contentloader").ConfigureAwait(false);
+        documentsScheme = await HttpClient.GetFromJsonAsync<DocumentsScheme<ClickableDocument>>($"api/contentloader").ConfigureAwait(false);
         documents = documentsScheme.Documents;
     }
 
@@ -33,7 +33,7 @@
     {
         SetLoader();
         var decoded = Uri.EscapeUriString(document.Path);
-        var response = await HttpClient.GetAsync($"https://localhost:5000/api/contentloader/{decoded}").ConfigureAwait(false);
+        var response = await HttpClient.GetAsync($"api/contentloader/{decoded}").ConfigureAwait(false);
         contentMarkup = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
         clickedDocument = document;
         await ScrollToElementIdAsync("main").ConfigureAwait(false);
@@ -44,6 +44,7 @@
     private void ReloadDocuments(List<ClickableDocument> filteredDocuments)
     {
         contentMarkup = "<p>Выберите тему, чтобы увидеть ее содержимое</p>";
+        clickedDocument = null;
         documents = filteredDocuments;
     }
 

@@ -26,7 +26,7 @@
         if (e.Code == "Enter" || e.Code == "NumpadEnter")
         {
             await OnDocumentsFilterStarted.InvokeAsync(null).ConfigureAwait(false);
-            var response = await HttpClient.GetFromJsonAsync<DocumentsScheme<ClickableDocument>>($"https://localhost:5000/api/contentloader/search?text={SearchText}").ConfigureAwait(false);
+            var response = await HttpClient.GetFromJsonAsync<DocumentsScheme<ClickableDocument>>($"api/contentloader/search?text={SearchText}").ConfigureAwait(false);
             await OnDocumentsFiltered.InvokeAsync(response.Documents).ConfigureAwait(false);
         }
     }

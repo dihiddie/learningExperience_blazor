@@ -68,7 +68,7 @@
         try
         {
             Document.HasContent = !string.IsNullOrEmpty(Content);
-            await HttpClient.PostAsync($"https://localhost:5000/api/contentloader?path={DocumentPath}&content={Content}", null).ConfigureAwait(false);
+            await HttpClient.PostAsync($"api/contentloader?path={DocumentPath}&content={Content}", null).ConfigureAwait(false);
             saveResultColor = "green";
             saveResultMessage = "Изменения сохранены";
         }

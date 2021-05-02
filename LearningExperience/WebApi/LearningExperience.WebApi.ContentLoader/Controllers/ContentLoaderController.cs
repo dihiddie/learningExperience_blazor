@@ -152,10 +152,10 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
         }
 
         [HttpPost]
-        public void SaveContent(string path, string content)
+        public void SaveContent([FromBody] DocumentContent documentContent)
         {
-            var filePath = Path.Combine(folderPath, path);
-            System.IO.File.WriteAllText(filePath, content);
+            var filePath = Path.Combine(folderPath, documentContent.Path);
+            System.IO.File.WriteAllText(filePath, documentContent.Content);
         }
 
         private DocumentsScheme<Document> SetHasContent(DocumentsScheme<Document> documentsScheme)

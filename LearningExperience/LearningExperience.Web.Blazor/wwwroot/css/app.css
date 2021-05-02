@@ -253,6 +253,8 @@ a {
     color: black;
 }
 
+    .edit:hover { text-decoration: none; }
+
 @media (max-width: 767.98px) {
     .main .top-row:not(.auth) {
         display: none;

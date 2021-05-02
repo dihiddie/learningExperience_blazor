@@ -10,7 +10,7 @@
 
 <div class="main" id="main">
     <Search OnDocumentsFiltered ="@ReloadDocuments" OnDocumentsFilterStarted="@SetLoader"></Search>
-    <Editor Content="@contentMarkup" Header="@clickedDocument?.Value" NewDoc="true" DocumentPath="@clickedDocument?.Path"></Editor>
+    <Editor Content="@contentMarkup" Header="@clickedDocument?.Value" NewDoc="true" DocumentPath="@clickedDocument?.Path" Document="@clickedDocument"></Editor>
 </div>
 
 @code

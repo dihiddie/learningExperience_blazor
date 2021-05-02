@@ -22,11 +22,13 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
     {
         private readonly string baseJsonFileName;
 
+        private readonly string folderPath;
+
         private readonly PhysicalFileProvider fileProvider;
 
         public ContentLoaderController(IConfiguration configuration)
         {
-            var folderPath = configuration["DocumentsSchemeFolder"] ?? throw new NullReferenceException("Configuration key - DocumentsSchemeFolder doesn't exist");
+            folderPath = configuration["DocumentsSchemeFolder"] ?? throw new NullReferenceException("Configuration key - DocumentsSchemeFolder doesn't exist");
             baseJsonFileName = configuration["DocumentsSchemeFile"] ?? throw new NullReferenceException("Configuration key - DocumentsSchemeFile doesn't exist");
             fileProvider = new PhysicalFileProvider(folderPath);
         }
@@ -149,6 +151,13 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
             return filteredScheme;
         }
 
+        [HttpPost]
+        public void SaveContent(string path, string content)
+        {
+            var filePath = Path.Combine(folderPath, path);
+            System.IO.File.WriteAllText(filePath, content);
+        }
+
         private DocumentsScheme<Document> SetHasContent(DocumentsScheme<Document> documentsScheme)
         {
             foreach (var docLevel1 in documentsScheme.Documents)
@@ -170,7 +179,6 @@ namespace LearningExperience.WebApi.ContentLoader.Controllers
                     doc.Value = doc.Value.WrapWordsInTag(new List<string> { text }, "em");
                 HighLightLowerDocuments(doc, text);
             }
-
         }
     }
 }

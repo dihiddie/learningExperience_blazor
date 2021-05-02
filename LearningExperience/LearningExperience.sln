@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{67D9FD0E-1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearningExperience.Core.Documents", "Core\LearningExperience.Core.Documents\LearningExperience.Core.Documents.csproj", "{9542CE97-1809-4661-A3FD-01B85227819C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningExperience.Core.Extensions", "Core\LearningExperience.Core.Extensions\LearningExperience.Core.Extensions.csproj", "{85FD38CB-74FF-484D-9B04-A5A268911228}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearningExperience.Core.Extensions", "Core\LearningExperience.Core.Extensions\LearningExperience.Core.Extensions.csproj", "{85FD38CB-74FF-484D-9B04-A5A268911228}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

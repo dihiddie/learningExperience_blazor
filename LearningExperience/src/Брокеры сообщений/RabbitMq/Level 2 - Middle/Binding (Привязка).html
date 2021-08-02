@@ -1,0 +1,17 @@
+<h5>Создание Binding</h5>
+<p>Создание привязки происходит при помощи синхронного RPC запроса к серверу. Запрос осуществляется при помощи метода Queue.Bind, вызываемого с параметрами:</p>
+<ul>
+    <li>название очереди</li>
+    <li>название точки обмена</li>
+    <li>другие параметры</li>
+</ul>
+
+<p>Пример создания привязки при помощи RabbitMQ.Client:</p>
+<pre><code>channel.QueueBind(
+    queue: queueName, // имя очереди
+    exchange: &quot;my_exchange&quot;, // имя обменника
+    routingKey: &quot;my_key&quot;, // ключ маршрутизации
+    arguments: null // необязательные параметры
+);</code></pre>
+
+<p>Источник: <a href="https://habr.com/ru/post/490960/">https://habr.com/ru/post/490960/</p>

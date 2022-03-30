@@ -1,0 +1,115 @@
+<ol> 
+  <li>Пишем класс, у которого не будет namespace, название StoredProcedures и публичный статичный метод с аттрибутом [SqlProcedure]. Возвращаемое значение у метода не может быть в описании самого метода (public int Do()), нужно создать out параметр (public void Do(..., out SqlInt32 result))</li>
+  <li>Билдим, подписываем. Папка с библиотеками: {dllFolder}</li>
+  <li>Выполняем следующие скрипты в sql server
+    <ol>
+      <li> Включение интеграции со средой SQL
+        <div>
+          <code>
+            EXEC sp_configure 'clr enabled', 1;  
+            RECONFIGURE;  
+            GO  
+          </code>
+        </div>	
+        </li>
+        <li>
+          В бд [master]:
+          <ol>
+            <li>
+              Создать сертификат. Сертификат извлекается сам из указанной сборки средствами SQL Server.
+              <div>
+                <code>
+                  USE master;
+                  GO
+                  CREATE CERTIFICATE SQLCLRCERTIFICATE
+                  FROM EXECUTABLE FILE = {dllFolder} /ZAPK.SqlClr.dll';
+                  GO
+                </code>
+            </div>
+            </li>
+            <li>
+              Создать логин для полученного сертификата
+            <div>
+              <code>
+                CREATE LOGIN SQLCLRLOGIN
+                FROM CERTIFICATE SQLCLRCERTIFICATE
+                GO
+              </code>
+            </div>
+            </li>
+            <li>
+              Выдать права доступа для dll, что будет запускаться под этим логином. Sql Server требует, чтобы сборки разворачивались под логином, привязанном к сертификату.
+             <div>
+              <code>
+                GRANT UNSAFE ASSEMBLY TO SQLCLRLOGIN;
+                GO
+              </code>
+             </div>
+            </li>          
+          </ol>
+        </li>
+        <li>
+          В БД, на которой будет развернута сборка и хранимая процедура
+          <ol>
+            <li>
+              Cоздать пользователя для указанного логина. Примечание: обозначение {sqlClr_db_name} применяется в значении названии БД, где будет развернута хранимая процедура
+               <div>
+                <code>
+                  USE {sqlClr_db_name}
+                  GO
+                
+                  CREATE USER SQLCLRUSER FOR LOGIN SQLCLRLOGIN
+                  GO              
+                </code>
+               </div>
+             </li>
+             <li>
+               Создать сборку.
+              <div>
+                <code>
+                  CREATE ASSEMBLY SQLCLR FROM '{dllfolder}\ZAPK.SqlClr.dll' WITH PERMISSION_SET=UNSAFE
+                  GO                      
+                </code>
+              </div>
+               <p>А вот тут может быть интересно. Поскольку набор сборок, предварительно загруженных в sql крайне мал, для корректной работы понадобится вытащить нужные сборки из gac (путь примерно такой: C:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319).
+                 В ошибках будет написано, какие еще сборки нужны. Повторять до успешной загрузки сборки на сервер 
+               </p>
+               <p>Права указать UNSAFE, так как в состав сборки входят другие сборки, которые не являются доверенными в SQL Server. SQL Server сам их подгрузит и зарегистрирует. После успешного выполнения скрипта в разделе Assemblies появятся сборки, зарегистрированные в составе исходной.</p>              
+             </li>
+             <li>
+               Создать хранимую процедуру. Количество параметров определяется количеством входных параметров в метод. Выходной параметр (out) - @result int output.  
+              <div>
+                <code>
+                  CREATE PROCEDURE sp_sendToBroker
+                  (
+                  @system nvarchar(60), @module nvarchar(60), @queue nvarchar(128), @eventGuid nvarchar(36), @eventType nvarchar(36), @eventTime nvarchar(30), @eventBody nvarchar(max), @result int output
+                  ) 
+                  AS EXTERNAL NAME SQLCLR.StoredProcedures.SendToBrokerStoredProcedure          
+                </code>
+              </div>
+             </li>
+             <li>
+               Вызов хранимой процедуры:
+             <div>
+              <code>
+                DECLARE	@return_value int, @result int
+                EXEC	@return_value = [dbo].[sp_sendToBroker]
+                  @system = N'System1',
+                  @module = N'module',
+                  @queue = N'queue://queue1',
+                  @eventGuid = N'123',
+                  @eventType = N'123',
+                  @eventTime = N'123',
+                  @eventBody = N'213',
+                  @result = @result OUTPUT
+            SELECT	@result as N'@result'	
+            GO      
+              </code>
+             </div>
+             </li>
+          </ol>         
+        </li>
+    </ol>
+  </li>
+
+</ol>

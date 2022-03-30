@@ -4882,6 +4882,301 @@
                ]
             }
          ]
+      },
+	  {
+         "Value":"Брокеры сообщений",
+         "Path":null,
+         "Documents":[            
+            {
+               "Value":"RabbitMq",
+               "Path":null,
+               "Documents":[
+			     {
+                     "Value":"Level 1 - Junior",
+                     "Path":null,
+                     "Documents":[
+                       {
+                           "Value":"что такое очереди сообщений и зачем они нужны",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 1 - Junior\\что такое очереди сообщений и зачем они нужны.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+                        {
+                           "Value":"AMQP — Advanced Message Queuing Protocol",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 1 - Junior\\AMQP — Advanced Message Queuing Protocol.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+                        {
+                           "Value":"Базовый принцип работы RabbitMq через AMQP",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 1 - Junior\\Базовый принцип работы RabbitMq через AMQP.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+                        {
+                           "Value":"должен уметь установить rabbitmq на windows и docker",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 1 - Junior\\должен уметь установить rabbitmq на windows и docker.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+                        {
+                           "Value":"Management Plugin",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 1 - Junior\\Management Plugin.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"jumpstart materials",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 1 - Junior\\jumpstart materials.html",
+                           "Documents":[
+                              
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "Value":"Level 2 - Middle",
+                     "Path":null,
+                     "Documents":[
+                        {
+                           "Value":"Подключение и каналы",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\Подключение и каналы.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Exchange",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\Exchange.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Альтернативные обменники",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\Альтернативные обменники.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Очереди (Queue)",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\Очереди (Queue).html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Binding (Привязка)",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\Binding (Привязка).html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Acknowledgement Modes",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\Acknowledgement Modes.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Consumer Acknowledgements",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\Consumer Acknowledgements.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"consumer cancel notification",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\consumer cancel notification.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Publisher Confirms",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\Publisher Confirms.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Отложенные сообщения(пример решения)",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\Отложенные сообщения(пример решения).html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Naming Conventions",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\Naming Conventions.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"time to live",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 2 - Middle\\time to live.html",
+                           "Documents":[
+                              
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "Value":"Level 3 - Senior",
+                     "Path":null,
+                     "Documents":[
+                        {
+                           "Value":"Кластеризация и Earlang",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 3 - Senior\\Кластеризация и Earlang.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"heartbeat, keep alive",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 3 - Senior\\heartbeat, keep alive.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Topology and Automatic Recovery",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 3 - Senior\\Topology and Automatic Recovery.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Direct Reply-to",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 3 - Senior\\Direct Reply-to.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"dead letter exchange",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 3 - Senior\\dead letter exchange.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"отказоустойчивость",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 3 - Senior\\отказоустойчивость.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"parameters and policies",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 3 - Senior\\parameters and policies.html",
+                           "Documents":[
+                              
+                           ]
+                        }
+                     ]
+                  },
+				  {
+                     "Value":"Level 4 - TeamLead",
+                     "Path":null,
+                     "Documents":[
+                        {
+                           "Value":"load balancing",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 4 - TeamLead\\load balancing.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Quorum Queues",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 4 - TeamLead\\Quorum Queues.html",
+                           "Documents":[
+                              
+                           ]
+                        },
+						{
+                           "Value":"Classic Mirrored Queues",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 4 - TeamLead\\Classic Mirrored Queues.html",
+                           "Documents":[
+                              
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+	   {
+         "Value":"Остальное",
+         "Path":null,
+         "Documents":[            
+            {
+               "Value":"SqlClr",
+               "Path":null,
+               "Documents":[
+			     {
+                     "Value":"All",
+                     "Path":null,
+                     "Documents":[
+                       {
+                           "Value":"что такое очереди сообщений и зачем они нужны",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 1 - Junior\\что такое очереди сообщений и зачем они нужны.html",
+                           "Documents":[
+                              
+                           ]
+                        }                       
+                     ]
+                  }                
+               ]
+            },
+			{
+               "Value":"Minio",
+               "Path":null,
+               "Documents":[
+			     {
+                     "Value":"All",
+                     "Path":null,
+                     "Documents":[
+                       {
+                           "Value":"что такое очереди сообщений и зачем они нужны",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 1 - Junior\\что такое очереди сообщений и зачем они нужны.html",
+                           "Documents":[
+                              
+                           ]
+                        }                       
+                     ]
+                  }                
+               ]
+            },
+			{
+               "Value":"Cassandra",
+               "Path":null,
+               "Documents":[
+			     {
+                     "Value":"All",
+                     "Path":null,
+                     "Documents":[
+                       {
+                           "Value":"что такое очереди сообщений и зачем они нужны",
+                           "Path":"Брокеры сообщений\\RabbitMq\\Level 1 - Junior\\что такое очереди сообщений и зачем они нужны.html",
+                           "Documents":[
+                              
+                           ]
+                        }                       
+                     ]
+                  }                
+               ]
+            }
+         ]
       }
    ]
 }
